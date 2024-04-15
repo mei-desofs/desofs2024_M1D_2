@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/component-diagram
+
+package "PictureShop" {
+
+    package "Infrastructure" {
+      package "Config"{
+      }
+      package "Routes"{
+      }
+    }
+
+    package "Interface Adapters" {
+      package "Repositories"{
+      }
+      package "Controllers"{
+      }
+    }
+
+    package "Application Services/Use Case Services" {
+        package "AppServices" {
+        package RepositoriesImpl{
+        }
+        package "ServicesImpl"{
+        }
+        package "Services"{
+        }
+        }
+    }
+
+    package "Entities/Core/Domain" {
+
+        package "Model"{
+        }
+        package "MySQL"{
+        }
+    }
+}
+
+[Config] <.. [Repositories]
+[Routes]<..[Controllers]
+[Controllers]..> [Services]
+[Repositories] ..> [RepositoriesImpl]
+[ServicesImpl] ..> [Model]
+[ServicesImpl] .left.> [Services]
+[ServicesImpl] .right.> [RepositoriesImpl]
+[Model]..> [MySQL]
+@enduml
