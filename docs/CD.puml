@@ -1,27 +1,66 @@
 @startuml
 'https://plantuml.com/class-diagram
+left to right direction
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class User {
+    + id
+    + email
+    + password
+    + role
+    + contact
+    + address
+    + profilePhoto
+}
+class Role {
+    + id
+    + nameRole
+}
+class RoleUser {
+    + id
+    + idUser
+    + idRole
+}
+class Photo {
+    + id
+    + photo
+    + date
+    + state
+    + price
+    + userId
+    + name
+}
+class Portfolio {
+    + id
+    + idPhoto
+    + date
+    + name
+}
+class Cart {
+    + id
+    + listPhotos
+    + total
+}
+class Payments {
+    + id
+    + idCart
+    + paymentMethod
+    + state
+    + date
+}
+class Receipt {
+    + id
+    + idPayment
+    + description
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+User "1" --> "1" RoleUser : contains
+RoleUser "1" --> "1" Role : Has
+
+User "1" --> "0..*" Portfolio : Has
+Portfolio "1" --> "1..*" Photo : Has
+Photo "0..*"  --> "0..*" Cart : Is in
+Cart "1" -> "1" Payments : Creates
+Payments "1" --> "1" Receipt : Generates
+
 
 @enduml
