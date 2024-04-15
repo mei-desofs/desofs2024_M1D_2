@@ -1,0 +1,38 @@
+@startuml UseCaseDiagram
+
+left to right direction
+
+actor Guest
+actor Client
+actor Photographer
+actor Admin
+
+usecase (Sign Up)
+usecase (Login)
+usecase (Browse Photos)
+usecase (Add a Photo to Cart)
+usecase (Checkout Cart)
+usecase (View Purchased Photos)
+usecase (Create a Portfolio)
+usecase (Put a Photo up for sale)
+usecase (Delete a Photo)
+usecase (Browse Users)
+usecase (Suspend a User)
+usecase (Edit a User's Roles)
+
+Guest --> (Sign Up)
+Guest --> (Login)
+Guest --> (Browse Photos)
+Client --> (Browse Photos)
+Client --> (Add a Photo to Cart)
+Client --> (Checkout Cart)
+Client --> (View Purchased Photos)
+Photographer --> (Create a Portfolio)
+Photographer --> (Put a Photo up for sale)
+Admin --> (Browse Photos)
+Admin --> (Delete a Photo)
+Admin --> (Browse Users)
+Admin --> (Suspend a User)
+Admin --> (Edit a User's Roles)
+
+@enduml
