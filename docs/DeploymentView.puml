@@ -1,0 +1,32 @@
+@startuml
+
+skinparam component {
+    BackgroundColor White
+    BorderColor Black
+}
+
+package "Development Environment" {
+    [Developer]
+}
+
+node "GitHub" {
+    [GitHub Repository]
+}
+
+node "GitHub Actions" {
+    [Workflow]
+    [Build]
+    [Test]
+}
+
+package "Production Environment" {
+    [Application Server]
+}
+
+[Developer] --> [GitHub Repository] : Commit
+[GitHub Repository] --> [Workflow] : Push Event
+[Workflow] --> [Build] : Compile Code
+[Build] --> [Test] : Execute Tests
+[Test] --> [Application Server] : Package to Production
+
+@enduml
