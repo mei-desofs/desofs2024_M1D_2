@@ -1,0 +1,14 @@
+@startuml EditUserRoles
+
+actor Admin
+participant System
+
+Admin -> System: Selects a user.
+activate System
+System --> Admin: Shows selected user's information.
+
+Admin -> System: Changes selected user's roles.
+System --> Admin: Informs operation success.
+deactivate System
+
+@enduml

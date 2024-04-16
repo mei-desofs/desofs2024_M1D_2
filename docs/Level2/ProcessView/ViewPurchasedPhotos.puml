@@ -1,0 +1,26 @@
+@startuml ViewPurchasedPhotos
+
+actor Client
+participant Frontend
+participant Backend
+participant Database
+
+Client -> Frontend: Asks to see purchased photos.
+activate Frontend
+
+Frontend -> Backend: Requests user's purchased photos.
+activate Backend
+
+Backend -> Database: Requests user's purchased photos.
+activate Database
+
+Database --> Backend: Sends user's purchased photos.
+deactivate Database
+
+Backend --> Frontend: Sends user's purchased photos.
+deactivate Backend
+
+Frontend --> Client: Shows purchased photos.
+deactivate Frontend
+
+@enduml

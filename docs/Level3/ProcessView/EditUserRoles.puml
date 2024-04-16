@@ -1,0 +1,62 @@
+@startuml EditUserRoles
+
+participant Frontend
+participant UserRouter as Router
+participant UserController as Controller
+participant UserService as Service
+participant UserRepository as Repository
+participant Database
+participant User
+
+activate Frontend
+
+Frontend -> Router: Requests to change a user's roles.
+activate Router
+
+Router -> Controller: changeRoles(userId, newRoles)
+activate Controller
+
+Controller -> Service: changeRoles(userId, newRoles)
+activate Service
+
+Service -> Repository: getUserById(userId)
+activate Repository
+
+Repository -> Database: query
+activate Database
+
+Database --> Repository: result
+deactivate Database
+
+Repository --> Service: user
+deactivate Repository
+
+Service -> User: changeRoles(newRoles)
+activate User
+User --> Service
+deactivate User
+
+Service -> Repository: save(user)
+activate Repository
+
+Repository -> Database: save
+activate Database
+
+Database --> Repository
+deactivate Database
+
+Repository --> Service
+deactivate Repository
+
+Service --> Controller
+deactivate Service
+
+Controller --> Router
+deactivate Controller
+
+Router --> Frontend
+deactivate Router
+
+deactivate Frontend
+
+@enduml

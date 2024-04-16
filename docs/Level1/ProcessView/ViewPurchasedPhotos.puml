@@ -1,0 +1,11 @@
+@startuml ViewPurchasedPhotos
+
+actor Client
+participant System
+
+Client -> System: Asks to see purchased photos.
+activate System
+System --> Client: Shows purchased photos.
+deactivate System
+
+@enduml

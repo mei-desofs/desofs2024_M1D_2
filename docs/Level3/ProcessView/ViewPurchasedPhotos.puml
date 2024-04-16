@@ -1,0 +1,44 @@
+@startuml ViewPurchasedPhotos
+
+participant Frontend
+participant PhotoRouter as Router
+participant PhotoController as Controller
+participant PhotoService as Service
+participant PhotoRepository as Repository
+participant Database
+
+activate Frontend
+
+Frontend -> Router: Requests user's purchased photos
+activate Router
+
+Router -> Controller: getPurchasedPhotos(userId)
+activate Controller
+
+Controller -> Service: getPurchasedPhotos(userId)
+activate Service
+
+Service -> Repository: getPurchasedPhotos(userId)
+activate Repository
+
+Repository -> Database: query
+activate Database
+
+Database --> Repository: result
+deactivate Database
+
+Repository --> Service: purchasedPhotos
+deactivate Repository
+
+Service --> Controller: purchasedPhotos
+deactivate Service
+
+Controller --> Router: purchasedPhotos
+deactivate Controller
+
+Router --> Frontend: purchasedPhotos
+deactivate Router
+
+deactivate Frontend
+
+@enduml

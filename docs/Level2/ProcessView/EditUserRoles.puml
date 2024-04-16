@@ -1,0 +1,41 @@
+@startuml EditUserRoles
+
+actor Admin
+participant Frontend
+participant Backend
+participant Database
+
+Admin -> Frontend: Selects a user.
+activate Frontend
+
+Frontend -> Backend: Requests user's information.
+activate Backend
+
+Backend -> Database: Queries user's information.
+activate Database
+
+Database --> Backend: Returns user's information.
+deactivate Database
+
+Backend --> Frontend: Returns user's information.
+deactivate Backend
+
+Frontend --> Admin: Shows selected user's information.
+
+Admin -> Frontend: Changes selected user's roles.
+Frontend -> Backend: Requests to change user's roles.
+activate Backend
+
+Backend -> Database: Changes user's roles.
+activate Database
+
+Database --> Backend: Returns operation success.
+deactivate Database
+
+Backend --> Frontend: Returns operation success.
+deactivate Backend
+
+Frontend --> Admin: Informs operation success.
+deactivate Frontend
+
+@enduml
