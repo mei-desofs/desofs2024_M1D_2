@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Photographer
+participant System
+
+activate Photographer
+Photographer -> System: Wants to create a portfolio
+activate System
+System --> Photographer: Asks for Portfolio Information
+Photographer -> System : Inserts the needed data
+System --> Photographer : Success if data is correct
+deactivate System
+deactivate Photographer
+@enduml
