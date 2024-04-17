@@ -1,4 +1,4 @@
-@startuml ViewPurchasedPhotos
+@startuml
 
 participant Frontend
 participant "router:\nPhotoRouter" as Router

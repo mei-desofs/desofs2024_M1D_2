@@ -1,4 +1,4 @@
-@startuml ViewPurchasedPhotos
+@startuml
 
 actor Client
 participant System
