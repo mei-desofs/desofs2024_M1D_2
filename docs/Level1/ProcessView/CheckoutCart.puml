@@ -1,0 +1,13 @@
+@startuml ViewPurchasedPhotos
+
+actor Client
+participant System
+
+activate Client
+Client -> System: Asks to checkout cart.
+activate System
+System --> Client: Show cart checkout.
+deactivate System
+deactivate Client
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+actor Admin
+participant System
+
+activate Admin
+Admin -> System: Select all user's.
+activate System
+System --> Admin: Shows Select all user's.
+deactivate System
+deactivate Admin
+
+@enduml
