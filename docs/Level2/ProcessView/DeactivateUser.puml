@@ -1,0 +1,36 @@
+@startuml
+
+actor Photographer
+participant Frontend
+participant Backend
+participant Database
+
+activate Photographer
+Photographer -> Frontend: Wants to deactivate user
+activate Frontend
+Frontend -> Backend: Request users
+activate Backend
+Backend -> Database: Asks for the users
+activate Database
+Database -> Backend: Sends users data
+deactivate Database
+Backend -> Frontend: Send users data
+deactivate Backend
+Frontend --> Photographer: Shows the users
+deactivate Frontend
+Photographer -> Frontend : Click on user to be deactivated
+activate Frontend
+Frontend -> Backend : Sends user data to be deactivated
+activate Backend
+Backend -> Database : Sends updates user to deactive
+activate Database
+Database -> Backend : Sends updated user data
+deactivate Database
+Backend -> Frontend : Sends updated user data
+deactivate Backend
+Frontend -> Photographer : Sends user updated
+
+deactivate Frontend
+deactivate Photographer
+
+@enduml

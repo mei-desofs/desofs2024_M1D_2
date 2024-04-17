@@ -1,0 +1,40 @@
+@startuml
+
+actor Photographer
+participant Frontend
+participant Backend
+participant Database
+
+activate Photographer
+Photographer -> Frontend: Wants to add a photo to the portfolio
+activate Frontend
+Frontend -> Backend: Request photos from portfolio
+activate Backend
+Backend -> Database: Asks for the photos
+activate Database
+Database -> Backend: Sends photos
+deactivate Database
+Backend -> Frontend: Send photos
+deactivate Backend
+Frontend --> Photographer: Shows the photos in a portfolio
+deactivate Frontend
+Photographer -> Frontend : Click on add photo
+activate Frontend
+Frontend -> Photographer: Asks for details of the photo
+deactivate Frontend
+Photographer -> Frontend: Sends photos details
+activate Frontend
+Frontend -> Backend : Sends photo data
+activate Backend
+Backend -> Database : Sends photo data to save photo
+activate Database
+Database -> Backend : Sends saved photo
+deactivate Database
+Backend -> Frontend : Sends photo data
+deactivate Backend
+Frontend -> Photographer : Sends photo
+
+deactivate Frontend
+deactivate Photographer
+
+@enduml
