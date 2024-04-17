@@ -1,0 +1,39 @@
+@startuml
+
+actor Client
+participant Frontend
+participant "router:\nCartRouter" as Router
+participant "controller:\nCartController" as Controller
+participant "service:\nCartService" as Service
+participant "repository:\nCartRepository" as Repository
+participant Database
+
+activate Client
+Client -> Frontend : Selects a portfolio to see the photos
+activate Frontend
+Frontend --> Client : Shows all the photos in that portfolio
+Client -> Frontend: Clicks in "Add to cart" in a photo
+Frontend -> Router: Request the adition of the photo to a cart
+activate Router
+Router -> Controller: addPhotoToCart(idCart,idPhoto)
+activate Controller
+Controller -> Service: addPhotoToCart(idCart,idPhoto)
+activate Service
+Service -> Repository: addPhotoToCart(idCart,idPhoto)
+activate Repository
+Repository -> Database: query
+activate Database
+Database --> Repository: result
+deactivate Database
+Repository --> Service: cartUpdated
+deactivate Repository
+Service --> Controller: cartUpdated
+deactivate Service
+Controller --> Router: cartUpdated
+deactivate Controller
+Router --> Frontend: cartUpdated
+deactivate Router
+Frontend --> Client : Shows the updated cart and emits an alert about it
+deactivate Frontend
+
+@enduml

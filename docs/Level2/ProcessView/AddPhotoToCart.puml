@@ -1,0 +1,25 @@
+@startuml
+
+actor Client
+participant Frontend
+participant Backend
+participant Database
+
+activate Client
+Client -> Frontend: Wants to add a photo to cart
+Frontend --> Client: Shows the photos in a portfolio
+Client -> Frontend : Selects the photo he wants to add
+activate Frontend
+Frontend -> Backend: Request photo adition to cart
+activate Backend
+Backend -> Database: Changes the cart to add the new photo
+activate Database
+Database --> Backend: Sends the cart with the added photo
+deactivate Database
+Backend --> Frontend: Sends the cart with the added photo
+deactivate Backend
+Frontend --> Client: Shows the cart with the added photo and emits an alert
+deactivate Frontend
+deactivate Client
+
+@enduml
