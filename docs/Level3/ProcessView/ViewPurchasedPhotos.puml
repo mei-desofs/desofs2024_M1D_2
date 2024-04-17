@@ -1,10 +1,10 @@
 @startuml ViewPurchasedPhotos
 
 participant Frontend
-participant PhotoRouter as Router
-participant PhotoController as Controller
-participant PhotoService as Service
-participant PhotoRepository as Repository
+participant "router:\nPhotoRouter" as Router
+participant "controller:\nPhotoController" as Controller
+participant "service:\nPhotoService" as Service
+participant "repository:\nPhotoRepository" as Repository
 participant Database
 
 activate Frontend

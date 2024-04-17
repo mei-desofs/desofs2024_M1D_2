@@ -3,6 +3,7 @@
 actor Admin
 participant System
 
+activate Admin
 Admin -> System: Selects a user.
 activate System
 System --> Admin: Shows selected user's information.
@@ -10,5 +11,6 @@ System --> Admin: Shows selected user's information.
 Admin -> System: Changes selected user's roles.
 System --> Admin: Informs operation success.
 deactivate System
+deactivate Admin
 
 @enduml

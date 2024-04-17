@@ -1,12 +1,12 @@
 @startuml EditUserRoles
 
 participant Frontend
-participant UserRouter as Router
-participant UserController as Controller
-participant UserService as Service
-participant UserRepository as Repository
+participant "router:\nUserRouter" as Router
+participant "controller:\nUserController" as Controller
+participant "service:\nUserService" as Service
+participant "repository:\nUserRepository" as Repository
+participant "user:\nUser" as User
 participant Database
-participant User
 
 activate Frontend
 

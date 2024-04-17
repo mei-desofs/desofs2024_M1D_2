@@ -5,6 +5,7 @@ participant Frontend
 participant Backend
 participant Database
 
+activate Client
 Client -> Frontend: Asks to see purchased photos.
 activate Frontend
 
@@ -22,5 +23,6 @@ deactivate Backend
 
 Frontend --> Client: Shows purchased photos.
 deactivate Frontend
+deactivate Client
 
 @enduml
