@@ -1,0 +1,25 @@
+@startuml
+
+actor Photographer
+participant Frontend
+participant Backend
+participant Database
+
+activate Photographer
+Photographer -> Frontend: Wants to create a portfolio
+Frontend --> Photographer : Asks for needed data
+Photographer -> Frontend : Inserts needed data
+activate Frontend
+Frontend -> Backend: Sends the data to create a portfolio.
+activate Backend
+Backend -> Database: Saves in the DB the portfolio.
+activate Database
+Database --> Backend: Sends Ok if sucessfull.
+deactivate Database
+Backend --> Frontend: Sends Ok if sucessfull.
+deactivate Backend
+Frontend --> Photographer: Shows an alert saying it was sucessfull.
+deactivate Frontend
+deactivate Photographer
+
+@enduml

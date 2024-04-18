@@ -1,0 +1,33 @@
+@startuml
+
+participant Frontend
+participant "router:\nPhotoRouter" as Router
+participant "controller:\nPhotoController" as Controller
+participant "service:\nPhotoService" as Service
+participant "repository:\nPhotoRepository" as Repository
+participant Database
+
+activate Frontend
+Frontend -> Router: Requests all user's
+activate Router
+Router -> Controller: getAllUsers()
+activate Controller
+Controller -> Service: getAllUsers()
+activate Service
+Service -> Repository: getAllUsers()
+activate Repository
+Repository -> Database: query
+activate Database
+Database --> Repository: result
+deactivate Database
+Repository --> Service: All user's selected
+deactivate Repository
+Service --> Controller: All user's selected
+deactivate Service
+Controller --> Router: All user's selected
+deactivate Controller
+Router --> Frontend: All user's selected
+deactivate Router
+deactivate Frontend
+
+@enduml

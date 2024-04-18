@@ -1,0 +1,15 @@
+@startuml
+
+actor Client
+participant System
+
+activate Client
+Client -> System: Opens a portfolio
+System --> Client : Retrives Portfolio's photos
+Client -> System: Clicks on "Add to cart" in a photo
+activate System
+System --> Client: Successfully adds the photo to cart and emits an alert
+deactivate System
+deactivate Client
+
+@enduml

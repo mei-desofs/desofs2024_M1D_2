@@ -1,0 +1,33 @@
+@startuml
+
+participant Frontend
+participant "router:\nPhotoRouter" as Router
+participant "controller:\nPhotoController" as Controller
+participant "service:\nPhotoService" as Service
+participant "repository:\nPhotoRepository" as Repository
+participant Database
+
+activate Frontend
+Frontend -> Router: Request to delete a photo
+activate Router
+Router -> Controller: deletePhoto(id)
+activate Controller
+Controller -> Service: deletePhoto(id)
+activate Service
+Service -> Repository: deletePhoto(id)
+activate Repository
+Repository -> Database: query
+activate Database
+Database --> Repository: result
+deactivate Database
+Repository --> Service: photoDeleted
+deactivate Repository
+Service --> Controller: photoDeleted
+deactivate Service
+Controller --> Router: photoDeleted
+deactivate Controller
+Router --> Frontend: photoDeleted
+deactivate Router
+deactivate Frontend
+
+@enduml

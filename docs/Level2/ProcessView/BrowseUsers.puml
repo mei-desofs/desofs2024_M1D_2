@@ -1,0 +1,23 @@
+@startuml
+
+actor Admin
+participant Frontend
+participant Backend
+participant Database
+
+activate Admin
+Admin -> Frontend: Asks to see all user's.
+activate Frontend
+Frontend -> Backend: Requests all user's.
+activate Backend
+Backend -> Database: Queries all user's information.
+activate Database
+Database --> Backend: Sends all user's information.
+deactivate Database
+Backend --> Frontend: Sends all user's information.
+deactivate Backend
+Frontend --> Admin: Shows all user's.
+deactivate Frontend
+deactivate Admin
+
+@enduml

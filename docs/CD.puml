@@ -28,12 +28,13 @@ class Photo {
     + price
     + userId
     + name
+    + idPortfolio
 }
 class Portfolio {
     + id
-    + idPhoto
     + date
     + name
+    + idUser
 }
 class Cart {
     + id

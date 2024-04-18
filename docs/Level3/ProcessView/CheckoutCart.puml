@@ -1,0 +1,33 @@
+@startuml
+
+participant Frontend
+participant "router:\nCartRouter" as Router
+participant "controller:\nCartController" as Controller
+participant "service:\nCartService" as Service
+participant "repository:\nCartRepository" as Repository
+participant Database
+
+activate Frontend
+Frontend -> Router: Request checkout cart
+activate Router
+Router -> Controller: getCheckoutCart(id)
+activate Controller
+Controller -> Service: getCheckoutCart(id)
+activate Service
+Service -> Repository: getCheckoutCart(id)
+activate Repository
+Repository -> Database: query
+activate Database
+Database --> Repository: result
+deactivate Database
+Repository --> Service: cartCheckout
+deactivate Repository
+Service --> Controller: cartCheckout
+deactivate Service
+Controller --> Router: cartCheckout
+deactivate Controller
+Router --> Frontend: cartCheckout
+deactivate Router
+deactivate Frontend
+
+@enduml

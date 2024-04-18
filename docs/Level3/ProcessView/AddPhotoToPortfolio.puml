@@ -1,0 +1,70 @@
+@startuml
+
+actor Photographer
+participant Frontend
+participant "router:\nPortfolioRouter" as Router
+participant "router:\nPhotoRouter" as RouterPhoto
+participant "controller:\nPortFolioController" as Controller
+participant "service:\nPortfolioService" as Service
+participant "repository:\nPortfolioRepository" as Repository
+participant "controller:\nPhotoController" as ControllerPhoto
+participant "service:\nPhotoService" as ServicePhoto
+participant "repository:\nPhotoRepository" as RepositoryPhoto
+participant Database
+
+activate Photographer
+Photographer -> Frontend : Selects a portfolio
+activate Frontend
+Frontend --> Router : Shows all the photos in that portfolio
+activate Router
+Router -> Controller : getPortfolio(idPortfolio)
+activate Controller
+Controller -> Service: findByIdPortfolio(idPortfolio)
+activate Service
+Service -> Repository: findByIdPortfolio((idPortfolio)
+activate Repository
+Repository -> Database : findById(idPortfolio)
+activate Database
+Database -> Repository : Portfolio data
+deactivate Database
+Repository -> Service : Portfolio object
+deactivate Repository
+Service -> Controller : Portfolio object
+deactivate Service
+Controller -> Router : Portfolio data
+deactivate Controller
+Router -> Frontend : Portfolio data
+deactivate Router
+Frontend -> Photographer : Portfolio data
+deactivate Frontend
+Photographer -> Frontend : asks to add Photo
+activate Frontend
+Frontend -> Photographer : asks for photo details to create the photo
+deactivate Frontend
+Photographer -> Frontend : Sends photo data
+activate Frontend
+Frontend -> RouterPhoto : Sends photo data
+activate RouterPhoto
+RouterPhoto -> ControllerPhoto : Sends photo data
+activate ControllerPhoto
+ControllerPhoto -> ServicePhoto : createPhoto(photoDto)
+activate ServicePhoto
+ServicePhoto -> RepositoryPhoto : save(photo)
+activate RepositoryPhoto
+RepositoryPhoto -> Database : saveAndFlush(photo)
+activate Database
+Database -> RepositoryPhoto : sends created photo
+deactivate Database
+RepositoryPhoto -> ServicePhoto : photo Object
+deactivate RepositoryPhoto
+ServicePhoto -> ControllerPhoto : photo Object
+deactivate ServicePhoto
+ControllerPhoto -> RouterPhoto : photo Data
+deactivate ControllerPhoto
+RouterPhoto -> Frontend : photo data
+deactivate RouterPhoto
+Frontend -> Photographer : shows new photo
+deactivate Frontend
+deactivate Photographer
+
+@enduml

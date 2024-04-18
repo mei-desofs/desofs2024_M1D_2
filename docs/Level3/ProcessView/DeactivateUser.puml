@@ -1,0 +1,62 @@
+@startuml
+
+actor Admin
+participant Frontend
+participant "router:\nUserRouter" as Router
+participant "controller:\nUserController" as Controller
+participant "service:\nUserService" as Service
+participant "repository:\nUserRepository" as Repository
+participant Database
+
+activate Admin
+Admin -> Frontend : Wants to deactivate user
+activate Frontend
+Frontend --> Router : Shows all users
+activate Router
+Router -> Controller : getUsers()
+activate Controller
+Controller -> Service: findAll()
+activate Service
+Service -> Repository: findAll()
+activate Repository
+Repository -> Database : findAll()
+activate Database
+Database -> Repository : Users data
+deactivate Database
+Repository -> Service : List Users
+deactivate Repository
+Service -> Controller : List Users
+deactivate Service
+Controller -> Router : Users data
+deactivate Controller
+Router -> Frontend : Users data
+deactivate Router
+Frontend -> Admin : Users data
+deactivate Frontend
+Admin -> Frontend : select user to deactivate
+activate Frontend
+Frontend -> Router : Sends user data to deactivate
+activate Router
+Router -> Controller : Sends user data to deactivate
+activate Controller
+Controller -> Service : deactivateUser(idUser)
+activate Service
+Service -> Repository : deactivateUser(idUser)
+activate Repository
+Repository -> Database : update(User)
+activate Database
+Database -> Repository : sends updated user data
+deactivate Database
+Repository -> Service : User Object
+deactivate Repository
+Service -> Controller : User Object
+deactivate Service
+Controller -> Router : User Data
+deactivate Controller
+Router -> Frontend : User data
+deactivate Router
+Frontend -> Admin : shows user deactivated
+deactivate Frontend
+deactivate Admin
+
+@enduml

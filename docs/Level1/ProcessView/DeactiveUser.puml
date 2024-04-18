@@ -1,0 +1,15 @@
+@startuml
+
+actor Admin
+participant System
+
+activate Admin
+Admin -> System: Opens users list
+System --> Admin : Retrives users list
+Admin -> System: Clicks on "Deactivate User" in a user
+activate System
+System --> Admin: Deactivate user
+deactivate Admin
+deactivate Admin
+
+@enduml

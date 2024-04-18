@@ -1,0 +1,38 @@
+@startuml
+
+actor Photographer
+participant Frontend
+participant "router:\nportfolioRouter" as Router
+participant "controller:\nportfolioController" as Controller
+participant "service:\nportfolioService" as Service
+participant "repository:\nportfolioRepository" as Repository
+participant Database
+
+activate Photographer
+Photographer -> Frontend : Wants to create a Portfolio
+activate Frontend
+Frontend --> Photographer : Asks for necessary data (name,date,idUser)
+Photographer -> Frontend : Inserts the portfolio data
+Frontend -> Router: POST portfolio
+activate Router
+Router -> Controller: createPortfolio(name,date,idUser)
+activate Controller
+Controller -> Service: createPortfolio(name,date,idUser)
+activate Service
+Service -> Repository: createPortfolio(name,date,idUser)
+activate Repository
+Repository -> Database: query
+activate Database
+Database --> Repository: result
+deactivate Database
+Repository --> Service: createdPortfolio
+deactivate Repository
+Service --> Controller: createdPortfolio
+deactivate Service
+Controller --> Router: createdPortfolio
+deactivate Controller
+Router --> Frontend: createdPortfolio
+deactivate Router
+deactivate Frontend
+
+@enduml

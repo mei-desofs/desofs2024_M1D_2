@@ -1,0 +1,36 @@
+@startuml
+
+component "PictureShop" {
+    [Controller]
+    [Dto]
+    [Service]
+    [Repository]
+    [Domain Model]
+
+    port " " as port1
+    port " " as port2
+}
+
+database "DataBase" {
+}
+
+
+
+port1 -down- [Controller]
+[Controller] -down- [Dto]
+[Dto] -down- [Service]
+[Controller] -down( [Service]
+[Repository] -up- [Service]
+[Repository] -right- [Domain Model]
+[Service] -- [Domain Model]
+
+
+"DataBase" -up- port2
+
+port2 -- [Repository]
+
+UI_Client -down- port1
+UI_Admin -down- port1
+UI_Photographer -down- port1
+
+@enduml

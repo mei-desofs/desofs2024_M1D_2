@@ -1,0 +1,23 @@
+@startuml
+
+actor Client
+participant Frontend
+participant Backend
+participant Database
+
+activate Client
+Client -> Frontend: Asks to checkout cart.
+activate Frontend
+Frontend -> Backend: Request checkout cart.
+activate Backend
+Backend -> Database: Request checkout cart.
+activate Database
+Database --> Backend: Send cart checkout.
+deactivate Database
+Backend --> Frontend: Send cart checkout.
+deactivate Backend
+Frontend --> Client: Shows cart checkout.
+deactivate Frontend
+deactivate Client
+
+@enduml
