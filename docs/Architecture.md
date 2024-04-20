@@ -9,7 +9,7 @@ Description:
 
 ### Level 2:
 
-![Logical View Level 2](image/Level2/LogicalView/LogicalViewLevel2.svg)
+![LogicalViewLevel2.png](image%2FLevel2%2FLogicalViewLevel2.png)
 
 ### Level 4:
 
@@ -78,10 +78,10 @@ The following Use Case Diagram shows the various use cases and which user roles 
 ![BrowsePhotos](Level2/ProcessView/BrowsePhotosL2.svg)
 
 #### Add Photo to Cart
-![Add Photo to Cart](image/Level2/AddPhotoToCart.png)
+![AddPhotoToCart.png](image%2FLevel2%2FProcessView%2FAddPhotoToCart.png)
 
 #### Create Portfolio
-![Create Portfolio](image/Level2/CreatePortfolio.png)
+![CreatePortfolio.png](image%2FLevel2%2FProcessView%2FCreatePortfolio.png)
 
 #### Add Photo to Portfolio
 ![Add Photo to Portfolio](image/Level2/ProcessView/AddPhotoToPortfolio.png)
@@ -115,7 +115,7 @@ Also, the user needs to have specific requirements in order to login, such as th
 ![BrowsePhotos](Level3/ProcessView/BrowsePhotosL3.svg)
 
 #### Add Photo to Cart
-![Add Photo to Cart](image/Level3/AddPhotoToCart.png)
+![AddPhotoToCart.png](image%2FLevel3%2FProcessView%2FAddPhotoToCart.png)
 
 #### Add Photo to Portfolio
 ![Add Photo to Portfolio](image/Level3/ProcessView/AddPhotoToPortfolio.png)
