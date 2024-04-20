@@ -29,10 +29,15 @@ In this analysis, we will examine various process views within the system, each 
 #### Login
 ![Login](Level2/ProcessView/LoginL2.svg)
 
-####
+#### Browse Photos
 ![BrowsePhotos](Level2/ProcessView/BrowsePhotosL2.svg)
 
-### Browse Photos
+#### Create a Portfolio
+![CreatePortfolio.png](image%2FLevel2%2FProcessView%2FCreatePortfolio.png)
+
+#### Add Photo to Cart
+![AddPhotoToCart.png](image%2FLevel3%2FProcessView%2FAddPhotoToCart.png)
+
 
 ### Level 3:
 
@@ -43,6 +48,13 @@ Also the user needs to have specific requirements in order to login, such as the
 
 #### Browse Photos
 ![BrowsePhotos2](Level3/ProcessView/BrowsePhotosL3.svg)
+
+#### Create a Portfolio
+![CreatePortfolio.png](image%2FLevel3%2FProcessView%2FCreatePortfolio.png)
+
+#### Add Photo to Cart
+![AddPhotoToCart.png](image%2FLevel3%2FProcessView%2FAddPhotoToCart.png)
+
 ## Implementation View:
 
 
