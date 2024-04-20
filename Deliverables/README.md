@@ -5,6 +5,6 @@
 
 ### Sprint 1
 - [High Level Architecture and DFD](../docs/Architecture.md)
-- [Abuse cases/Test planning](docs/Abuse%20Cases/AbuseCasesTestPlanning.md)
+- [Abuse cases/Test planning](docs/AbuseCases&TestPlanning/AbuseCasesTestPlanning.md)
 
 ### Sprint 2
