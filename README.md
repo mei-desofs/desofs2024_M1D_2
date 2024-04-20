@@ -4,7 +4,7 @@
 ## Sprints
 
 ### Sprint 1
-- [Architecture](./docs/Architecture.md)
+- [High Level Architecture and DFD](./docs/Architecture.md)
 - [Abuse cases/Test planning](./docs/AbuseCasesTestPlanning.md)
 
 ### Sprint 2
