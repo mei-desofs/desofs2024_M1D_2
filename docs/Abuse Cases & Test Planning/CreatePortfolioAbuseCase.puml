@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+
+actor Photographer
+actor Attacker
+
+usecase (Create a Portfolio)
+usecase (Content Scraping) #Red
+usecase (Unauthorized Access) #Red
+usecase (Data Manipulation) #Red
+usecase (Denial of Service) #Red
+
+Photographer -------> (Create a Portfolio)
+Attacker -up-> (Content Scraping)
+Attacker -up-> (Unauthorized Access)
+Attacker -up-> (Data Manipulation)
+Attacker -up-> (Denial of Service)
+
+(Content Scraping) -up-> (Create a Portfolio) : threatens
+(Unauthorized Access) -up-> (Create a Portfolio) : threatens
+(Data Manipulation) -up-> (Create a Portfolio) : threatens
+(Denial of Service) -up-> (Create a Portfolio) : threatens
+
+@enduml
