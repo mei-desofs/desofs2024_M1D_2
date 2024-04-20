@@ -1,0 +1,13 @@
+@startuml
+actor user
+participant System
+
+user -> System: authenticates into the system
+activate System
+System -> System: validates the user
+System -> user: Concludes the authentication process
+deactivate System
+
+
+
+@enduml

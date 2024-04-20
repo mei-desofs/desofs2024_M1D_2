@@ -1,0 +1,16 @@
+@startuml
+actor user
+participant Frontend
+participant Backend
+
+user -> Frontend: authenticates into the system
+activate Frontend
+Frontend -> Backend: validates the user
+activate Backend
+Backend -> Frontend: validation
+deactivate Backend
+Frontend -> user: Concludes the authentication process
+deactivate Frontend
+
+
+@enduml

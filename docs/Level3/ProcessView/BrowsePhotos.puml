@@ -1,0 +1,35 @@
+@startuml ViewPurchasedPhotos
+
+actor Client
+participant Frontend
+participant PhotoController
+participant PhotoService
+participant PhotoRepository
+participant Database
+
+activate Client
+Client -> Frontend: Browse the photos for sale.
+deactivate Client
+activate Frontend
+Frontend -> PhotoController: GET /photos
+activate PhotoController
+PhotoController ->PhotoService: getPhotosAvailable()
+activate PhotoService
+PhotoService -> PhotoRepository: getPhotosAvailable()
+activate PhotoRepository
+PhotoRepository -> Database: Query
+activate Database
+Database --> PhotoRepository: List<Photo>
+deactivate Database
+PhotoRepository --> PhotoService: List<Photo>
+deactivate PhotoRepository
+PhotoService --> PhotoController: List<Photo>
+create PhotoDTO
+PhotoController->PhotoDTO: Convert List<Photo> to List<PhotoDTO>
+deactivate PhotoService
+PhotoController --> Frontend:List<PhotoDTO>
+deactivate PhotoController
+Frontend --> Client: Shows available photos.
+deactivate Frontend
+
+@enduml

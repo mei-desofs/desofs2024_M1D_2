@@ -1,0 +1,35 @@
+@startuml
+actor user
+participant Frontend
+participant UserController
+participant UserService
+participant UserDTO
+participant UserRepository
+participant Database
+
+user -> Frontend: authenticates into the system
+activate Frontend
+Frontend -> UserController: POST /login
+activate UserController
+create UserDTO
+UserController-> UserDTO: create()
+UserController -> UserService: authenticate(userDTO)
+activate UserService
+UserService -> UserRepository: authenticate(userDTO)
+activate UserRepository
+UserRepository -> Database: query
+activate Database
+Database --> UserRepository: response
+deactivate Database
+UserRepository --> UserService: response
+deactivate UserRepository
+UserService --> UserController: response
+deactivate UserService
+UserController --> Frontend: response
+deactivate UserController
+
+Frontend -> user: Concludes the authentication process
+deactivate Frontend
+
+
+@enduml

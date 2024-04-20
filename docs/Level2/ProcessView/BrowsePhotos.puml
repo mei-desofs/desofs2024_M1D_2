@@ -1,0 +1,25 @@
+@startuml ViewPurchasedPhotos
+
+actor Client
+participant Frontend
+participant Backend
+participant Database
+
+activate Client
+Client -> Frontend: Browse the photos for sale.
+deactivate Client
+activate Frontend
+Frontend -> Backend: Request photos for sale.
+deactivate Frontend
+activate Backend
+Backend -> Database: Query photos for sale.
+activate Database
+Database --> Backend: Returns photos for sale.
+deactivate Database
+Backend --> Frontend: Returns photos for sale.
+deactivate Backend
+activate Frontend
+Frontend --> Client: Shows available photos.
+deactivate Frontend
+
+@enduml

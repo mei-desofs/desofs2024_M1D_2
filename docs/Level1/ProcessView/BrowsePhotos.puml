@@ -1,0 +1,13 @@
+@startuml ViewPurchasedPhotos
+
+actor Client
+participant System
+
+activate Client
+Client -> System: Browse the photos for sale.
+activate System
+System --> Client: Shows available photos.
+deactivate System
+deactivate Client
+
+@enduml
