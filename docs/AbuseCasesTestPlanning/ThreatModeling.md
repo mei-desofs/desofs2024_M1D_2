@@ -129,7 +129,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 #### Security Requirements:
 1. **Verify the application protects sensitive data from being cached in server components such as load balancers and application caches.**
 
-**Solution**: Make sure to set up server components like load balancers and application caches so that they don't store any sensitive information. Put in place measures to stop sensitive data from being stored in the cache at the application level, like by configuring the right cache-control headers.
+**Solution**: Set up server components like load balancers and application caches so that they don't store any sensitive information.
 
 ### Data Protection and Privacy Architecture:
 <a name="data-protection-and-privacy-architecture"></a>
