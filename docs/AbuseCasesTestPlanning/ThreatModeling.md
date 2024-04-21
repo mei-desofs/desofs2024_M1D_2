@@ -144,6 +144,12 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 ![AbuseCaseBrowsePhotos.svg](AbuseCaseBrowsePhotos.svg)
 
+### Abuse Cases for View Purchased Photos
+![AbuseCasesViewPurchasedPhotos.svg](../image/abuseCases/ViewPurchasedPhotosAbuseCases.svg)
+
+### Abuse Cases for Edit User Roles
+![AbuseCasesEditUserRoles.svg](../image/abuseCases/EditUserRolesAbuseCases.svg)
+
 
 Here we have the list of abuse cases with a description associated and a mitigation for each one.
 

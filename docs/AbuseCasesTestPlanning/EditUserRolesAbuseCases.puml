@@ -1,0 +1,24 @@
+@startuml EditUserRolesAbuseCases
+
+left to right direction
+
+actor Admin
+actor Attacker
+
+usecase (Edit User Roles)
+usecase (Credential Theft) #Red
+usecase (Unauthorized Access) #Red
+usecase (Session Hijacking) #Red
+
+Admin -> (Edit User Roles)
+Attacker -up-> (Credential Theft)
+Attacker -up-> (Unauthorized Access)
+Attacker -up-> (Session Hijacking)
+
+
+
+(Credential Theft) -up-> (Edit User Roles) : threatens
+(Unauthorized Access) -up-> (Edit User Roles) : threatens
+(Session Hijacking) -up-> (Edit User Roles) : threatens
+
+@enduml
