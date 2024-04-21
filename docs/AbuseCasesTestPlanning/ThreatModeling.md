@@ -95,12 +95,9 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 #### Security Requirements:
 1. **Input Validation**: Check file size and file count before uncompressing.
 2. **Limits**: Enforce maximum uncompressed size and file count to prevent resource exhaustion.
-3. **Pre-Processing**: Assess file characteristics before uncompression.
 4. **Error Handling**: Provide clear error messages for rejected files.
 
-These measures ensure that the application validates and limits compressed files appropriately before proceeding with uncompression, enhancing security and reliability.
-
-**Solution**: Implement server-side validation for uploaded files. Before uncompressing the files, verify their size and number of files contained within to ensure they adhere to the specified limits.
+**Solution**: Make sure to validate files on the server before uncompressing them by checking their size and number to make sure they meet the specified limits.
 
 ### RESTful Web Service:
 <a name="restful-web-service"></a>
@@ -108,7 +105,7 @@ These measures ensure that the application validates and limits compressed files
 #### Security Requirements:
 1. **Verify that JSON schema validation is in place and verified before accepting input.**
 
-**Solution**: Integrate JSON schema validation into the input processing pipeline of the application. Before accepting input data, validate it against the predefined JSON schema to ensure its integrity and compliance with expected formats. Feedback the user if somethings wrong.
+**Solution**: Add JSON schema validation to the input processing pipeline of the application. Validate input data against the predefined JSON schema before processing to ensure it meets expected formats and integrity. Provide user feedback in case of any errors.
 
 ### Malicious Code Search:
 <a name="malicious-code-search"></a>
@@ -116,7 +113,7 @@ These measures ensure that the application validates and limits compressed files
 #### Security Requirements:
 1. **Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.**
 
-**Solution**: Conduct thorough code reviews of the application source code and third-party libraries to identify any unauthorized phone home or data collection capabilities. If such functionality is found, obtain explicit user consent before enabling it, and ensure transparent communication with users regarding data collection practices.
+**Solution**: Make sure to review the code of the application and any third-party libraries carefully to spot any hidden features that send data without permission. If you find any such features, ask the user for permission before using them and make sure to let users know about any data collection processes in a clear and open way.
 
 ### Sensitive Private Data:
 <a name="sensitive-private-data"></a>
@@ -124,7 +121,7 @@ These measures ensure that the application validates and limits compressed files
 #### Security Requirements:
 1. **Verify that users have a method to remove or export their data on demand.**
 
-**Solution**: Implement functionality within the application that allows users to easily remove or export their data upon request. Provide clear instructions and user-friendly interfaces to facilitate this process, ensuring compliance with data privacy regulations and enhancing user trust.
+**Solution**: Add a feature to the app that lets users easily delete or download their data when needed. Make sure to include straightforward instructions and user-friendly interfaces to make the process smooth and secure, meeting data privacy rules and boosting user confidence.
 
 ### General Data Protection:
 <a name="general-data-protection"></a>
@@ -132,7 +129,7 @@ These measures ensure that the application validates and limits compressed files
 #### Security Requirements:
 1. **Verify the application protects sensitive data from being cached in server components such as load balancers and application caches.**
 
-**Solution**: Configure server components such as load balancers and application caches to exclude sensitive data from caching. Implement mechanisms to prevent caching of sensitive data at the application level, such as setting appropriate cache-control headers.
+**Solution**: Make sure to set up server components like load balancers and application caches so that they don't store any sensitive information. Put in place measures to stop sensitive data from being stored in the cache at the application level, like by configuring the right cache-control headers.
 
 ### Data Protection and Privacy Architecture:
 <a name="data-protection-and-privacy-architecture"></a>
@@ -148,7 +145,7 @@ These measures ensure that the application validates and limits compressed files
 #### Security Requirements:
 1. **Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.**
 
-**Solution**: Design and implement a centralized access control mechanism that enforces consistent access policies across all protected data and resources. Ensure that all requests, regardless of their origin, use routing through this mechanism to prevent unauthorized access.
+**Solution**: Ensure that a central access control system is designed and implemented to apply the same access rules to all protected data and resources. In addition, ensure that this mechanism is used to route all requests from different sources so as to bar unauthorized entry points into the data or systems.
 
 ## Abuse Cases
 
