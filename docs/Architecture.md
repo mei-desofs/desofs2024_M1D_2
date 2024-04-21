@@ -4,6 +4,7 @@
 
 ## Domain Model
 
+The concept of this project consists in a shop that has clients and has photographers, in which the photographers can have portfolios to sell their photos to the clients. The clients can buy photos from the portfolios and add them to their cart. The clients can also have a cart to add photos to it and then checkout the cart to buy the photos.
 
 ![Domain Model.jpg](Domain%20Model.jpg)
 
@@ -155,5 +156,11 @@ Also, the user needs to have specific requirements in order to login, such as th
 
 ## Deployment View:
 
+This is the deployment view of the system when the commit is applied to the master branch, in which the Github actions will then build and Execute tests in order to check if the project is ready for production.
+
 ![Deployment View](image/DeploymentView.png)
+
+And then we have the deployment diagram, which shows the API communicating through HTTP/S.
+In here, as TLS is compatible with HTTP/S, we will communicate through secure channels.
+![Deployment Diagram1.jpg](Deployment%20Diagram1.jpg)
 
