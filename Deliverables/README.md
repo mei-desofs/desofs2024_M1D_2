@@ -5,6 +5,6 @@
 
 ### Sprint 1
 - [High Level Architecture](../docs/Architecture.md)
-- [Threat Modeling](../docs/AbuseCasesTestPlanning/ThreatModeling)
+- [Threat Modeling](../docs/AbuseCasesTestPlanning/ThreatModeling.md)
 
 ### Sprint 2
