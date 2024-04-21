@@ -89,6 +89,67 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 - **Two-Factor Authentication (2FA)**: Enforce 2FA for admin accounts to add an extra layer of security and prevent unauthorized access in case of compromised credentials.
 
+### Files and Resources:
+<a name="files-and-resources"></a>
+
+#### Security Requirements:
+1. **Input Validation**: Check file size and file count before uncompressing.
+2. **Limits**: Enforce maximum uncompressed size and file count to prevent resource exhaustion.
+3. **Pre-Processing**: Assess file characteristics before uncompression.
+4. **Error Handling**: Provide clear error messages for rejected files.
+
+These measures ensure that the application validates and limits compressed files appropriately before proceeding with uncompression, enhancing security and reliability.
+
+**Solution**: Implement server-side validation for uploaded files. Before uncompressing the files, verify their size and number of files contained within to ensure they adhere to the specified limits.
+
+### RESTful Web Service:
+<a name="restful-web-service"></a>
+
+#### Security Requirements:
+1. **Verify that JSON schema validation is in place and verified before accepting input.**
+
+**Solution**: Integrate JSON schema validation into the input processing pipeline of the application. Before accepting input data, validate it against the predefined JSON schema to ensure its integrity and compliance with expected formats. Feedback the user if somethings wrong.
+
+### Malicious Code Search:
+<a name="malicious-code-search"></a>
+
+#### Security Requirements:
+1. **Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.**
+
+**Solution**: Conduct thorough code reviews of the application source code and third-party libraries to identify any unauthorized phone home or data collection capabilities. If such functionality is found, obtain explicit user consent before enabling it, and ensure transparent communication with users regarding data collection practices.
+
+### Sensitive Private Data:
+<a name="sensitive-private-data"></a>
+
+#### Security Requirements:
+1. **Verify that users have a method to remove or export their data on demand.**
+
+**Solution**: Implement functionality within the application that allows users to easily remove or export their data upon request. Provide clear instructions and user-friendly interfaces to facilitate this process, ensuring compliance with data privacy regulations and enhancing user trust.
+
+### General Data Protection:
+<a name="general-data-protection"></a>
+
+#### Security Requirements:
+1. **Verify the application protects sensitive data from being cached in server components such as load balancers and application caches.**
+
+**Solution**: Configure server components such as load balancers and application caches to exclude sensitive data from caching. Implement mechanisms to prevent caching of sensitive data at the application level, such as setting appropriate cache-control headers.
+
+### Data Protection and Privacy Architecture:
+<a name="data-protection-and-privacy-architecture"></a>
+
+#### Security Requirements:
+1. **Verify that all sensitive data is identified and classified into protection levels.**
+
+**Solution**: Conduct a comprehensive data inventory to identify and classify all sensitive data handled by the application
+
+### Access Control Architecture:
+<a name="access-control-architecture"></a>
+
+#### Security Requirements:
+1. **Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.**
+
+**Solution**: Design and implement a centralized access control mechanism that enforces consistent access policies across all protected data and resources. Ensure that all requests, regardless of their origin, use routing through this mechanism to prevent unauthorized access.
+
 ## Abuse Cases
 
 ### Abuse cases for Sign Up and Login
@@ -407,13 +468,19 @@ By conducting penetration tests, we can proactively identify and address securit
 
 ### ASVS Compliance
 
-| ASVS Level | Requirement | Verification Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Tool Used |
-|------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| Level 1    | 2.1.1       | Verify that user set passwords are at least 12 characters in length (after multiple spaces are combined). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |          |
-| Level 1    | 2.1.2       | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                                                                   |          |
-| Level 1    | 2.1.7       | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system's password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) |          |
-| Level 2    | 2.9.3       | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |          |
-| Level 2    | 9.2.2       | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.                                                                                                                                                                                                                                                                                                            |          |
-| Level 1    | 10.1.1      | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |          |
-| Level 1    | 12.1.1      | Verify that the application will not accept large files that could fill up storage or cause a denial of service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |          |
-
+| ASVS Level | Requirement | Verification Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Tool Used                                                                                               |
+|------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Level 1    | 2.1.1       | Verify that user set passwords are at least 12 characters in length (after multiple spaces are combined). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                         |
+| Level 1    | 2.1.2       | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                         |
+| Level 1    | 2.1.7       | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system's password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) |                                                                                                         |
+| Level 2    | 2.9.3       | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                         |
+| Level 2    | 9.2.2       | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.                                                                                                                                                                                                                                                                                                            |                                                                                                         |
+| Level 1    | 10.1.1      | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                                                         |
+| Level 1    | 12.1.1      | Verify that the application will not accept large files that could fill up storage or cause a denial of service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                                                                                         |
+| Level 2    | 12.1.2      | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file.  | Evidence in DFD &  [Files and Resources](#files-and-resources)                                                |
+| Level 1    | 13.2.2      | Verify that JSON schema validation is in place and verified before accepting input. | Evidence in DFD & [RESTful Web Service](#restful-web-service)                                           |
+| Level 2    | 10.2.1      | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data. | Evidence in DFD & [Malicious code search](#malicious-code-search)                                       |
+| Level 1    | 8.3.2       | Verify that users have a method to remove or export their data on demand. | Evidence in DFD & [Sensitive Private Data](#sensitive-private-data)                                     |
+| Level 2    | 8.1.1       | Verify the application protects sensitive data from being cached in server components such as load balancers and application caches. | Evidence in DFD & [General Data Protection](#general-data-protection)                                   |
+| Level 2    | 1.8.1       | Verify that all sensitive data is identified and classified into protection levels. | Evidence in DFD & [Data protection and Privacy Architecture](#data-protection-and-privacy-architecture) |
+| Level 2    | 1.4.4       | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | Evidence in DFD &  [Access Control Architecture](#access-control-architecture)                          |
