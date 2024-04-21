@@ -1,0 +1,29 @@
+@startuml
+
+left to right direction
+
+actor Attacker
+actor Admin
+
+usecase (Browse Users)
+usecase (System Overload by Searching All Users)#Red
+usecase (Inadequate Filtering When Searching All Users)#Red
+usecase (Display of Sensitive Information)#Red
+usecase (Data Exploitation Through User Search)#Red
+usecase (Search for Specific User)#Red
+
+Admin -------> (Browse Users)
+
+Attacker -up-> (System Overload by Searching All Users)
+Attacker -up-> (Inadequate Filtering When Searching All Users)
+Attacker -up-> (Display of Sensitive Information)
+Attacker -up-> (Data Exploitation Through User Search)
+Attacker -up-> (Search for Specific User)
+
+(System Overload by Searching All Users) -up-> (Browse Users) : threatens
+(Inadequate Filtering When Searching All Users) -up-> (Browse Users) : threatens
+(Display of Sensitive Information) -up-> (Browse Users) : threatens
+(Data Exploitation Through User Search) -up-> (Browse Users) : threatens
+(Search for Specific User) -up-> (Browse Users) : threatens
+
+@enduml

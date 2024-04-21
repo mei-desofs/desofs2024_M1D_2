@@ -1,0 +1,33 @@
+@startuml
+
+left to right direction
+
+actor Photographer
+actor Attacker
+actor Admin
+actor Client
+
+usecase (Delete Photo)
+usecase (Unauthorized User Tries to Delete Photo)#Red
+usecase (Mass Deletion of Photos)#Red
+usecase (Delete Photo Belonging to Another User)#Red
+usecase (Delete Non-existent Photo)#Red
+usecase (Accidental Deletion)#Red
+
+Photographer -------> (Delete Photo)
+Admin -------> (Delete Photo)
+
+Attacker -up-> (Unauthorized User Tries to Delete Photo)
+Attacker -up-> (Mass Deletion of Photos)
+Attacker -up-> (Delete Photo Belonging to Another User)
+Attacker -up-> (Delete Non-existent Photo)
+Attacker -up-> (Accidental Deletion)
+
+(Unauthorized User Tries to Delete Photo) -up-> (Delete Photo) : threatens
+(Mass Deletion of Photos) -up-> (Delete Photo) : threatens
+(Delete Photo Belonging to Another User) -up-> (Delete Photo) : threatens
+(Delete Non-existent Photo) -up-> (Delete Photo) : threatens
+(Accidental Deletion) -up-> (Delete Photo) : threatens
+
+
+@enduml
