@@ -10,7 +10,10 @@
 ## Logical View:
 
 Description:  
-(TO DO)
+
+The logical view shows the app's architecture from above. It focuses on how the 
+parts are organized and interact conceptually. The logical view highlights 
+the system's structure, functions, and how different parts work together.
 
 ### Level 2:
 

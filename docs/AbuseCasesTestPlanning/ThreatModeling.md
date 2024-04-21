@@ -112,7 +112,21 @@ Here we have the list of abuse cases with a description associated and a mitigat
 | Content Scraping            | The attacker uses automated tools to copy or download content without authorization | Medium | High: Undermining intellectual property rights and compromising content integrity | Implement rate limiting, CAPTCHA, and access controls to prevent unauthorized access to content and deter scraping.                                                                |
 | Data Harvesting             | The attacker collects metadata or information associated with user accounts or system resources for malicious purposes | Medium | High: Threatening user privacy and confidentiality                                | Implement data encryption, anonymization techniques, and user consent mechanisms to protect against unauthorized data harvesting.                                                  |
 | Denial of Service Attack    | The attacker floods the system with a high volume of requests, overwhelming resources and causing service downtime | High     | High: Disrupting normal system operations and causing loss of user trust          | Implement DDoS protection measures, such as rate limiting, traffic filtering, and distributed caching, and maintain scalable infrastructure to mitigate the impact of DoS attacks. |
-
+| Unauthorized User Tries to Delete Photo        | An unauthorized user attempts to delete a photo without proper authentication or authorization.                     | High     | High: Potential data loss or corruption                        | Implement robust authentication and authorization mechanisms to ensure that only authorized users can perform deletion operations.       |
+| Mass Deletion of Photos                        | A user attempts to delete a large number of photos at once, potentially causing system overload or data loss.        | High     | High: System overload, data loss                               | Implement rate limiting and confirmation dialogs to prevent accidental mass deletions and protect against intentional abuse.            |
+| Delete Photo Belonging to Another User         | A user tries to delete a photo that belongs to another user, violating data ownership and privacy rights.           | High     | High: Data loss, privacy violation                              | Implement strict access controls and permissions to ensure that users can only delete their own photos.                                |
+| Delete Non-existent Photo                      | A user attempts to delete a photo that does not exist, potentially causing system errors or data inconsistencies.  | Medium   | Medium: System errors, data inconsistencies                     | Implement error handling mechanisms to gracefully handle deletion requests for non-existent photos.                                    |
+| Accidental Deletion                            | A user unintentionally deletes a photo due to interface confusion or misclicks.                                      | Medium   | Medium: Data loss, user frustration                             | Implement confirmation dialogs and undo functionalities to allow users to recover from accidental deletions.                            |
+| System Overload by Searching All Users         | A user performs a search operation that retrieves a large number of user records, causing system overload.          | High     | High: System slowdown, resource exhaustion                      | Implement pagination and caching mechanisms to handle large datasets efficiently and prevent system overload.                         |
+| Inadequate Filtering When Searching All Users | The search functionality lacks proper filtering, allowing users to retrieve sensitive information unintentionally. | High     | High: Data exposure, privacy violation                           | Implement robust filtering mechanisms and access controls to ensure that only authorized information is retrieved in searches.          |
+| Display of Sensitive Information               | The system inadvertently displays sensitive user information, such as passwords or personal data.                  | High     | High: Data exposure, privacy violation                           | Implement data masking, encryption, and access controls to prevent unauthorized access to sensitive information.                      |
+| Data Exploitation Through User Search         | An attacker exploits the search functionality to gather information about users for malicious purposes.            | High     | High: Data theft, privacy violation                              | Implement rate limiting, CAPTCHA, and access controls to detect and prevent automated data harvesting attempts.                        |
+| Search for Specific User                      | A user searches for a specific user account to gather information without proper authorization.                   | Medium   | Medium: Privacy violation, unauthorized access                   | Implement access controls and logging mechanisms to track and audit user search activities, ensuring that only authorized users can access user information. |
+| SQL Injection Attempt                          | An attacker attempts to inject SQL queries into the search functionality to gain unauthorized access to data.      | High     | High: Data theft, system compromise                              | Implement parameterized queries and input validation to prevent SQL injection attacks and protect against unauthorized access to sensitive data.    |
+| Accessing Another User's Cart by ID           | A user attempts to access another user's shopping cart by manipulating the cart ID in the URL.                   | High     | High: Data theft, privacy violation                              | Implement proper authentication and authorization checks to ensure that users can only access their own shopping carts.                      |
+| Non-existent Cart Selection                    | A user selects a shopping cart that does not exist in the system, potentially causing system errors.               | Medium   | Medium: System errors, user frustration                          | Implement error handling mechanisms to gracefully handle requests for non-existent shopping carts.                                       |
+| Unauthorized Access to Shopping Cart          | An unauthorized user tries to access shopping carts without proper authentication or authorization.              | High     | High: Data theft, privacy violation                              | Implement strict access controls and session management mechanisms to prevent unauthorized access to shopping carts.                      |
+| ID Manipulation for Shopping Cart Access      | An attacker manipulates shopping cart IDs to gain unauthorized access to other users' shopping carts.           | High     | High: Data theft, privacy violation                              | Implement secure session management, encryption, and access controls to prevent ID manipulation attacks and protect user privacy.          |
 
 
 ## Test Planning
@@ -283,7 +297,113 @@ Here we have the list of abuse cases with a description associated and a mitigat
         2. Test the visibility of the new created portfolio on the photographer's profile page or portfolios page;
     - **Tools/Techniques**: Test automation frameworks (e.g., Cypress), headless browsers, browser automation tools.
 
+#### 4. Penetration Tests
 
+Penetration testing helps identify security vulnerabilities by simulating real-world attacks. For the abuse cases identified in the application, penetration testing can uncover weaknesses exploited by attackers. Here's a brief plan:
+
+#### 1. Add Photo To Cart:
+- **Objective**: Test for vulnerabilities like denial of service, unauthorized access, and data manipulation in the "Add Photo To Cart" functionality.
+- **Approach**: Simulate denial of service attacks, attempt unauthorized access, and check for data manipulation.
+- **Tools/Techniques**: OWASP ZAP, manual testing.
+
+#### 2. Create a Portfolio:
+- **Objective**: Test for vulnerabilities like content scraping, unauthorized access, data manipulation, and denial of service in the "Create a Portfolio" UC.
+- **Approach**: Check resistance against content scraping, probe for unauthorized access, test data manipulation, and check resilience against denial of service.
+- **Tools/Techniques**: manual testing, load tests.
+
+#### 3. Reporting:
+- Compile a report detailing discovered vulnerabilities, severity levels, and recommended mitigation measures.
+- Prioritize vulnerabilities and provide actionable recommendations for mitigation.
+- Use ZAP Scanning Report.
+
+By conducting penetration tests, we can proactively identify and address security vulnerabilities, reducing the risk of successful attacks and improving the application's security.
+
+### Use Case: Delete Photo
+
+#### Test Planning:
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify that unauthorized users cannot delete photos.
+        2. Ensure that only authenticated and authorized users can initiate photo deletion.
+        3. Test error handling for unauthorized deletion attempts.
+    - **Tools/Techniques**: Mocking frameworks for authentication, assertion libraries for verifying permissions.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that authenticated users can successfully delete their own photos.
+        2. Attempt to delete photos without proper authentication and verify the system's response.
+        3. Test for edge cases such as deleting photos with invalid IDs.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of deleting a photo, including login, navigation to the delete photo page, and deletion.
+        2. Verify that only authorized users can access the delete photo functionality.
+    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
+
+4. **Penetration Tests:**
+    - **Objective**: Test for vulnerabilities such as insecure direct object references and insufficient access controls.
+    - **Approach**: Attempt to manipulate photo IDs to access other users' photos and test for unauthorized deletion.
+    - **Tools/Techniques**: Manual testing, OWASP ZAP.
+
+### Use Case: Browse Users
+
+#### Test Planning:
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify that the search functionality returns accurate results based on input criteria.
+        2. Test filtering mechanisms to ensure proper data retrieval.
+        3. Validate error handling for invalid search queries.
+    - **Tools/Techniques**: Mocking frameworks for database interactions, assertion libraries for result validation.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that users can search for other users by various criteria (e.g., name, email).
+        2. Test pagination functionality to handle large datasets.
+        3. Verify that sensitive information is not exposed through search results.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of searching for users, including navigating to the search page, entering search criteria, and viewing results.
+        2. Test for performance under high search volumes.
+    - **Tools/Techniques**: Test automation frameworks, load testing tools.
+
+4. **Penetration Tests:**
+    - **Objective**: Test for vulnerabilities such as SQL injection and data exposure.
+    - **Approach**: Attempt to inject SQL queries into search parameters and verify system responses.
+    - **Tools/Techniques**: Manual testing, SQLMap.
+
+### Use Case: Checkout Cart
+
+#### Test Planning:
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify that users can only access their own carts by ID.
+        2. Test error handling for accessing non-existent carts.
+        3. Ensure that only authenticated users can access cart information.
+    - **Tools/Techniques**: Mocking frameworks for authentication, assertion libraries for access control validation.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that users can access their own carts by ID after authentication.
+        2. Attempt to access other users' carts without proper authorization and verify the system's response.
+        3. Test for edge cases such as accessing carts with invalid IDs.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of accessing a cart by ID, including login, navigation to the cart page, and viewing cart contents.
+        2. Verify that only authorized users can access their own carts.
+    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
+
+4. **Penetration Tests:**
+    - **Objective**: Test for vulnerabilities such as insecure direct object references and insufficient access controls.
+    - **Approach**: Attempt to manipulate cart IDs to access other users' carts and test for unauthorized access.
+    - **Tools/Techniques**: Manual testing, OWASP ZAP.
 
 ### ASVS Compliance
 
@@ -296,5 +416,4 @@ Here we have the list of abuse cases with a description associated and a mitigat
 | Level 2    | 9.2.2       | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.                                                                                                                                                                                                                                                                                                            |          |
 | Level 1    | 10.1.1      | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |          |
 | Level 1    | 12.1.1      | Verify that the application will not accept large files that could fill up storage or cause a denial of service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |          |
-
 
