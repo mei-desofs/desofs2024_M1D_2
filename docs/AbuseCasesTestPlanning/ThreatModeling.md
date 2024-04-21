@@ -457,6 +457,60 @@ By conducting penetration tests, we can proactively identify and address securit
     - **Approach**: Attempt to manipulate cart IDs to access other users' carts and test for unauthorized access.
     - **Tools/Techniques**: Manual testing, OWASP ZAP.
 
+### Use Case: Add Photo To Portfolio
+
+#### Test Planning:
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify by ID that the user as the Photographer Role and it is his Portfolio.
+        2. Validate if the data of the photo as all the requirements.
+    - **Tools/Techniques**: Mocking frameworks for authentication and access control. Mock of service to add the photo.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that a photographer can acess his portfolio.
+        2. Attempt a valid and non-valid attempt of adding a photo to a portfolio.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of adding a photo to a portfolio with authentication, viewing porfolio page and add photo.
+        2. Verify that only authorized photographer can add photo to his portfolio.
+    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
+
+4. **Penetration Tests:**
+    - **Objective**: Test for vulnerabilities such as insufficient access controls and data manipulation.
+    - **Approach**: Attempt to access others photographers portfolios and add photos.
+    - **Tools/Techniques**: Manual testing, OWASP ZAP.
+
+### Use Case: Deactivate User
+
+#### Test Planning:
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify by ID that the user as the Admin Role and can retrieve users List and deactivate users.
+        2. Validate if the users as been correctly deactivated.
+    - **Tools/Techniques**: Mocking frameworks for authentication and access control. Mock of service to handle users.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that a Admin can acess the users list and deactivate.
+        2. Attempt a valid and non-valid attempt of deactivating a user.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of deactivating a user by starting on the authentication, viewing users page and deactivate user.
+        2. Verify that only users with the admin role can deactivate users.
+    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
+
+4. **Penetration Tests:**
+    - **Objective**: Test for vulnerabilities such as insufficient access controls and data manipulation.
+    - **Approach**: Attempt to access to users list page without the admin role.
+    - **Tools/Techniques**: Manual testing, OWASP ZAP.
+
 ### ASVS Compliance
 
 | ASVS Level | Requirement | Verification Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Tool Used                                                                                                 |
