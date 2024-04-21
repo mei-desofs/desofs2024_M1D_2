@@ -18,8 +18,8 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 ### Add to Cart DFD
 ![AddToCart.drawio.svg](../DFD%2FAddToCart.drawio.svg)
 
-### Put a Photo up for sale DFD
-![AddPhotoForSale.drawio.svg](../DFD%2FAddPhotoForSale.drawio.svg)
+### Add a Photo up for sale DFD
+![AddPhotoForSale.svg](..%2FDFD%2FAddPhotoForSale.svg)
 
 ### Browse Users DFD
 ![Browse Users DFD](../image/DFD/DFDBrowseUsers.svg)
