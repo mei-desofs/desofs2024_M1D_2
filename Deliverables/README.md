@@ -4,7 +4,7 @@
 ## Sprints
 
 ### Sprint 1
-- [High Level Architecture and DFD](../docs/Architecture.md)
-- [Abuse cases/Test planning](../docs/AbuseCasesTestPlanning/AbuseCasesTestPlanning.md)
+- [High Level Architecture](../docs/Architecture.md)
+- [Threat Modeling](../docs/AbuseCasesTestPlanning/ThreatModeling)
 
 ### Sprint 2

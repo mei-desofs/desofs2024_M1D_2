@@ -2,6 +2,11 @@
 
 # High-Level System Architecture Diagram (4+1 Views Architecture)
 
+## Domain Model
+
+
+![Domain Model.jpg](Domain%20Model.jpg)
+
 ## Logical View:
 
 Description:  
@@ -149,39 +154,3 @@ Also, the user needs to have specific requirements in order to login, such as th
 
 ![Deployment View](image/DeploymentView.png)
 
-## Data Flow Diagram
-
-In the Data flow Diagram we Divided the diagrams between the processes in order to clarify the flow of data of the processes in question.
-
-### Login Register DFD
-![Login_RegisterDFD.drawio.svg](DFD%2FLogin_RegisterDFD.drawio.svg)
-
-### Create Portfolio DFD
-![Create a Portfolio.drawio.svg](DFD%2FCreate%20a%20Portfolio.drawio.svg)
-
-### Browse Photos DFD
-![BrowsePhoto.drawio.svg](DFD%2FBrowsePhoto.drawio.svg)
-
-### Add to Cart DFD
-![AddToCart.drawio.svg](DFD%2FAddToCart.drawio.svg)
-
-### Put a Photo up for sale DFD
-![AddPhotoForSale.drawio.svg](DFD%2FAddPhotoForSale.drawio.svg)
-
-### Browse Users DFD
-![Browse Users DFD](image/DFD/DFDBrowseUsers.svg)
-
-### Checkout Cart DFD
-![Checkout Cart DFD](image/DFD/DFDBrowseUsers.svg)
-
-### Delete Photo DFD
-![Delete Photo DFD](image/DFD/DFDDeletePhoto.svg)
-
-### Edit User Roles DFD
-![Edit User Roles DFD](image/DFD/DFDEditUserRoles.svg)
-
-### Suspend User DFD
-![Suspend User DFD](image/DFD/DFDSuspendUser.svg)
-
-### Suspend User DFD
-![Suspend User DFD](image/DFD/DFDViewPurchasedPhotos.svg)

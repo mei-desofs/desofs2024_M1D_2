@@ -10,6 +10,7 @@ usecase (Sign Up)
 usecase (Login)
 
 usecase (Brute Force Attack)#Red
+usecase (SQL Injection)#Red
 usecase (Automated Registration) #Red
 usecase (Credential Theft) #Red
 usecase (Session Hijacking) #Red
@@ -21,12 +22,14 @@ usecase (Account Takeover) #Red
 (Credential Theft)<-- Attacker:exploits
 (Session Hijacking)<-- Attacker:exploits
 (Account Takeover)<-- Attacker:exploits
+(SQL Injection)<-- Attacker:exploits
 
 (Sign Up) <-- (Automated Registration)
 (Login) <-- (Brute Force Attack)
 (Login) <-- (Credential Theft)
 (Login) <-- (Session Hijacking)
 (Login) <-- (Account Takeover)
+(Login)<-- (SQL Injection)
 
 Guest --> (Sign Up)
 Guest --> (Login)
