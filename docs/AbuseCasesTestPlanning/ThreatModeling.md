@@ -113,7 +113,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 #### Security Requirements:
 1. **Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.**
 
-**Solution**: Make sure to review the code of the application and any third-party libraries carefully to spot any hidden features that send data without permission. If you find any such features, ask the user for permission before using them and make sure to let users know about any data collection processes in a clear and open way.
+**Solution**: Make sure to review the code of the application and any third-party libraries carefully to spot any hidden features that send data without permission.
 
 ### Sensitive Private Data:
 <a name="sensitive-private-data"></a>
@@ -121,7 +121,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 #### Security Requirements:
 1. **Verify that users have a method to remove or export their data on demand.**
 
-**Solution**: Add a feature to the app that lets users easily delete or download their data when needed. Make sure to include straightforward instructions and user-friendly interfaces to make the process smooth and secure, meeting data privacy rules and boosting user confidence.
+**Solution**: Add a feature to the app that allows users easily to delete or download their data when needed. Include straightforward instructions and user-friendly interfaces to make the process smooth and secure.
 
 ### General Data Protection:
 <a name="general-data-protection"></a>
@@ -145,7 +145,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 #### Security Requirements:
 1. **Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.**
 
-**Solution**: Ensure that a central access control system is designed and implemented to apply the same access rules to all protected data and resources. In addition, ensure that this mechanism is used to route all requests from different sources so as to bar unauthorized entry points into the data or systems.
+**Solution**: Ensure that the app routes all requests from different sources so it doesn't allow unauthorized entry points into the data or systems.
 
 ## Abuse Cases
 
