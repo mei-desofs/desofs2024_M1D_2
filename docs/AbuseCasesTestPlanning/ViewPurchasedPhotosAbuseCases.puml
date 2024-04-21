@@ -1,0 +1,24 @@
+@startuml ViewPurchasedPhotosAbuseCases
+
+left to right direction
+
+actor Client
+actor Attacker
+
+usecase (View Purchased Photos)
+usecase (Credential Theft) #Red
+usecase (Unauthorized Access) #Red
+usecase (Content Scraping) #Red
+
+Client -> (View Purchased Photos)
+Attacker -up-> (Credential Theft)
+Attacker -up-> (Unauthorized Access)
+Attacker -up-> (Content Scraping)
+
+
+
+(Credential Theft) -up-> (View Purchased Photos) : threatens
+(Unauthorized Access) -up-> (View Purchased Photos) : threatens
+(Content Scraping) -up-> (View Purchased Photos) : threatens
+
+@enduml

@@ -7,6 +7,10 @@
 
 ![Domain Model.jpg](Domain%20Model.jpg)
 
+## Class Diagram
+
+![Class Diagram](image/CD.png)
+
 ## Logical View:
 
 Description:  
@@ -18,10 +22,6 @@ the system's structure, functions, and how different parts work together.
 ### Level 2:
 
 ![LogicalViewLevel2.png](image%2FLevel2%2FLogicalViewLevel2.png)
-
-### Level 4:
-
-![Class Diagram](image/CD.png)
 
 ## Process View:
 
