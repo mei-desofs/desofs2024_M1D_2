@@ -219,10 +219,31 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 ![AbuseCaseBrowsePhotos.svg](AbuseCaseBrowsePhotos.svg)
 
 ### Abuse Cases for View Purchased Photos
-![AbuseCasesViewPurchasedPhotos.svg](../image/abuseCases/ViewPurchasedPhotosAbuseCases.svg)
+![AbuseCasesViewPurchasedPhotos](../image/abuseCases/ViewPurchasedPhotosAbuseCases.svg)
 
 ### Abuse Cases for Edit User Roles
-![AbuseCasesEditUserRoles.svg](../image/abuseCases/EditUserRolesAbuseCases.svg)
+![AbuseCasesEditUserRoles](../image/abuseCases/EditUserRolesAbuseCases.svg)
+
+### Abuse Cases for Add Photo to Cart
+![AbuseCasesAddPhotoToCart](../image/abuseCases/AddPhotoToCartAbuseCase.png)
+
+### Abuse Cases for Add Photo to Portfolio
+![AbuseCasesAddPhotoToPortfolio](../image/abuseCases/AddPhotoToPortfolioAbuseCase.svg)
+
+### Abuse Cases for Browse Users
+![AbuseCasesBrowseUsers](../image/abuseCases/BrowseUsersAbuseCase.png)
+
+### Abuse Cases for Checkout Cart
+![AbuseCasesCheckoutCart](../image/abuseCases/CheckoutCartAbuseCase.png)
+
+### Abuse Cases for Create Portfolio
+![AbuseCasesCreatePortfolio](../image/abuseCases/CreatePortfolioAbuseCase.png)
+
+### Abuse Cases for Deactivate User
+![AbuseCasesDeactivateUser](../image/abuseCases/DeactivateUserAbuseCase.svg)
+
+### Abuse Cases for Delete Photo
+![AbuseCasesDeletePhoto](../image/abuseCases/DeletePhotoAbuseCase.png)
 
 
 Here we have the list of abuse cases with a description associated and a mitigation for each one.
