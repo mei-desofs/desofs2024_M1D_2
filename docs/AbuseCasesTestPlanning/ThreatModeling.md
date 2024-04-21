@@ -135,6 +135,63 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 #### Security Requirements:
 - **Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources**:Ensure that the app routes all requests from different sources so it doesn't allow unauthorized entry points into the data or systems.
 
+### Implementation of Automated Security Checks in Build Pipeline:
+<a name="implementation-of-automated-security-checks-in-build-pipeline"></a>
+
+#### Security Requirements:
+1. **Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application.**
+
+**Solution**: Make sure to include automated security checks in the build pipeline to guarantee that the deployment process is secure and adheres to security standards.
+
+### Implementation of Password Change Functionality:
+<a name="implementation-of-password-change-functionality"></a>
+
+#### Security Requirements:
+1. **Verify users can change their password.**
+
+**Solution**: Create a feature that enables users to change their passwords securely.
+
+### Implementation of Attribute-Based Access Control with Immutable User and Data Attributes:
+<a name="implementation-of-attribute-based-access-control-with-immutable-user-and-data-attributes"></a>
+
+#### Security Requirements:
+1. **Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.**
+
+**Solution**: Utilize Attribute-Based Access Control (ABAC) to uphold access control guidelines grounded on user and data attributes, incorporating immutable attributes to hinder alteration by users.
+
+### Implementation of Multi-Factor Authentication for Administrative Interfaces:
+<a name="implementation-of-multi-factor-authentication-for-administrative-interfaces"></a>
+
+#### Security Requirements:
+1. **Verify administrative interfaces use appropriate multifactor authentication to prevent unauthorized use.**
+
+**Solution**: Add multifactor authentication (MFA) to administrative interfaces for increased security and protection against unauthorized access.
+
+### Implementation of Secure Data Transmission Practices:
+<a name="implementation-of-secure-data-transmission-practices"></a>
+
+#### Security Requirements:
+1. **Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data.**
+
+**Solution**: Ensure sensitive data is securely transmitted to the server by implementing secure data transmission practices, to avoid exposure in URLs or query string parameters.
+
+### Implementation of Content-Type Validation for Uploaded Files:
+<a name="implementation-of-content-type-validation-for-uploaded-files"></a>
+
+#### Security Requirements:
+1. **Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.**
+
+**Solution**: Please add content-type validation for uploaded files to prevent them from being incorrectly executed as HTML or JavaScript content if accessed directly.
+
+### Implementation of Role-Based Access Control for RESTful API Methods:
+<a name="implementation-of-role-based-access-control-for-restful-api-methods"></a>
+
+#### Security Requirements:
+1. **Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.**
+
+**Solution**: Create role-based access control (RBAC) for RESTful API methods to limit access to HTTP methods according to user roles and permissions. This helps prevent unauthorized use of critical HTTP methods like DELETE or PUT.
+
+
 ## Abuse Cases
 
 ### Abuse cases for Sign Up and Login
@@ -528,3 +585,10 @@ By conducting penetration tests, we can proactively identify and address securit
 | Level 1    | 8.3.2       | Verify that users have a method to remove or export their data on demand. | [Sensitive Private Data](#sensitive-private-data)                                                         |
 | Level 2    | 1.8.1       | Verify that all sensitive data is identified and classified into protection levels. | Evidence in Views & [Data protection and Privacy Architecture](#data-protection-and-privacy-architecture) |
 | Level 2    | 1.4.4       | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | [Access Control Architecture](#access-control-architecture)                                               |
+| Level 2    | 1.14.4      | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts. | Evidence in DFD & [Implementation of Automated Security Checks in Build Pipeline](#implementation-of-automated-security-checks-in-build-pipeline)                                                              |
+| Level 1    | 2.1.5       | Verify users can change their password. | Evidence in DFD & [Implementation of Password Change Functionality](#implementation-of-password-change-functionality)                                                                                          |
+| Level 1    | 4.1.2       | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | Evidence in DFD & [Implementation of Attribute-Based Access Control (ABAC) with Immutable User and Data Attributes](#implementation-of-attribute-based-access-control-with-immutable-user-and-data-attributes) |
+| Level 1    | 4.3.1       | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | Evidence in DFD & [Implementation of Multi-Factor Authentication (MFA) for Administrative Interfaces](#implementation-of-multi-factor-authentication-for-administrative-interfaces)                            |
+| Level 1    | 8.3.1       | Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data. | Evidence in DFD & [Implementation of Secure Data Transmission Practices](#implementation-of-secure-data-transmission-practices)                                                                                |
+| Level 1    | 12.5.2      | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content. | Evidence in DFD & [Implementation of Content-Type Validation for Uploaded Files](#implementation-of-content-type-validation-for-uploaded-files)                                                                |
+| Level 1    | 13.2.1      | Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources. | Evidence in DFD & [Implementation of Role-Based Access Control for RESTful API Methods](#implementation-of-role-based-access-control-for-restful-api-methods)                                                  |
