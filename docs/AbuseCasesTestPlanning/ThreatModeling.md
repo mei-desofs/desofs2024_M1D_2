@@ -118,43 +118,126 @@ Here we have the list of abuse cases with a description associated and a mitigat
 ## Test Planning
 
 ### Login/SignUp UC
+##### Unit Tests
+
+##### Unit Tests for Login Functionality:
+
+- **Password Encryption**:
+    - Test that the provided password is properly encrypted.
+
+- **User Authentication**:
+    - Test the authentication process with valid username and password.
+    - Ensure that the user is authenticated successfully.
+
+- **Invalid Credentials**:
+    - Test the authentication process with invalid username and/or password.
+    - Ensure that the user is not authenticated and receives appropriate error messages.
+
+- **Session Management**:
+    - Test the session management functionality by verifying the creation and deletion of session tokens upon successful login and logout.
+
+
+##### Unit Tests for Registration Functionality:
+
+- **User Validation**:
+    - Test the validation of user input fields (e.g., username, email, password) during registration.
+    - Ensure that valid input formats are accepted and invalid inputs are rejected with appropriate error messages.
+
+- **Duplicate Username or Email**:
+    - Test the registration process with a username or email that already exists in the database.
+    - Ensure that the user receives an error message indicating that the username or email is already taken.
+
+- **Password Strength**:
+    - Test the registration process with weak passwords (e.g., short length, no special characters).
+    - Ensure that the user receives an error message indicating the password requirements.
+
+
 ##### Penetration Tests
 
-#### 1. Automated Registration
+##### Automated Registration
 - **Objective**: Assess the resistance of the automated registration process to exploitation.
+- Tools: OWASP ZAP
 - **Test Steps**:
     1. Utilize automated tools to submit registration requests with a large volume of fake user data.
     2. Monitor the application's response to identify potential vulnerabilities or weaknesses.
 - **Expected Result**: The application should detect and prevent automated registration attempts, such as CAPTCHA verification or rate limiting.
 
-#### 2. Brute Force Attack
+#### Brute Force Attack
 - **Objective**: Evaluate the strength of the login mechanism against brute force attacks.
+- Tools: Hydra
 - **Test Steps**:
     1. Employ automated tools to conduct a brute force attack on the login page, attempting various username/password combinations.
     2. Monitor the application's response and server logs for signs of excessive login attempts.
 - **Expected Result**: The application should implement account lockout mechanisms or rate limiting to mitigate brute force attacks.
 
 
-#### 4. Session Hijacking
+#### Session Hijacking
 - **Objective**: Assess the susceptibility of the application to session hijacking attacks.
+- Tools: Wireshark
 - **Test Steps**:
     1. Attempt to intercept and steal session cookies transmitted over insecure channels using tools like Wireshark.
     2. Use stolen session cookies to impersonate authenticated users and gain unauthorized access to their accounts.
 - **Expected Result**: The application should implement secure session management techniques, such as HTTPS encryption and session tokens with short expiration times, to prevent session hijacking.
 
-#### 5. Account Takeover
-- **Objective**: Determine if the application is vulnerable to account takeover attacks.
-- **Test Steps**:
-    1. Exploit weaknesses in the password reset mechanism to reset the password of a user account without proper authentication.
-    2. Attempt to gain unauthorized access to authenticated user accounts by stealing session cookies or exploiting other vulnerabilities.
-- **Expected Result**: The application should enforce strong authentication mechanisms, secure session management, and account recovery procedures to prevent unauthorized account takeovers.
 
-#### 6. SQL Injection
+#### SQL Injection
 - **Objective**: Identify and mitigate SQL injection vulnerabilities in the application.
+- Tools: Manual testing or SQLMap
 - **Test Steps**:
-    1. Submit malicious SQL queries via input fields (e.g., login form, registration form) to test for SQL injection vulnerabilities.
+    1. Submit malicious SQL queries via input fields manually to test for SQL injection vulnerabilities.
     2. Analyze the application's response and database logs for indications of SQL injection attacks.
 - **Expected Result**: The application should sanitize user input and use parameterized queries or prepared statements to prevent SQL injection attacks.
+
+### Browse Photos UC
+
+##### Unit Tests
+
+- **User Permissions**:  
+    - Test browsing photos functionality with different user roles to ensure that access permissions are enforced correctly.
+
+- **Retrieve Photos**:
+    - Test that the application can successfully retrieve photos from the database.
+    - Ensure that the correct photos are returned based on the specified criteria.
+- **Sorting**:
+    - Test the filtering and sorting functionality to verify that users can search for photos based on various criteria.
+    - Ensure that the results are displayed in the correct order and format.
+
+##### Penetration Tests
+##### Penetration Testing for Browse Photos Use Case:
+
+#### Unauthorized Access:
+- **Objective**: Attempt to access the Browse Photos functionality without proper authentication.
+- Tools: OWASP ZAP
+- **Test Steps**:
+    1. Use a web proxy tool to intercept the request to browse photos.
+    2. Modify the request to remove or tamper with the authentication token.
+    3. Send the modified request and observe the application's response.
+- **Expected Result**: The application should deny access and return an error message indicating that authentication is required.
+
+#### Content Scraping:
+- **Objective**: Test the application's resilience against content scraping attempts.
+- Tools: Scrapy
+- **Test Steps**:
+    1. Use automated scraping tools to scrape photo data from the Browse Photos functionality.
+    2. Analyze the scraped data to determine if the application's content is easily extractable.
+- **Expected Result**: The application should implement measures to prevent or mitigate content scraping, such as rate limiting or CAPTCHA verification.
+
+#### Data Harvesting:
+- **Objective**: Attempt to harvest sensitive data from the application's database.
+- Tools: SQLMap,Manual Testing
+- **Test Steps**:
+    1. Use SQL injection techniques to extract data from the database.
+    2. Utilize automated tools to identify and exploit potential vulnerabilities.
+- **Expected Result**: The application should be resilient to SQL injection attacks, with proper input validation and parameterized queries to prevent data harvesting.
+
+#### Denial of Service Attack:
+- **Objective**: Test the application's resilience against denial of service (DoS) attacks.
+- Tools: JMeter
+- **Test Steps**:
+    1. Use stress testing tools to simulate a high volume of requests to the Browse Photos functionality.
+    2. Observe the application's response and performance under the increased load.
+- **Expected Result**: The application should be able to handle a significant increase in traffic without experiencing downtime or degradation in performance.
+
 
 ### Add Photo to cart and Create a Portfolio UC
 
