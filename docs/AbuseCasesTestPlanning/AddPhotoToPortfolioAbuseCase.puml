@@ -1,0 +1,24 @@
+@startuml
+
+left to right direction
+
+actor Photographer
+actor Attacker
+
+usecase (Add Photo To Portfolio)
+usecase (Denial of Service Attack) #Red
+usecase (Unauthorized Access) #Red
+usecase (Malicious Upload) #Red
+
+Photographer -------> (Add Photo To Portfolio)
+Attacker -up-> (Denial of Service Attack)
+Attacker -up-> (Unauthorized Access)
+Attacker -up-> (Malicious Upload)
+
+
+
+(Denial of Service Attack) -up-> (Add Photo To Portfolio) : threatens
+(Unauthorized Access) -up-> (Add Photo To Portfolio) : threatens
+(Malicious Upload) -up-> (Add Photo To Portfolio) : threatens
+
+@enduml

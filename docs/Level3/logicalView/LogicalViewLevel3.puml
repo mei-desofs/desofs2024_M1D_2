@@ -1,0 +1,60 @@
+@startuml
+
+component "PictureShop" {
+    package Drivers_Layer{
+    [Router]
+    [DataBase Drivers]
+    }
+    package Adaptor_Layer{
+    [Controller]
+    [Repository]
+    }
+
+    package Application_business_rules{
+
+    [Service]
+    }
+
+    package Interprice_business_rules{
+
+    [Domain Model]
+
+    }
+
+    [Dto]
+
+
+    port " " as port1
+    port " " as port2
+    [Router] -- Controller_API
+    Controller_API -- [Controller]
+    [DataBase Drivers] --DataBaseDrivers_API
+    DataBaseDrivers_API -- [Repository]
+    Model_API -- [Domain Model]
+    [Controller] -- Service_API
+    Service_API -- [Service]
+}
+
+database "DataBase" {
+}
+
+
+
+
+port1 -down- [Router]
+[Controller] -down- [Dto]
+[Dto] -down- [Service]
+[Repository] -down- [Service]
+[Repository] -down- Model_API
+[Service] -right- Model_API
+
+
+"DataBase" -down- port2
+
+port2 -- [DataBase Drivers]
+
+UI_Client -down- port1
+UI_Admin -down- port1
+UI_Photographer -down- port1
+
+@enduml
