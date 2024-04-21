@@ -1,0 +1,33 @@
+@startuml
+
+left to right direction
+
+actor Photographer
+actor Attacker
+actor Admin
+actor Client
+
+usecase (Checkout Cart)
+usecase (SQL Injection Attempt)#Red
+usecase (Accessing Another User's Cart by ID)#Red
+usecase (Non-existent Cart Selection)#Red
+usecase (Unauthorized Access to Shopping Cart)#Red
+usecase (ID Manipulation for Shopping Cart Access)#Red
+
+Photographer -------> (Checkout Cart)
+Admin -------> (Checkout Cart)
+Client -------> (Checkout Cart)
+
+Attacker -up-> (SQL Injection Attempt)
+Attacker -up-> (Accessing Another User's Cart by ID)
+Attacker -up-> (Non-existent Cart Selection)
+Attacker -up-> (Unauthorized Access to Shopping Cart)
+Attacker -up-> (ID Manipulation for Shopping Cart Access)
+
+(SQL Injection Attempt) -up-> (Checkout Cart) : threatens
+(Accessing Another User's Cart by ID) -up-> (Checkout Cart) : threatens
+(Non-existent Cart Selection) -up-> (Checkout Cart) : threatens
+(Unauthorized Access to Shopping Cart) -up-> (Checkout Cart) : threatens
+(ID Manipulation for Shopping Cart Access) -up-> (Checkout Cart) : threatens
+
+@enduml
