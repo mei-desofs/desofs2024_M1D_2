@@ -568,6 +568,61 @@ By conducting penetration tests, we can proactively identify and address securit
     - **Approach**: Attempt to access to users list page without the admin role.
     - **Tools/Techniques**: Manual testing, OWASP ZAP.
 
+### Use Case: View Purchased Photos
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify that the search functionality returns accurate results based on the requesting user and on search parameters.
+        2. Test filtering mechanisms to ensure proper data retrieval.
+        3. Validate error handling for invalid search queries.
+    - **Tools/Techniques**: Mocking frameworks for database interactions, assertion libraries for result validation.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that users can filter their search by various criteria (e.g., photo name, photographer, portfolio).
+        2. Test pagination functionality to handle large datasets.
+        3. Ensure the requesting user is currently active.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of browsing purchased photos, including navigating to the search page, entering search criteria, and viewing results.
+        2. Test for performance under high request volumes.
+    - **Tools/Techniques**: Automatic browser testing frameworks, load testing tools.
+
+4. **Penetration Tests:** 
+   - **Test Cases**:
+        1. Test for vulnerabilities such as SQL injection and data exposure. Approach: Attempt to inject SQL queries into search parameters and verify system responses.
+        2. Simulate a malicious attack to assess the application's resilience. Approach: Use an automated tool to simulate an attack.
+   - **Tools/Techniques**: SQLMap, OWASP ZAP.
+
+### Use Case: Edit User Roles
+
+1. **Unit Tests:**
+    - **Test Cases**:
+        1. Verify that the user's roles are updated correctly.
+        2. Ensure the user always has at least one role.
+        3. Ensure the user cannot have duplicated roles.
+    - **Tools/Techniques**: Mocking frameworks for database interactions, assertion libraries for result validation.
+
+2. **Functional Tests:**
+    - **Test Cases**:
+        1. Validate that it is possible to select any combination of user roles.
+        2. Ensure the requesting user is authenticated as an administrator.
+        3. Ensure the requesting user is currently active.
+    - **Tools/Techniques**: Test automation frameworks, API testing tools.
+
+3. **End-to-End (E2E) Tests:**
+    - **Test Cases**:
+        1. Simulate the end-to-end flow of editing a user's roles, including navigating to the user search page, selecting a user and changing its roles.
+    - **Tools/Techniques**: Automatic browser testing frameworks.
+
+4. **Penetration Tests:**
+    - **Test Cases**:
+        1. Test for vulnerabilities such as SQL injection and data exposure. Approach: Attempt to inject SQL queries into search parameters and verify system responses.
+        2. Simulate a malicious attack to assess the application's resilience. Approach: Use an automated tool to simulate an attack.
+    - **Tools/Techniques**: SQLMap, OWASP ZAP.
+
 ### ASVS Compliance
 
 | ASVS Level | Requirement | Verification Requirement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Tool Used                                                                                                                                                                                                      |
