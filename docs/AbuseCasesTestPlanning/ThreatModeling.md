@@ -91,6 +91,64 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 - **Two-Factor Authentication (2FA)**: Enforce 2FA for admin accounts to add an extra layer of security and prevent unauthorized access in case of compromised credentials.
 
+### Files and Resources:
+<a name="files-and-resources"></a>
+
+#### Security Requirements:
+1. **Input Validation**: Check file size and file count before uncompressing.
+2. **Limits**: Enforce maximum uncompressed size and file count to prevent resource exhaustion.
+4. **Error Handling**: Provide clear error messages for rejected files.
+
+**Solution**: Make sure to validate files on the server before uncompressing them by checking their size and number to make sure they meet the specified limits.
+
+### RESTful Web Service:
+<a name="restful-web-service"></a>
+
+#### Security Requirements:
+1. **Verify that JSON schema validation is in place and verified before accepting input.**
+
+**Solution**: Add JSON schema validation to the input processing pipeline of the application. Validate input data against the predefined JSON schema before processing to ensure it meets expected formats and integrity. Provide user feedback in case of any errors.
+
+### Malicious Code Search:
+<a name="malicious-code-search"></a>
+
+#### Security Requirements:
+1. **Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.**
+
+**Solution**: Make sure to review the code of the application and any third-party libraries carefully to spot any hidden features that send data without permission.
+
+### Sensitive Private Data:
+<a name="sensitive-private-data"></a>
+
+#### Security Requirements:
+1. **Verify that users have a method to remove or export their data on demand.**
+
+**Solution**: Add a feature to the app that allows users easily to delete or download their data when needed. Include straightforward instructions and user-friendly interfaces to make the process smooth and secure.
+
+### General Data Protection:
+<a name="general-data-protection"></a>
+
+#### Security Requirements:
+1. **Verify the application protects sensitive data from being cached in server components such as load balancers and application caches.**
+
+**Solution**: Set up server components like load balancers and application caches so that they don't store any sensitive information.
+
+### Data Protection and Privacy Architecture:
+<a name="data-protection-and-privacy-architecture"></a>
+
+#### Security Requirements:
+1. **Verify that all sensitive data is identified and classified into protection levels.**
+
+**Solution**: Conduct a comprehensive data inventory to identify and classify all sensitive data handled by the application
+
+### Access Control Architecture:
+<a name="access-control-architecture"></a>
+
+#### Security Requirements:
+1. **Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths.**
+
+**Solution**: Ensure that the app routes all requests from different sources so it doesn't allow unauthorized entry points into the data or systems.
+
 ## Abuse Cases
 
 ### Abuse cases for Sign Up and Login
@@ -418,4 +476,10 @@ By conducting penetration tests, we can proactively identify and address securit
 | Level 2    | 9.2.2       | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.                                                                                                                                                                                                                                                                                                            | Deployment Diagram                                                                            |
 | Level 1    | 10.1.1      | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | The usage of the OWASP ZAP for the penetration tests can be used to test and solve some issues |
 | Level 1    | 12.1.1      | Verify that the application will not accept large files that could fill up storage or cause a denial of service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Abuse cases                                                                            |
-
+| Level 2    | 12.1.2      | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file.  | Evidence in DFD &  [Files and Resources](#files-and-resources)                                                |
+| Level 1    | 13.2.2      | Verify that JSON schema validation is in place and verified before accepting input. | Evidence in DFD & [RESTful Web Service](#restful-web-service)                                           |
+| Level 2    | 10.2.1      | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data. | Evidence in DFD & [Malicious code search](#malicious-code-search)                                       |
+| Level 1    | 8.3.2       | Verify that users have a method to remove or export their data on demand. | Evidence in DFD & [Sensitive Private Data](#sensitive-private-data)                                     |
+| Level 2    | 8.1.1       | Verify the application protects sensitive data from being cached in server components such as load balancers and application caches. | Evidence in DFD & [General Data Protection](#general-data-protection)                                   |
+| Level 2    | 1.8.1       | Verify that all sensitive data is identified and classified into protection levels. | Evidence in DFD & [Data protection and Privacy Architecture](#data-protection-and-privacy-architecture) |
+| Level 2    | 1.4.4       | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | Evidence in DFD &  [Access Control Architecture](#access-control-architecture)                          |

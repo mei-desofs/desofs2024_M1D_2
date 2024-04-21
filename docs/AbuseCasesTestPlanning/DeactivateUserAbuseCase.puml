@@ -1,0 +1,24 @@
+@startuml
+
+left to right direction
+
+actor Admin
+actor Attacker
+
+usecase (Deactivate User)
+usecase (Data Breach) #Red
+usecase (Unauthorized Access) #Red
+usecase (Malicious Deactivation) #Red
+
+Admin -------> (Deactivate User)
+Attacker -up-> (Data Breach)
+Attacker -up-> (Unauthorized Access)
+Attacker -up-> (Malicious Deactivation)
+
+
+
+(Data Breach) -up-> (Deactivate User) : threatens
+(Unauthorized Access) -up-> (Deactivate User) : threatens
+(Malicious Deactivation) -up-> (Deactivate User) : threatens
+
+@enduml
