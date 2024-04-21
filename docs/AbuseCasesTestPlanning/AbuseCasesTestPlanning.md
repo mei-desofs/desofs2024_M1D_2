@@ -1,6 +1,15 @@
-## Abuse Cases and Test Planning
+# Abuse Cases and Test Planning
 
-### Abuse Cases
+## Abuse Cases
+
+### Abuse cases for Sign Up and Login
+
+![AbuseCaseSignUpLogin.svg](AbuseCaseSignUpLogin.svg)
+
+### Abuse cases for Browse Photos
+
+![AbuseCaseBrowsePhotos.svg](AbuseCaseBrowsePhotos.svg)
+
 
 Here we have the list of abuse cases with a description associated and a mitigation for each one.
 
@@ -16,9 +25,11 @@ Here we have the list of abuse cases with a description associated and a mitigat
 | Data Harvesting             | The attacker collects metadata or information associated with user accounts or system resources for malicious purposes | Medium | High: Threatening user privacy and confidentiality                                | Implement data encryption, anonymization techniques, and user consent mechanisms to protect against unauthorized data harvesting.                                                  |
 | Denial of Service Attack    | The attacker floods the system with a high volume of requests, overwhelming resources and causing service downtime | High     | High: Disrupting normal system operations and causing loss of user trust          | Implement DDoS protection measures, such as rate limiting, traffic filtering, and distributed caching, and maintain scalable infrastructure to mitigate the impact of DoS attacks. |
 
-### Test Planning
 
-#### Add Photo to cart and Create a Portfolio UC
+
+## Test Planning
+
+### Add Photo to cart and Create a Portfolio UC
 
 ##### 1. Unit Tests:
 - **Add Photo to Cart UC**:

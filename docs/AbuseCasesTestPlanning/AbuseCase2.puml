@@ -1,0 +1,34 @@
+@startuml UseCaseDiagram
+
+left to right direction
+
+actor Guest
+actor Client
+actor Admin
+actor Attacker
+
+
+usecase (Browse Photos)
+usecase (Unauthorized Access) #Red
+usecase (Content Scraping) #Red
+usecase (Data Harvesting) #Red
+usecase (Denial of Service Attack) #Red
+
+
+(Unauthorized Access)<-- Attacker
+(Content Scraping)<-- Attacker
+(Data Harvesting)<-- Attacker
+(Denial of Service Attack)<-- Attacker
+(Browse Photos)<-- (Unauthorized Access)
+(Browse Photos)<-- (Content Scraping)
+(Browse Photos)<-- (Data Harvesting)
+(Browse Photos)<-- (Denial of Service Attack)
+
+
+
+Guest --> (Browse Photos)
+Client --> (Browse Photos)
+Admin --> (Browse Photos)
+
+
+@enduml

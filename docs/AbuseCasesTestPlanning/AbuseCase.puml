@@ -3,67 +3,34 @@
 left to right direction
 
 actor Guest
-actor Client
-actor Photographer
-actor Admin
+
 actor Attacker
 
 usecase (Sign Up)
 usecase (Login)
-usecase (Browse Photos)
-usecase (Add a Photo to Cart)
-usecase (Checkout Cart)
-usecase (View Purchased Photos)
-usecase (Create a Portfolio)
-usecase (Put a Photo up for sale)
-usecase (Delete a Photo)
-usecase (Browse Users)
-usecase (Suspend a User)
-usecase (Edit a User's Roles)
+
 usecase (Brute Force Attack)#Red
 usecase (Automated Registration) #Red
 usecase (Credential Theft) #Red
 usecase (Session Hijacking) #Red
 usecase (Account Takeover) #Red
-usecase (Unauthorized Access) #Red
-usecase (Content Scraping) #Red
-usecase (Data Harvesting) #Red
-usecase (Denial of Service Attack) #Red
 
 
-(Brute Force Attack)<-- Attacker
-(Credential Theft)<-- Attacker
-(Session Hijacking)<-- Attacker
-(Account Takeover)<-- Attacker
-(Unauthorized Access)<-- Attacker
-(Content Scraping)<-- Attacker
-(Data Harvesting)<-- Attacker
-(Denial of Service Attack)<-- Attacker
+(Automated Registration)<-- Attacker:exploits
+(Brute Force Attack)<-- Attacker:exploits
+(Credential Theft)<-- Attacker:exploits
+(Session Hijacking)<-- Attacker:exploits
+(Account Takeover)<-- Attacker:exploits
+
 (Sign Up) <-- (Automated Registration)
 (Login) <-- (Brute Force Attack)
 (Login) <-- (Credential Theft)
 (Login) <-- (Session Hijacking)
 (Login) <-- (Account Takeover)
-(Browse Photos)<-- (Unauthorized Access)
-(Browse Photos)<-- (Content Scraping)
-(Browse Photos)<-- (Data Harvesting)
-(Browse Photos)<-- (Denial of Service Attack)
-
-
 
 Guest --> (Sign Up)
 Guest --> (Login)
-Guest --> (Browse Photos)
-Client --> (Browse Photos)
-Client --> (Add a Photo to Cart)
-Client --> (Checkout Cart)
-Client --> (View Purchased Photos)
-Photographer --> (Create a Portfolio)
-Photographer --> (Put a Photo up for sale)
-Admin --> (Browse Photos)
-Admin --> (Delete a Photo)
-Admin --> (Browse Users)
-Admin --> (Suspend a User)
-Admin --> (Edit a User's Roles)
+
+
 
 @enduml
