@@ -200,4 +200,23 @@ Here we have the list of abuse cases with a description associated and a mitigat
         2. Test the visibility of the new created portfolio on the photographer's profile page or portfolios page;
     - **Tools/Techniques**: Test automation frameworks (e.g., Cypress), headless browsers, browser automation tools.
 
+#### 4. Penetration Tests
 
+Penetration testing helps identify security vulnerabilities by simulating real-world attacks. For the abuse cases identified in the application, penetration testing can uncover weaknesses exploited by attackers. Here's a brief plan:
+
+#### 1. Add Photo To Cart:
+- **Objective**: Test for vulnerabilities like denial of service, unauthorized access, and data manipulation in the "Add Photo To Cart" functionality.
+- **Approach**: Simulate denial of service attacks, attempt unauthorized access, and check for data manipulation.
+- **Tools/Techniques**: OWASP ZAP, manual testing.
+
+#### 2. Create a Portfolio:
+- **Objective**: Test for vulnerabilities like content scraping, unauthorized access, data manipulation, and denial of service in the "Create a Portfolio" UC.
+- **Approach**: Check resistance against content scraping, probe for unauthorized access, test data manipulation, and check resilience against denial of service.
+- **Tools/Techniques**: manual testing, load tests.
+
+#### 3. Reporting:
+- Compile a report detailing discovered vulnerabilities, severity levels, and recommended mitigation measures.
+- Prioritize vulnerabilities and provide actionable recommendations for mitigation.
+- Use ZAP Scanning Report.
+
+By conducting penetration tests, we can proactively identify and address security vulnerabilities, reducing the risk of successful attacks and improving the application's security.
