@@ -25,7 +25,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 ![Browse Users DFD](../image/DFD/DFDBrowseUsers.svg)
 
 ### Checkout Cart DFD
-![Checkout Cart DFD](../image/DFD/DFDBrowseUsers.svg)
+![Checkout Cart DFD](../image/DFD/DFDCheckoutCart.svg)
 
 ### Delete Photo DFD
 ![Delete Photo DFD](../image/DFD/DFDDeletePhoto.svg)
@@ -36,7 +36,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 ### Suspend User DFD
 ![Suspend User DFD](../image/DFD/DFDSuspendUser.svg)
 
-### Suspend User DFD
+### View Purchased Photos DFD
 ![Suspend User DFD](../image/DFD/DFDViewPurchasedPhotos.svg)
 
 
