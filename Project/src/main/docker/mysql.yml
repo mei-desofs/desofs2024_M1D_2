@@ -4,8 +4,8 @@ services:
   mysql:
     image: mysql:8.3.0
     volumes:
-      - ./config/mysql:/etc/mysql/conf.d
-    #   - ~/volumes/jhipster/OnlineShop/mysql/:/var/lib/mysql/
+      #- ./config/mysql:/etc/mysql/conf.d
+      - ~/volumes/jhipster/OnlineShop/mysql/:/var/lib/mysql/
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=onlineshop

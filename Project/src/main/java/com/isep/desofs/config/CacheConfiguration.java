@@ -76,6 +76,16 @@ public class CacheConfiguration {
     @Bean
     public JCacheManagerCustomizer cacheManagerCustomizer(javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration) {
         return cm -> {
+            createCache(cm, com.isep.desofs.domain.Cart.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Payment.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Photo.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Portfolio.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Portfolio.class.getName() + ".users", jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Receipt.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Role.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.RoleUser.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.User.class.getName(), jcacheConfiguration);
+            createCache(cm, com.isep.desofs.domain.Cart.class.getName() + ".photos", jcacheConfiguration);
             // jhipster-needle-redis-add-entry
         };
     }
