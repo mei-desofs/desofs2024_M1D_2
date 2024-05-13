@@ -1,0 +1,26 @@
+# This workflow must build and run backend tests
+name: "Scheduled linter workflow"
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: "50 * * * *"
+
+jobs:
+    linter:
+        runs-on: ubuntu-latest
+        steps:
+            # 1. get the code from repo
+            - name: "Check out Git repository"
+              uses: actions/checkout@v4.0.0
+            # 2. install java
+            - name: "Use Java 21"
+              uses: actions/setup-java@v4
+              with:
+                  java-version: '21'
+            # 3. build
+            - name: "Doing Clean Compile"
+              run: mvn clean compile
+            # 4. run tests
+            - name: "Running tests"
+              run: mvn test
