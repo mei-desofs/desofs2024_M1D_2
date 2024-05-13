@@ -23,6 +23,6 @@ jobs:
               working-directory: AngularProject
               run: mvn clean compile
             # 4. run tests
-            - name: "Running tests"1
+            - name: "Running tests"
               working-directory: AngularProject
               run: mvn test
