@@ -1,0 +1,86 @@
+
+entity User {
+	id Long
+    email String
+    password String
+    address String
+    contact String
+    profilePhoto ImageBlob
+}
+
+entity RoleUser {
+	id Long
+}
+
+entity Role {
+	id Long
+	nameRole String
+}
+
+entity Portfolio {
+	id Long
+    date LocalDate
+    name String
+}
+
+entity Photo {
+	id Long
+	photo ImageBlob
+    date LocalDate
+    state PhotoState
+}
+
+enum PhotoState {
+    ACTIVE, INACTIVE
+}
+
+entity Cart {
+	id Long
+	total Integer
+}
+
+entity Payment {
+	id Long
+	idCart Long
+    date LocalDate
+}
+
+entity Receipt {
+	id Long
+	idPayment Long
+	description String
+}
+
+relationship OneToOne {
+	RoleUser{userId} to User
+	RoleUser{roleId} to Role
+}
+
+relationship OneToMany {
+	Portfolio{user} to User
+}
+
+relationship ManyToOne {
+	Photo{portfolio} to Portfolio
+}
+
+relationship OneToMany {
+	Cart{photos} to Photo
+}
+
+relationship OneToOne {
+	Cart{payment} to Payment
+}
+
+relationship OneToOne {
+	Payment{receipt} to Receipt
+}
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+angularSuffix * with mySuffix

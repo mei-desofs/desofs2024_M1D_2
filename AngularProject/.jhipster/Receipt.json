@@ -1,0 +1,23 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idPayment",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Receipt",
+  "relationships": [],
+  "service": "serviceImpl"
+}

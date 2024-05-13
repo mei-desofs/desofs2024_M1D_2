@@ -1,0 +1,19 @@
+{
+  "angularJSSuffix": "mySuffix",
+  "annotations": {},
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nameRole",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Role",
+  "relationships": [],
+  "service": "serviceImpl"
+}
