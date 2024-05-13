@@ -1,5 +1,5 @@
 # This workflow must build and run backend tests
-name: "Scheduled linter workflow"
+name: "Build backend and run it tests"
 
 on:
     workflow_dispatch:
@@ -20,7 +20,9 @@ jobs:
                   java-version: '21'
             # 3. build
             - name: "Doing Clean Compile"
+              working-directory: AngularProject
               run: mvn clean compile
             # 4. run tests
-            - name: "Running tests"
+            - name: "Running tests"1
+              working-directory: AngularProject
               run: mvn test
