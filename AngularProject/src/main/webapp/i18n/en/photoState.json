@@ -1,0 +1,9 @@
+{
+  "photoStoreApp": {
+    "PhotoState": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

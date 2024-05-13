@@ -1,6 +1,8 @@
 {
   "angularJSSuffix": "mySuffix",
-  "annotations": {},
+  "annotations": {
+    "changelogDate": "20240513181430"
+  },
   "applications": "*",
   "dto": "mapstruct",
   "fields": [
@@ -15,5 +17,6 @@
   ],
   "name": "Role",
   "relationships": [],
+  "searchEngine": "no",
   "service": "serviceImpl"
 }

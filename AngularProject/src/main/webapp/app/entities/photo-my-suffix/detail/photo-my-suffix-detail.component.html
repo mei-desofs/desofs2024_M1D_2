@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (photo()) {
+      <div>
+        <h2 data-cy="photoDetailsHeading"><span jhiTranslate="photoStoreApp.photo.detail.title">Photo</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="photoStoreApp.photo.id">Id</span></dt>
+          <dd>
+            <span>{{ photo()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.photo.photo">Photo</span></dt>
+          <dd>
+            @if (photo()!.photo) {
+              <div>
+                <a (click)="openFile(photo()!.photo ?? '', photo()!.photoContentType)">
+                  <img [src]="'data:' + photo()!.photoContentType + ';base64,' + photo()!.photo" style="max-width: 100%" alt="photo" />
+                </a>
+                {{ photo()!.photoContentType }}, {{ byteSize(photo()!.photo ?? '') }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.photo.date">Date</span></dt>
+          <dd>
+            <span>{{ photo()!.date | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.photo.state">State</span></dt>
+          <dd>
+            <span [jhiTranslate]="'photoStoreApp.PhotoState.' + (photo()!.state ?? 'null')">{{
+              { null: '', ACTIVE: 'ACTIVE', INACTIVE: 'INACTIVE' }[photo()!.state ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.photo.portfolio">Portfolio</span></dt>
+          <dd>
+            @if (photo()!.portfolio) {
+              <div>
+                <a [routerLink]="['/portfolio-my-suffix', photo()!.portfolio?.id, 'view']">{{ photo()!.portfolio?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.photo.cart">Cart</span></dt>
+          <dd>
+            @if (photo()!.cart) {
+              <div>
+                <a [routerLink]="['/cart-my-suffix', photo()!.cart?.id, 'view']">{{ photo()!.cart?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/photo-my-suffix', photo()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -7,7 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "cartMySuffix": "Cart",
+        "paymentMySuffix": "Payment",
+        "photoMySuffix": "Photo",
+        "portfolioMySuffix": "Portfolio",
+        "receiptMySuffix": "Receipt",
+        "roleMySuffix": "Role",
+        "roleUserMySuffix": "Role User",
+        "userMySuffix": "User"
       },
       "account": {
         "main": "Account",

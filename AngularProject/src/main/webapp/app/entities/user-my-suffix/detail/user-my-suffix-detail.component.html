@@ -1,0 +1,69 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (user()) {
+      <div>
+        <h2 data-cy="userDetailsHeading"><span jhiTranslate="photoStoreApp.user.detail.title">User</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="photoStoreApp.user.id">Id</span></dt>
+          <dd>
+            <span>{{ user()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.user.email">Email</span></dt>
+          <dd>
+            <span>{{ user()!.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.user.password">Password</span></dt>
+          <dd>
+            <span>{{ user()!.password }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.user.address">Address</span></dt>
+          <dd>
+            <span>{{ user()!.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.user.contact">Contact</span></dt>
+          <dd>
+            <span>{{ user()!.contact }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.user.profilePhoto">Profile Photo</span></dt>
+          <dd>
+            @if (user()!.profilePhoto) {
+              <div>
+                <a (click)="openFile(user()!.profilePhoto ?? '', user()!.profilePhotoContentType)">
+                  <img
+                    [src]="'data:' + user()!.profilePhotoContentType + ';base64,' + user()!.profilePhoto"
+                    style="max-width: 100%"
+                    alt="user"
+                  />
+                </a>
+                {{ user()!.profilePhotoContentType }}, {{ byteSize(user()!.profilePhoto ?? '') }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.user.portfolio">Portfolio</span></dt>
+          <dd>
+            @if (user()!.portfolio) {
+              <div>
+                <a [routerLink]="['/portfolio-my-suffix', user()!.portfolio?.id, 'view']">{{ user()!.portfolio?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/user-my-suffix', user()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

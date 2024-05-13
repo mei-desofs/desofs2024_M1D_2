@@ -1,0 +1,11 @@
+id;photo;photo_content_type;date;state
+1;../fake-data/blob/hipster.png;image/png;2024-05-12;INACTIVE
+2;../fake-data/blob/hipster.png;image/png;2024-05-13;ACTIVE
+3;../fake-data/blob/hipster.png;image/png;2024-05-13;ACTIVE
+4;../fake-data/blob/hipster.png;image/png;2024-05-13;INACTIVE
+5;../fake-data/blob/hipster.png;image/png;2024-05-12;INACTIVE
+6;../fake-data/blob/hipster.png;image/png;2024-05-12;INACTIVE
+7;../fake-data/blob/hipster.png;image/png;2024-05-13;INACTIVE
+8;../fake-data/blob/hipster.png;image/png;2024-05-12;INACTIVE
+9;../fake-data/blob/hipster.png;image/png;2024-05-13;ACTIVE
+10;../fake-data/blob/hipster.png;image/png;2024-05-13;ACTIVE

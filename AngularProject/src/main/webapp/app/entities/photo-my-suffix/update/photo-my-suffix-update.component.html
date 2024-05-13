@@ -1,0 +1,138 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-photo-my-suffix-heading" data-cy="PhotoCreateUpdateHeading" jhiTranslate="photoStoreApp.photo.home.createOrEditLabel">
+        Create or edit a Photo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="photoStoreApp.photo.id">Id</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_photo" jhiTranslate="photoStoreApp.photo.photo">Photo</label>
+          <div>
+            @if (editForm.get('photo')!.value) {
+              <img
+                [src]="'data:' + editForm.get('photoContentType')!.value + ';base64,' + editForm.get('photo')!.value"
+                style="max-height: 100px"
+                alt="photo"
+              />
+            }
+            @if (editForm.get('photo')!.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start">{{ editForm.get('photoContentType')!.value }}, {{ byteSize(editForm.get('photo')!.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="clearInputImage('photo', 'photoContentType', 'file_photo')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times"></fa-icon>
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_photo"
+              data-cy="photo"
+              (change)="setFileData($event, 'photo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="photo" id="field_photo" data-cy="photo" formControlName="photo" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="photoContentType"
+            id="field_photoContentType"
+            formControlName="photoContentType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_date" jhiTranslate="photoStoreApp.photo.date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_state" jhiTranslate="photoStoreApp.photo.state">State</label>
+          <select class="form-control" name="state" formControlName="state" id="field_state" data-cy="state">
+            <option [ngValue]="null">{{ 'photoStoreApp.PhotoState.null' | translate }}</option>
+            @for (photoState of photoStateValues; track $index) {
+              <option [value]="photoState">{{ 'photoStoreApp.PhotoState.' + photoState | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_portfolio" jhiTranslate="photoStoreApp.photo.portfolio">Portfolio</label>
+          <select
+            class="form-control"
+            id="field_portfolio"
+            data-cy="portfolio"
+            name="portfolio"
+            formControlName="portfolio"
+            [compareWith]="comparePortfolioMySuffix"
+          >
+            <option [ngValue]="null"></option>
+            @for (portfolioOption of portfoliosSharedCollection; track $index) {
+              <option [ngValue]="portfolioOption">{{ portfolioOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cart" jhiTranslate="photoStoreApp.photo.cart">Cart</label>
+          <select
+            class="form-control"
+            id="field_cart"
+            data-cy="cart"
+            name="cart"
+            formControlName="cart"
+            [compareWith]="compareCartMySuffix"
+          >
+            <option [ngValue]="null"></option>
+            @for (cartOption of cartsSharedCollection; track $index) {
+              <option [ngValue]="cartOption">{{ cartOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

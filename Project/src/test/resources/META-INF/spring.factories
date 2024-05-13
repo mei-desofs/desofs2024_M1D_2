@@ -1,3 +1,0 @@
-org.springframework.test.context.ContextCustomizerFactory = com.isep.desofs.\
-    config.SqlTestContainersSpringContextCustomizerFactory,com.isep.desofs.\
-    config.RedisTestContainersSpringContextCustomizerFactory

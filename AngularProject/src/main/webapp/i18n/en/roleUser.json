@@ -1,0 +1,25 @@
+{
+  "photoStoreApp": {
+    "roleUser": {
+      "home": {
+        "title": "Role Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Role User",
+        "createOrEditLabel": "Create or edit a Role User",
+        "notFound": "No Role Users found"
+      },
+      "created": "A new Role User is created with identifier {{ param }}",
+      "updated": "A Role User is updated with identifier {{ param }}",
+      "deleted": "A Role User is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Role User {{ id }}?"
+      },
+      "detail": {
+        "title": "Role User"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "roleId": "Role Id"
+    }
+  }
+}

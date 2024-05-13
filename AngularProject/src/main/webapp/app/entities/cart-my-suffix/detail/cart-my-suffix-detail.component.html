@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cart()) {
+      <div>
+        <h2 data-cy="cartDetailsHeading"><span jhiTranslate="photoStoreApp.cart.detail.title">Cart</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="photoStoreApp.cart.id">Id</span></dt>
+          <dd>
+            <span>{{ cart()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.cart.total">Total</span></dt>
+          <dd>
+            <span>{{ cart()!.total }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.cart.payment">Payment</span></dt>
+          <dd>
+            @if (cart()!.payment) {
+              <div>
+                <a [routerLink]="['/payment-my-suffix', cart()!.payment?.id, 'view']">{{ cart()!.payment?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cart-my-suffix', cart()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

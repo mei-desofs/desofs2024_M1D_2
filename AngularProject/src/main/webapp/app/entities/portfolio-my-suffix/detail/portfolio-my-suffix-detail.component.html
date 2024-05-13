@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (portfolio()) {
+      <div>
+        <h2 data-cy="portfolioDetailsHeading"><span jhiTranslate="photoStoreApp.portfolio.detail.title">Portfolio</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="photoStoreApp.portfolio.id">Id</span></dt>
+          <dd>
+            <span>{{ portfolio()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.portfolio.date">Date</span></dt>
+          <dd>
+            <span>{{ portfolio()!.date | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="photoStoreApp.portfolio.name">Name</span></dt>
+          <dd>
+            <span>{{ portfolio()!.name }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/portfolio-my-suffix', portfolio()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
