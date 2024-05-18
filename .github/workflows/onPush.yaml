@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         working-directory: AngularProject
-        
+
 
     strategy:
       matrix:
@@ -18,11 +18,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Verify AngularProject directory
-        run: |
-          ls -la
-          ls -la AngularProject
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
