@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: AngularProject/package-lock.json
 
       - name: Display Node.js version
         run: node -v
