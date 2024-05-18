@@ -231,10 +231,7 @@ public class SecurityConfiguration {
                     return Mono.just(jwt);
                 }
                 // Get user info from `users` cache if present
-                return Optional.ofNullable(
-                    users.getIfPresent(jwt.getSubject())
-                )// Retrieve user info from OAuth provider if not already loaded
-                .orElseGet(() ->
+                return Optional.ofNullable(users.getIfPresent(jwt.getSubject())).orElseGet(() -> // Retrieve user info from OAuth provider if not already loaded
                     WebClient.create()
                         .get()
                         .uri(userInfoUri)
