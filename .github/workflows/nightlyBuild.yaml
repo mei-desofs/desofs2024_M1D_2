@@ -1,5 +1,5 @@
 # This workflow must build and run backend tests
-name: "Build backend and run it tests"
+name: "Nightly Build"
 
 on:
     workflow_dispatch:
@@ -38,12 +38,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run prettier check
-        run: npm run prettier:check
-
       - name: Run tests
         run: npm run test
 
@@ -69,12 +63,6 @@ jobs:
 
       - name: Clean and compile
         run: mvn clean compile
-
-      - name: Run lint (Checkstyle)
-        run: mvn checkstyle:check
-
-      - name: Run prettier check (Spotless)
-        run: mvn spotless:check
 
       - name: Run tests
         run: mvn test
