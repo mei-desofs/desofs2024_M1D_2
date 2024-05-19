@@ -61,9 +61,6 @@ jobs:
           java-version: '21'
           distribution: 'adopt'
 
-      - name: Install Maven
-        run: sudo apt-get update && sudo apt-get install -y maven
-
       - name: Clean and compile
         run: mvn clean compile
 
