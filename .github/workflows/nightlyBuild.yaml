@@ -61,12 +61,17 @@ jobs:
           java-version: '21'
           distribution: 'adopt'
 
+      - name: Set up Maven 3.9.5
+        uses: s4u/maven-action@v2
+        with:
+          maven-version: '3.9.5'
+
       - name: Clean and compile
         run: mvn clean compile
 
       - name: Run tests
         run: mvn test
-        
+
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
