@@ -49,3 +49,5 @@ jobs:
       - name: Run prettier check
         run: npm run prettier:check
 
+      - name: Run dependency check
+        run: mvn org.owasp:dependency-check-maven:check
