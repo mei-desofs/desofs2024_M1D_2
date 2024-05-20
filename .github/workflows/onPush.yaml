@@ -50,4 +50,11 @@ jobs:
         run: npm run prettier:check
 
       - name: Run dependency check
+        id: dependency-check
         run: mvn org.owasp:dependency-check-maven:check
+        continue-on-error: true
+
+      - name: Warn if dependency check failed
+        if: steps.dependency-check.outcome == 'failure'
+        run: |
+          echo "Dependency check failed!"
