@@ -41,4 +41,13 @@ jobs:
       - name: Run prettier check
         run: npm run prettier:check
 
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+
+      - name: Clean and compile
+        run: mvn clean compile
+
 
