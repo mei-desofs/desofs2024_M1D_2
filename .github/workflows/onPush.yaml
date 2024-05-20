@@ -10,7 +10,6 @@ jobs:
       run:
         working-directory: AngularProject
 
-
     strategy:
       matrix:
         node-version: [20.12.1]
@@ -49,5 +48,3 @@ jobs:
 
       - name: Clean and compile
         run: mvn clean compile
-
-
