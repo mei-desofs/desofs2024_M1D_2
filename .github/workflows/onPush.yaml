@@ -34,13 +34,7 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run prettier check
-        run: npm run prettier:check
-
-      - name: Set up Java 
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           java-version: '21'
@@ -48,3 +42,10 @@ jobs:
 
       - name: Clean and compile
         run: mvn clean compile
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run prettier check
+        run: npm run prettier:check
+
