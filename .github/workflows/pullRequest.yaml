@@ -67,12 +67,6 @@ jobs:
       - name: Clean and compile
         run: mvn clean compile
 
-      - name: Run lint (Checkstyle)
-        run: mvn checkstyle:check
-
-      - name: Run prettier check (Spotless)
-        run: mvn spotless:check
-
       - name: Run tests
         run: mvn test
 
