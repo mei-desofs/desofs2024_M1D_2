@@ -26,9 +26,9 @@ In order to optimise waiting times, we divided the pipeline into three workflows
 
 ### CI
 
-This workflow of Continuous Integration (CI) is triggered whenever a push is made to the repository. The following steps are performed here: build, linter and prettier.
+This workflow of Continuous Integration (CI) is triggered whenever a push is made to the repository. The following steps are performed here: build, linter and prettier.  
 ![Steps of CI](img.png)  
-Steps after a push is made.
+Steps after a push is made.  
 
 ### On Pull Request
 
