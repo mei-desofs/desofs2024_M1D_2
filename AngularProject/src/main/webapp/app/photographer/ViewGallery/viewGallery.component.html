@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-9">
+    <p class="lead">Welcome to the Photo Store</p>
+
+    <div>
+      @if (account() !== null) {
+        <div class="alert alert-success">
+          @if (account()) {
+            <span id="home-logged-message" jhiTranslate="home.logged.message" [translateValues]="{ username: account()!.login }"
+              >You are logged in as user &quot;{{ account()!.login }}&quot;.</span
+            >
+          }
+        </div>
+      } @else {
+        <div class="alert alert-warning">
+          <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
+          <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a
+          ><span jhiTranslate="global.messages.info.authenticated.suffix"
+            >, you can try the default accounts:<br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User
+            (login=&quot;user&quot; and password=&quot;user&quot;).</span
+          >
+        </div>
+      }
+    </div>
+  </div>
+</div>

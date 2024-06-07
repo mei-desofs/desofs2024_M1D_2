@@ -193,6 +193,41 @@
             }
           </ul>
         </li>
+        <li
+          *jhiHasAnyAuthority="'ROLE_PHOTOGRAPHER'"
+          ngbDropdown
+          class="nav-item dropdown pointer"
+          display="dynamic"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="photographer-menu" data-cy="photographerMenu">
+    <span>
+      <fa-icon icon="camera"></fa-icon>
+      <span jhiTranslate="global.menu.photographer.main">Photographer</span>
+    </span>
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="photographer-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/photographer/create-portfolio" routerLinkActive="active" (click)="collapseNavbar()">
+                <fa-icon icon="plus" [fixedWidth]="true"></fa-icon>
+                <span >Create a Portfolio</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/photographer/put-up-for-sale" routerLinkActive="active" (click)="collapseNavbar()">
+                <fa-icon icon="upload" [fixedWidth]="true"></fa-icon>
+                <span >Put Photo to Sale</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/photographer/view-gallery" routerLinkActive="active" (click)="collapseNavbar()">
+                <fa-icon icon="images" [fixedWidth]="true"></fa-icon>
+                <span >View Gallery</span>
+              </a>
+            </li>
+          </ul>
+        </li>
         @if (languages && languages.length > 1) {
           <li ngbDropdown class="nav-item dropdown pointer" display="dynamic">
             <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">

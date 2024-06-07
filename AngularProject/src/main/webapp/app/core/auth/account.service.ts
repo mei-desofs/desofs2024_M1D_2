@@ -24,6 +24,11 @@ export class AccountService {
   authenticate(identity: Account | null): void {
     this.userIdentity.set(identity);
     this.authenticationState.next(this.userIdentity());
+    if (identity) {
+      console.log('User authorities: ', identity.authorities); // Log the authorities of the user
+    } else {
+      this.accountCache$ = null;
+    }
     if (!identity) {
       this.accountCache$ = null;
     }
@@ -41,6 +46,8 @@ export class AccountService {
     if (!Array.isArray(authorities)) {
       authorities = [authorities];
     }
+    console.log('User authorities: ', userIdentity.authorities); // Log the authorities of the user
+
     return userIdentity.authorities.some((authority: string) => authorities.includes(authority));
   }
 

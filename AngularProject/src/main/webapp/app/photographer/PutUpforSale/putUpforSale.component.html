@@ -2,11 +2,10 @@
   <div class="col-8">
     <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2 id="jhi-photo-my-suffix-heading" data-cy="PhotoCreateUpdateHeading" jhiTranslate="photoStoreApp.photo.home.createOrEditLabel">
-        Create or edit a Photo
+        Put up Photo for Sale
       </h2>
 
       <div>
-        <jhi-alert-error></jhi-alert-error>
 
         @if (editForm.controls.id.value !== null) {
           <div class="mb-3">
@@ -56,32 +55,32 @@
           />
         </div>
 
-        <div class="mb-3">
-          <label class="form-label" for="field_date" jhiTranslate="photoStoreApp.photo.date">Date</label>
-          <div class="input-group">
-            <input
-              id="field_date"
-              data-cy="date"
-              type="text"
-              class="form-control"
-              name="date"
-              ngbDatepicker
-              #dateDp="ngbDatepicker"
-              formControlName="date"
-            />
-            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
-          </div>
-        </div>
+<!--        <div class="mb-3">-->
+<!--          <label class="form-label" for="field_date" jhiTranslate="photoStoreApp.photo.date">Date</label>-->
+<!--          <div class="input-group">-->
+<!--            <input-->
+<!--              id="field_date"-->
+<!--              data-cy="date"-->
+<!--              type="text"-->
+<!--              class="form-control"-->
+<!--              name="date"-->
+<!--              ngbDatepicker-->
+<!--              #dateDp="ngbDatepicker"-->
+<!--              formControlName="date"-->
+<!--            />-->
+<!--            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div class="mb-3">
-          <label class="form-label" for="field_state" jhiTranslate="photoStoreApp.photo.state">State</label>
-          <select class="form-control" name="state" formControlName="state" id="field_state" data-cy="state">
-            <option [ngValue]="null">{{ 'photoStoreApp.PhotoState.null' | translate }}</option>
-            @for (photoState of photoStateValues; track $index) {
-              <option [value]="photoState">{{ 'photoStoreApp.PhotoState.' + photoState | translate }}</option>
-            }
-          </select>
-        </div>
+<!--        <div class="mb-3">-->
+<!--          <label class="form-label" for="field_state" jhiTranslate="photoStoreApp.photo.state">State</label>-->
+<!--          <select class="form-control" name="state" formControlName="state" id="field_state" data-cy="state">-->
+<!--            <option [ngValue]="null">{{ 'photoStoreApp.PhotoState.null' | translate }}</option>-->
+<!--            @for (photoState of photoStateValues; track $index) {-->
+<!--              <option [value]="photoState">{{ 'photoStoreApp.PhotoState.' + photoState | translate }}</option>-->
+<!--            }-->
+<!--          </select>-->
+<!--        </div>-->
 
         <div class="mb-3">
           <label class="form-label" for="field_portfolio" jhiTranslate="photoStoreApp.photo.portfolio">Portfolio</label>
@@ -95,27 +94,27 @@
           >
             <option [ngValue]="null"></option>
             @for (portfolioOption of portfoliosSharedCollection; track $index) {
-              <option [ngValue]="portfolioOption">{{ portfolioOption.id }}</option>
+              <option [ngValue]="portfolioOption">{{ portfolioOption.name }}</option>
             }
           </select>
         </div>
 
-<!--        <div class="mb-3">-->
-<!--          <label class="form-label" for="field_cart" jhiTranslate="photoStoreApp.photo.cart">Cart</label>-->
-<!--          <select-->
-<!--            class="form-control"-->
-<!--            id="field_cart"-->
-<!--            data-cy="cart"-->
-<!--            name="cart"-->
-<!--            formControlName="cart"-->
-<!--            [compareWith]="compareCartMySuffix"-->
-<!--          >-->
-<!--            <option [ngValue]="null"></option>-->
-<!--            @for (cartOption of cartsSharedCollection; track $index) {-->
-<!--              <option [ngValue]="cartOption">{{ cartOption.id }}</option>-->
-<!--            }-->
-<!--          </select>-->
-<!--        </div>-->
+        <!--        <div class="mb-3">-->
+        <!--          <label class="form-label" for="field_cart" jhiTranslate="photoStoreApp.photo.cart">Cart</label>-->
+        <!--          <select-->
+        <!--            class="form-control"-->
+        <!--            id="field_cart"-->
+        <!--            data-cy="cart"-->
+        <!--            name="cart"-->
+        <!--            formControlName="cart"-->
+        <!--            [compareWith]="compareCartMySuffix"-->
+        <!--          >-->
+        <!--            <option [ngValue]="null"></option>-->
+        <!--            @for (cartOption of cartsSharedCollection; track $index) {-->
+        <!--              <option [ngValue]="cartOption">{{ cartOption.id }}</option>-->
+        <!--            }-->
+        <!--          </select>-->
+        <!--        </div>-->
       </div>
 
       <div>

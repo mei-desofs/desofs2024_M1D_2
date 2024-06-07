@@ -453,9 +453,7 @@
                             </goals>
                         </execution>
                     </executions>
-                    <configuration>
-                        <nodeAuditSkip>true</nodeAuditSkip>
-                    </configuration>
+
                 </plugin>
                 <plugin>
                     <groupId>io.github.git-commit-id</groupId>
