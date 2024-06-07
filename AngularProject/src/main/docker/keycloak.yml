@@ -8,7 +8,9 @@ services:
       - ./realm-config:/opt/keycloak/data/import
       - ./realm-config/keycloak-health-check.sh:/opt/keycloak/health-check.sh
     environment:
-      - KC_DB=dev-file
+      - KC_DB=mysql
+      - KC_DB_URL=jdbc:mysql://mysql:3306/photostore?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true&character_set_server=utf8mb4
+      - KC_DB_USERNAME=root
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
       - KC_FEATURES=scripts
