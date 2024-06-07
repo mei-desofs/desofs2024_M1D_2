@@ -102,6 +102,7 @@ export class PutUpforSaleComponent implements OnInit {
     const photo = this.photoFormService.getPhotoMySuffix(this.editForm);
     photo.cart = null; // Set cart to null
     photo.date=dayjs(); // Set date to current date
+    photo.state=PhotoState.ACTIVE; // Set state to ACTIVE
     if (photo.id !== null) {
       this.subscribeToSaveResponse(this.photoService.update(photo));
     } else {
@@ -113,6 +114,11 @@ export class PutUpforSaleComponent implements OnInit {
     result.pipe(finalize(() => this.onSaveFinalize())).subscribe({
       next: () => this.onSaveSuccess(),
       error: () => this.onSaveError(),
+    });
+
+    // Log the response from the photo service
+    result.subscribe(response => {
+      console.log('Response from photo service:', response);
     });
   }
 
