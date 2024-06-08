@@ -32,6 +32,11 @@ const routes: Routes = [
     loadComponent: () => import('./browseUsers/browseUsers.component'),
     title: 'Browse Users',
   },
+  {
+    path: 'browse-user-roles',
+    loadComponent: () => import('./browseUserRoles/browseUserRoles.component'),
+    title: 'Browse User Roles',
+  },
   /* jhipster-needle-add-admin-route - JHipster will add admin routes here */
 ];
 
