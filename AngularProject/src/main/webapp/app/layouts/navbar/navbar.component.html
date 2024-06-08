@@ -228,6 +228,28 @@
             </li>
           </ul>
         </li>
+        <li
+          *jhiHasAnyAuthority="'ROLE_CLIENT'"
+          ngbDropdown
+          class="nav-item dropdown pointer"
+          display="dynamic"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="client-menu" data-cy="clientMenu">
+            <span>
+              <fa-icon icon="camera"></fa-icon>
+              <span jhiTranslate="global.menu.client.main">Client</span>
+            </span>
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="client-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/client/view-purchased-photos" routerLinkActive="active" (click)="collapseNavbar()">
+                <span >View Purchased Photos</span>
+              </a>
+            </li>
+          </ul>
+        </li>
         @if (languages && languages.length > 1) {
           <li ngbDropdown class="nav-item dropdown pointer" display="dynamic">
             <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
