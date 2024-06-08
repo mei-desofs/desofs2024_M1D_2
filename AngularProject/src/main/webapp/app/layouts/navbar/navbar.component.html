@@ -190,7 +190,11 @@
                   <span jhiTranslate="global.menu.admin.apidocs">API</span>
                 </a>
               </li>
-            }
+            }<li>
+            <a class="dropdown-item" routerLink="/admin/browse-users" routerLinkActive="active" (click)="collapseNavbar()">
+              <span>Browse Users</span>
+            </a>
+          </li>
           </ul>
         </li>
         <li
