@@ -26,7 +26,9 @@
             }
             @if (editForm.get('photo')!.value) {
               <div class="form-text text-danger clearfix">
-                <span class="pull-start">{{ editForm.get('photoContentType')!.value }}, {{ byteSize(editForm.get('photo')!.value!) }}</span>
+                <div *ngIf="getPhotoSize(editForm.get('photo')!.value!) > 10000000" class="alert alert-danger">
+                  The file size is too large. It must be less than 10 megabytes.
+                </div>
                 <button
                   type="button"
                   (click)="clearInputImage('photo', 'photoContentType', 'file_photo')"
@@ -41,7 +43,7 @@
               id="file_photo"
               data-cy="photo"
               (change)="setFileData($event, 'photo', true)"
-              accept="image/*"
+              accept=".png,.svg,.jpg,.jpeg"
               jhiTranslate="entity.action.addimage"
             />
           </div>

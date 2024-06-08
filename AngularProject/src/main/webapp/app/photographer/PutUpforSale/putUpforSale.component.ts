@@ -66,7 +66,9 @@ export class PutUpforSaleComponent implements OnInit {
 
     });
   }
-
+  getPhotoSize(base64String:string): number {
+    return this.dataUtils.size(base64String);
+  }
   byteSize(base64String: string): string {
     return this.dataUtils.byteSize(base64String);
   }
