@@ -68,4 +68,12 @@ public interface UserService {
      * @return a Mono to signal the deletion
      */
     Mono<Void> delete(Long id);
+
+    /**
+     * Get the user by email.
+     *
+     * @param email the email of the entity.
+     * @return the entity.
+     */
+    Mono<UserDTO> findByEmail(String email);
 }

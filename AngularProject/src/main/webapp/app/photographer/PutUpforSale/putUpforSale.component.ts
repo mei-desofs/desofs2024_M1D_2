@@ -63,8 +63,7 @@ export class PutUpforSaleComponent implements OnInit {
       this.loadRelationshipsOptions();
     });
     this.editForm.valueChanges.subscribe(value => {
-      console.log('Form value:', value);
-      console.log('Form validity:', this.editForm.valid);
+
     });
   }
 
@@ -118,7 +117,6 @@ export class PutUpforSaleComponent implements OnInit {
 
     // Log the response from the photo service
     result.subscribe(response => {
-      console.log('Response from photo service:', response);
     });
   }
 

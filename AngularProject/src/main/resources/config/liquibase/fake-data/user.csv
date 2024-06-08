@@ -9,3 +9,6 @@ id;email;password;address;contact;profile_photo;profile_photo_content_type
 8;Hassan.Hermann@yahoo.com;daintily;dreamily which ack;meanwhile near the;../fake-data/blob/hipster.png;image/png
 9;Dion.Gorczany@gmail.com;surmise;well um aside;perplex bleakly whose;../fake-data/blob/hipster.png;image/png
 10;Clarabelle62@yahoo.com;vital;norm at sans;without;../fake-data/blob/hipster.png;image/png
+11;user@localhost;password;address;contact;../fake-data/blob/hipster.png;image/png
+12;photographer@localhost;password;address;contact;../fake-data/blob/hipster.png;image/png
+13;admin@localhost;password;address;contact;../fake-data/blob/hipster.png;image/png

@@ -70,6 +70,9 @@
     "default_environment": "prod",
     "packaging": "jar"
   },
+  "jest": {
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
   "dependencies": {
     "@angular/common": "17.3.6",
     "@angular/compiler": "17.3.6",
@@ -105,6 +108,7 @@
     "@types/node": "20.11.25",
     "@typescript-eslint/eslint-plugin": "7.7.1",
     "@typescript-eslint/parser": "7.7.1",
+    "babel-core": "^7.0.0-bridge.0",
     "browser-sync": "3.0.2",
     "browser-sync-webpack-plugin": "2.3.0",
     "buffer": "6.0.3",
@@ -121,9 +125,11 @@
     "jest-junit": "16.0.0",
     "jest-preset-angular": "14.0.3",
     "jest-sonar": "0.2.16",
+    "jest-sonar-reporter": "^2.0.0",
     "merge-jsons-webpack-plugin": "2.0.1",
     "prettier": "^3.2.5",
     "rimraf": "5.0.5",
+    "sonarqube-scanner": "^4.0.1",
     "swagger-ui-dist": "5.17.2",
     "ts-jest": "29.1.2",
     "typescript": "5.4.5",

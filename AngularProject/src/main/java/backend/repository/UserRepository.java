@@ -23,6 +23,8 @@ public interface UserRepository extends ReactiveCrudRepository<User, Long>, User
     @Query("SELECT * FROM user entity WHERE entity.id not in (select role_user_id from role_user)")
     Flux<User> findAllWhereRoleUserIsNull();
 
+    @Query("SELECT * FROM user entity WHERE entity.email = :email")
+    Mono<User> findByEmail(String email);
     @Override
     <S extends User> Mono<S> save(S entity);
 

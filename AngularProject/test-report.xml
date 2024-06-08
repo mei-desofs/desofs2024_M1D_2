@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\filter\filter.model.spec.ts">
+    <testCase name="FilterModel Tests FilterOption nameAsQueryParam returns query key" duration="4"/>
+    <testCase name="FilterModel Tests FilterOption addValue adds multiples unique values and returns true" duration="1"/>
+    <testCase name="FilterModel Tests FilterOption addValue doesn&apos;t adds duplicated values and return false" duration="0"/>
+    <testCase name="FilterModel Tests FilterOption removeValue removes the exiting value and return true" duration="1"/>
+    <testCase name="FilterModel Tests FilterOption removeValue doesn&apos;t removes the value and return false" duration="0"/>
+    <testCase name="FilterModel Tests FilterOption equals returns true to matching options" duration="0"/>
+    <testCase name="FilterModel Tests FilterOption equals returns false to different name" duration="0"/>
+    <testCase name="FilterModel Tests FilterOption equals returns false to different values" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions hasAnyFilterSet with empty options returns false" duration="1"/>
+    <testCase name="FilterModel Tests FilterOptions hasAnyFilterSet with options and empty values returns false" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions hasAnyFilterSet with option and value returns true" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions clear removes empty filters and doesn&apos;t emit next element" duration="1"/>
+    <testCase name="FilterModel Tests FilterOptions clear removes empty filters and emits next element" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions addFilter adds a non existing FilterOption, returns true and emit next element" duration="1"/>
+    <testCase name="FilterModel Tests FilterOptions addFilter adds a non existing value to FilterOption, returns true and emit next element" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions addFilter doesn&apos;t add FilterOption values already added, returns false and doesn&apos;t emit next element" duration="1"/>
+    <testCase name="FilterModel Tests FilterOptions removeFilter removes an existing FilterOptions and returns true" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions removeFilter doesn&apos;t remove a non existing FilterOptions values returns false" duration="1"/>
+    <testCase name="FilterModel Tests FilterOptions removeFilter doesn&apos;t remove a non existing FilterOptions returns false" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions initializeFromParams should parse from Params if there are any and not emit next element" duration="1"/>
+    <testCase name="FilterModel Tests FilterOptions initializeFromParams should parse from Params and have none if there are none" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions initializeFromParams should parse from Params and have a parameter with 2 values and one additional value" duration="0"/>
+    <testCase name="FilterModel Tests FilterOptions initializeFromParams should parse from Params and have a parameter with 2 keys" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\util\alert.service.spec.ts">
+    <testCase name="Alert service test Alert Service Test should produce a proper alert object and fetch it" duration="25"/>
+    <testCase name="Alert service test Alert Service Test should produce a proper alert object and add it to external alert objects array" duration="5"/>
+    <testCase name="Alert service test Alert Service Test should produce an alert object with correct id" duration="5"/>
+    <testCase name="Alert service test Alert Service Test should close an alert correctly" duration="5"/>
+    <testCase name="Alert service test Alert Service Test should close an alert on timeout correctly" duration="4"/>
+    <testCase name="Alert service test Alert Service Test should clear alerts" duration="4"/>
+    <testCase name="Alert service test Alert Service Test should produce a scoped alert" duration="3"/>
+    <testCase name="Alert service test Alert Service Test should produce a success message" duration="3"/>
+    <testCase name="Alert service test Alert Service Test should produce a success message with custom position" duration="3"/>
+    <testCase name="Alert service test Alert Service Test should produce a error message" duration="4"/>
+    <testCase name="Alert service test Alert Service Test should produce a warning message" duration="2"/>
+    <testCase name="Alert service test Alert Service Test should produce a info message" duration="5"/>
+    <testCase name="Alert service test Alert Service Test should produce a info message with translated message if key exists" duration="2"/>
+    <testCase name="Alert service test Alert Service Test should produce a info message with provided message if key does not exists" duration="2"/>
+    <testCase name="Alert service test Alert Service Test should produce a info message with provided key if translation key does not exist in translations and message is not provided" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\service\portfolio-my-suffix.service.spec.ts">
+    <testCase name="PortfolioMySuffix Service Service methods should find an element" duration="6"/>
+    <testCase name="PortfolioMySuffix Service Service methods should create a PortfolioMySuffix" duration="17"/>
+    <testCase name="PortfolioMySuffix Service Service methods should update a PortfolioMySuffix" duration="3"/>
+    <testCase name="PortfolioMySuffix Service Service methods should partial update a PortfolioMySuffix" duration="3"/>
+    <testCase name="PortfolioMySuffix Service Service methods should return a list of PortfolioMySuffix" duration="2"/>
+    <testCase name="PortfolioMySuffix Service Service methods should delete a PortfolioMySuffix" duration="2"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should add a PortfolioMySuffix to an empty array" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should not add a PortfolioMySuffix to an array that contains it" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should add a PortfolioMySuffix to an array that doesn&apos;t contain it" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should add only unique PortfolioMySuffix to an array" duration="2"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should accept null and undefined values" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods addPortfolioMySuffixToCollectionIfMissing should return initial array if no PortfolioMySuffix is added" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods comparePortfolioMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods comparePortfolioMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods comparePortfolioMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="PortfolioMySuffix Service Service methods comparePortfolioMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\metrics\blocks\metrics-modal-threads\metrics-modal-threads.component.spec.ts">
+    <testCase name="MetricsModalThreadsComponent ngOnInit should count threads on init" duration="47"/>
+    <testCase name="MetricsModalThreadsComponent getBadgeClass should return a success badge class for runnable thread state" duration="18"/>
+    <testCase name="MetricsModalThreadsComponent getBadgeClass should return an info badge class for waiting thread state" duration="16"/>
+    <testCase name="MetricsModalThreadsComponent getBadgeClass should return a warning badge class for time waiting thread state" duration="14"/>
+    <testCase name="MetricsModalThreadsComponent getBadgeClass should return a danger badge class for blocked thread state" duration="16"/>
+    <testCase name="MetricsModalThreadsComponent getBadgeClass should return an empty string for others threads" duration="15"/>
+    <testCase name="MetricsModalThreadsComponent getThreads should return blocked threads" duration="16"/>
+    <testCase name="MetricsModalThreadsComponent getThreads should return an empty array of threads" duration="16"/>
+    <testCase name="MetricsModalThreadsComponent getThreads should return all threads if there is no filter" duration="16"/>
+    <testCase name="MetricsModalThreadsComponent getThreads should return an empty array if there are no threads to filter" duration="15"/>
+    <testCase name="MetricsModalThreadsComponent dismiss should call dismiss function for modal on dismiss" duration="18"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\service\payment-my-suffix.service.spec.ts">
+    <testCase name="PaymentMySuffix Service Service methods should find an element" duration="7"/>
+    <testCase name="PaymentMySuffix Service Service methods should create a PaymentMySuffix" duration="15"/>
+    <testCase name="PaymentMySuffix Service Service methods should update a PaymentMySuffix" duration="4"/>
+    <testCase name="PaymentMySuffix Service Service methods should partial update a PaymentMySuffix" duration="2"/>
+    <testCase name="PaymentMySuffix Service Service methods should return a list of PaymentMySuffix" duration="2"/>
+    <testCase name="PaymentMySuffix Service Service methods should delete a PaymentMySuffix" duration="2"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should add a PaymentMySuffix to an empty array" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should not add a PaymentMySuffix to an array that contains it" duration="2"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should add a PaymentMySuffix to an array that doesn&apos;t contain it" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should add only unique PaymentMySuffix to an array" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should accept null and undefined values" duration="2"/>
+    <testCase name="PaymentMySuffix Service Service methods addPaymentMySuffixToCollectionIfMissing should return initial array if no PaymentMySuffix is added" duration="2"/>
+    <testCase name="PaymentMySuffix Service Service methods comparePaymentMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods comparePaymentMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods comparePaymentMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="PaymentMySuffix Service Service methods comparePaymentMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\update\photo-my-suffix-update.component.spec.ts">
+    <testCase name="PhotoMySuffix Management Update Component ngOnInit Should call PortfolioMySuffix query and add missing value" duration="41"/>
+    <testCase name="PhotoMySuffix Management Update Component ngOnInit Should call CartMySuffix query and add missing value" duration="7"/>
+    <testCase name="PhotoMySuffix Management Update Component ngOnInit Should update editForm" duration="5"/>
+    <testCase name="PhotoMySuffix Management Update Component save Should call update service on save for existing entity" duration="7"/>
+    <testCase name="PhotoMySuffix Management Update Component save Should call create service on save for new entity" duration="6"/>
+    <testCase name="PhotoMySuffix Management Update Component save Should set isSaving to false on error" duration="5"/>
+    <testCase name="PhotoMySuffix Management Update Component Compare relationships comparePortfolioMySuffix Should forward to portfolioService" duration="8"/>
+    <testCase name="PhotoMySuffix Management Update Component Compare relationships compareCartMySuffix Should forward to cartService" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\service\role-user-my-suffix.service.spec.ts">
+    <testCase name="RoleUserMySuffix Service Service methods should find an element" duration="5"/>
+    <testCase name="RoleUserMySuffix Service Service methods should create a RoleUserMySuffix" duration="2"/>
+    <testCase name="RoleUserMySuffix Service Service methods should update a RoleUserMySuffix" duration="2"/>
+    <testCase name="RoleUserMySuffix Service Service methods should partial update a RoleUserMySuffix" duration="2"/>
+    <testCase name="RoleUserMySuffix Service Service methods should return a list of RoleUserMySuffix" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods should delete a RoleUserMySuffix" duration="2"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should add a RoleUserMySuffix to an empty array" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should not add a RoleUserMySuffix to an array that contains it" duration="2"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should add a RoleUserMySuffix to an array that doesn&apos;t contain it" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should add only unique RoleUserMySuffix to an array" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should accept null and undefined values" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods addRoleUserMySuffixToCollectionIfMissing should return initial array if no RoleUserMySuffix is added" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods compareRoleUserMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods compareRoleUserMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods compareRoleUserMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="RoleUserMySuffix Service Service methods compareRoleUserMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\service\receipt-my-suffix.service.spec.ts">
+    <testCase name="ReceiptMySuffix Service Service methods should find an element" duration="4"/>
+    <testCase name="ReceiptMySuffix Service Service methods should create a ReceiptMySuffix" duration="2"/>
+    <testCase name="ReceiptMySuffix Service Service methods should update a ReceiptMySuffix" duration="2"/>
+    <testCase name="ReceiptMySuffix Service Service methods should partial update a ReceiptMySuffix" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods should return a list of ReceiptMySuffix" duration="2"/>
+    <testCase name="ReceiptMySuffix Service Service methods should delete a ReceiptMySuffix" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should add a ReceiptMySuffix to an empty array" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should not add a ReceiptMySuffix to an array that contains it" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should add a ReceiptMySuffix to an array that doesn&apos;t contain it" duration="2"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should add only unique ReceiptMySuffix to an array" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should accept null and undefined values" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods addReceiptMySuffixToCollectionIfMissing should return initial array if no ReceiptMySuffix is added" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods compareReceiptMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods compareReceiptMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods compareReceiptMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="ReceiptMySuffix Service Service methods compareReceiptMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\service\photo-my-suffix.service.spec.ts">
+    <testCase name="PhotoMySuffix Service Service methods should find an element" duration="5"/>
+    <testCase name="PhotoMySuffix Service Service methods should create a PhotoMySuffix" duration="2"/>
+    <testCase name="PhotoMySuffix Service Service methods should update a PhotoMySuffix" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods should partial update a PhotoMySuffix" duration="2"/>
+    <testCase name="PhotoMySuffix Service Service methods should return a list of PhotoMySuffix" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods should delete a PhotoMySuffix" duration="4"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should add a PhotoMySuffix to an empty array" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should not add a PhotoMySuffix to an array that contains it" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should add a PhotoMySuffix to an array that doesn&apos;t contain it" duration="2"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should add only unique PhotoMySuffix to an array" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should accept null and undefined values" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods addPhotoMySuffixToCollectionIfMissing should return initial array if no PhotoMySuffix is added" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods comparePhotoMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods comparePhotoMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="PhotoMySuffix Service Service methods comparePhotoMySuffix Should return false if primaryKey differs" duration="2"/>
+    <testCase name="PhotoMySuffix Service Service methods comparePhotoMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\auth\account.service.spec.ts">
+    <testCase name="Account Service authenticate authenticationState should emit null if input is null" duration="7"/>
+    <testCase name="Account Service authenticate authenticationState should emit the same account as was in input parameter" duration="2"/>
+    <testCase name="Account Service identity should call /account only once if last call have not returned" duration="2"/>
+    <testCase name="Account Service identity should call /account only once if not logged out after first authentication and should call /account again if user has logged out" duration="2"/>
+    <testCase name="Account Service identity should change the language on authentication if necessary should change language if user has not changed language manually" duration="2"/>
+    <testCase name="Account Service identity should change the language on authentication if necessary should not change language if user has changed language manually" duration="2"/>
+    <testCase name="Account Service identity navigateToStoredUrl should navigate to the previous stored url post successful authentication" duration="2"/>
+    <testCase name="Account Service identity navigateToStoredUrl should not navigate to the previous stored url when authentication fails" duration="2"/>
+    <testCase name="Account Service identity navigateToStoredUrl should not navigate to the previous stored url when no such url exists post successful authentication" duration="2"/>
+    <testCase name="Account Service hasAnyAuthority hasAnyAuthority string parameter should return false if user is not logged" duration="2"/>
+    <testCase name="Account Service hasAnyAuthority hasAnyAuthority string parameter should return false if user is logged and has not authority" duration="2"/>
+    <testCase name="Account Service hasAnyAuthority hasAnyAuthority string parameter should return true if user is logged and has authority" duration="1"/>
+    <testCase name="Account Service hasAnyAuthority hasAnyAuthority array parameter should return false if user is not logged" duration="1"/>
+    <testCase name="Account Service hasAnyAuthority hasAnyAuthority array parameter should return false if user is logged and has not authority" duration="2"/>
+    <testCase name="Account Service hasAnyAuthority hasAnyAuthority array parameter should return true if user is logged and has authority" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\update\role-user-my-suffix-update.component.spec.ts">
+    <testCase name="RoleUserMySuffix Management Update Component ngOnInit Should call userId query and add missing value" duration="26"/>
+    <testCase name="RoleUserMySuffix Management Update Component ngOnInit Should call roleId query and add missing value" duration="5"/>
+    <testCase name="RoleUserMySuffix Management Update Component ngOnInit Should update editForm" duration="5"/>
+    <testCase name="RoleUserMySuffix Management Update Component save Should call update service on save for existing entity" duration="6"/>
+    <testCase name="RoleUserMySuffix Management Update Component save Should call create service on save for new entity" duration="4"/>
+    <testCase name="RoleUserMySuffix Management Update Component save Should set isSaving to false on error" duration="5"/>
+    <testCase name="RoleUserMySuffix Management Update Component Compare relationships compareUserMySuffix Should forward to userService" duration="4"/>
+    <testCase name="RoleUserMySuffix Management Update Component Compare relationships compareRoleMySuffix Should forward to roleService" duration="3"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\service\user-my-suffix.service.spec.ts">
+    <testCase name="UserMySuffix Service Service methods should find an element" duration="5"/>
+    <testCase name="UserMySuffix Service Service methods should create a UserMySuffix" duration="2"/>
+    <testCase name="UserMySuffix Service Service methods should update a UserMySuffix" duration="2"/>
+    <testCase name="UserMySuffix Service Service methods should partial update a UserMySuffix" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods should return a list of UserMySuffix" duration="2"/>
+    <testCase name="UserMySuffix Service Service methods should delete a UserMySuffix" duration="3"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should add a UserMySuffix to an empty array" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should not add a UserMySuffix to an array that contains it" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should add a UserMySuffix to an array that doesn&apos;t contain it" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should add only unique UserMySuffix to an array" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should accept varargs" duration="2"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should accept null and undefined values" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods addUserMySuffixToCollectionIfMissing should return initial array if no UserMySuffix is added" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods compareUserMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods compareUserMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods compareUserMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="UserMySuffix Service Service methods compareUserMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\service\role-my-suffix.service.spec.ts">
+    <testCase name="RoleMySuffix Service Service methods should find an element" duration="7"/>
+    <testCase name="RoleMySuffix Service Service methods should create a RoleMySuffix" duration="2"/>
+    <testCase name="RoleMySuffix Service Service methods should update a RoleMySuffix" duration="2"/>
+    <testCase name="RoleMySuffix Service Service methods should partial update a RoleMySuffix" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods should return a list of RoleMySuffix" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods should delete a RoleMySuffix" duration="2"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should add a RoleMySuffix to an empty array" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should not add a RoleMySuffix to an array that contains it" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should add a RoleMySuffix to an array that doesn&apos;t contain it" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should add only unique RoleMySuffix to an array" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should accept null and undefined values" duration="2"/>
+    <testCase name="RoleMySuffix Service Service methods addRoleMySuffixToCollectionIfMissing should return initial array if no RoleMySuffix is added" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods compareRoleMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods compareRoleMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods compareRoleMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="RoleMySuffix Service Service methods compareRoleMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\service\cart-my-suffix.service.spec.ts">
+    <testCase name="CartMySuffix Service Service methods should find an element" duration="4"/>
+    <testCase name="CartMySuffix Service Service methods should create a CartMySuffix" duration="2"/>
+    <testCase name="CartMySuffix Service Service methods should update a CartMySuffix" duration="2"/>
+    <testCase name="CartMySuffix Service Service methods should partial update a CartMySuffix" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods should return a list of CartMySuffix" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods should delete a CartMySuffix" duration="4"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should add a CartMySuffix to an empty array" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should not add a CartMySuffix to an array that contains it" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should add a CartMySuffix to an array that doesn&apos;t contain it" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should add only unique CartMySuffix to an array" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should accept varargs" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should accept null and undefined values" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods addCartMySuffixToCollectionIfMissing should return initial array if no CartMySuffix is added" duration="2"/>
+    <testCase name="CartMySuffix Service Service methods compareCartMySuffix Should return true if both entities are null" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods compareCartMySuffix Should return false if one entity is null" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods compareCartMySuffix Should return false if primaryKey differs" duration="1"/>
+    <testCase name="CartMySuffix Service Service methods compareCartMySuffix Should return false if primaryKey matches" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\update\user-my-suffix-update.component.spec.ts">
+    <testCase name="UserMySuffix Management Update Component ngOnInit Should call PortfolioMySuffix query and add missing value" duration="29"/>
+    <testCase name="UserMySuffix Management Update Component ngOnInit Should update editForm" duration="6"/>
+    <testCase name="UserMySuffix Management Update Component save Should call update service on save for existing entity" duration="5"/>
+    <testCase name="UserMySuffix Management Update Component save Should call create service on save for new entity" duration="6"/>
+    <testCase name="UserMySuffix Management Update Component save Should set isSaving to false on error" duration="5"/>
+    <testCase name="UserMySuffix Management Update Component Compare relationships comparePortfolioMySuffix Should forward to portfolioService" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\layouts\main\main.component.spec.ts">
+    <testCase name="MainComponent page title navigation end should set page title to default title if pageTitle is missing on routes" duration="212"/>
+    <testCase name="MainComponent page title navigation end should set page title to root route pageTitle if there is no child routes" duration="11"/>
+    <testCase name="MainComponent page title navigation end should set page title to child route pageTitle if child routes exist and pageTitle is set for child route" duration="14"/>
+    <testCase name="MainComponent page title navigation end should set page title to parent route pageTitle if child routes exists but pageTitle is not set for child route data" duration="16"/>
+    <testCase name="MainComponent page title language change should set page title to default title if pageTitle is missing on routes" duration="13"/>
+    <testCase name="MainComponent page title language change should set page title to root route pageTitle if there is no child routes" duration="17"/>
+    <testCase name="MainComponent page title language change should set page title to child route pageTitle if child routes exist and pageTitle is set for child route" duration="14"/>
+    <testCase name="MainComponent page title language change should set page title to parent route pageTitle if child routes exists but pageTitle is not set for child route data" duration="16"/>
+    <testCase name="MainComponent page language attribute should change page language attribute on language change" duration="17"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\update\payment-my-suffix-update.component.spec.ts">
+    <testCase name="PaymentMySuffix Management Update Component ngOnInit Should call receipt query and add missing value" duration="23"/>
+    <testCase name="PaymentMySuffix Management Update Component ngOnInit Should update editForm" duration="5"/>
+    <testCase name="PaymentMySuffix Management Update Component save Should call update service on save for existing entity" duration="4"/>
+    <testCase name="PaymentMySuffix Management Update Component save Should call create service on save for new entity" duration="4"/>
+    <testCase name="PaymentMySuffix Management Update Component save Should set isSaving to false on error" duration="4"/>
+    <testCase name="PaymentMySuffix Management Update Component Compare relationships compareReceiptMySuffix Should forward to receiptService" duration="3"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\update\cart-my-suffix-update.component.spec.ts">
+    <testCase name="CartMySuffix Management Update Component ngOnInit Should call payment query and add missing value" duration="22"/>
+    <testCase name="CartMySuffix Management Update Component ngOnInit Should update editForm" duration="6"/>
+    <testCase name="CartMySuffix Management Update Component save Should call update service on save for existing entity" duration="5"/>
+    <testCase name="CartMySuffix Management Update Component save Should call create service on save for new entity" duration="5"/>
+    <testCase name="CartMySuffix Management Update Component save Should set isSaving to false on error" duration="4"/>
+    <testCase name="CartMySuffix Management Update Component Compare relationships comparePaymentMySuffix Should forward to paymentService" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\alert\alert-error.component.spec.ts">
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 0" duration="11"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 404" duration="16"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on generic error" duration="14"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 400 for generic error" duration="16"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 400 for generic error without message" duration="16"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 400 for invalid parameters" duration="17"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 400 for error headers" duration="15"/>
+    <testCase name="Alert Error Component Error Handling Should display an alert on status 500 with detail" duration="15"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\list\portfolio-my-suffix.component.spec.ts">
+    <testCase name="PortfolioMySuffix Management Component Should call load all on init" duration="43"/>
+    <testCase name="PortfolioMySuffix Management Component trackId Should forward to portfolioService" duration="7"/>
+    <testCase name="PortfolioMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="107"/>
+    <testCase name="PortfolioMySuffix Management Component should calculate the sort attribute for an id" duration="5"/>
+    <testCase name="PortfolioMySuffix Management Component delete on confirm should call load" duration="6"/>
+    <testCase name="PortfolioMySuffix Management Component delete on dismiss should call load" duration="6"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\list\role-user-my-suffix.component.spec.ts">
+    <testCase name="RoleUserMySuffix Management Component Should call load all on init" duration="38"/>
+    <testCase name="RoleUserMySuffix Management Component trackId Should forward to roleUserService" duration="7"/>
+    <testCase name="RoleUserMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="111"/>
+    <testCase name="RoleUserMySuffix Management Component should calculate the sort attribute for an id" duration="6"/>
+    <testCase name="RoleUserMySuffix Management Component delete on confirm should call load" duration="9"/>
+    <testCase name="RoleUserMySuffix Management Component delete on dismiss should call load" duration="8"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\list\receipt-my-suffix.component.spec.ts">
+    <testCase name="ReceiptMySuffix Management Component Should call load all on init" duration="28"/>
+    <testCase name="ReceiptMySuffix Management Component trackId Should forward to receiptService" duration="5"/>
+    <testCase name="ReceiptMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="90"/>
+    <testCase name="ReceiptMySuffix Management Component should calculate the sort attribute for an id" duration="6"/>
+    <testCase name="ReceiptMySuffix Management Component delete on confirm should call load" duration="6"/>
+    <testCase name="ReceiptMySuffix Management Component delete on dismiss should call load" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\list\payment-my-suffix.component.spec.ts">
+    <testCase name="PaymentMySuffix Management Component Should call load all on init" duration="27"/>
+    <testCase name="PaymentMySuffix Management Component trackId Should forward to paymentService" duration="5"/>
+    <testCase name="PaymentMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="94"/>
+    <testCase name="PaymentMySuffix Management Component should calculate the sort attribute for an id" duration="5"/>
+    <testCase name="PaymentMySuffix Management Component delete on confirm should call load" duration="5"/>
+    <testCase name="PaymentMySuffix Management Component delete on dismiss should call load" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\list\photo-my-suffix.component.spec.ts">
+    <testCase name="PhotoMySuffix Management Component Should call load all on init" duration="31"/>
+    <testCase name="PhotoMySuffix Management Component trackId Should forward to photoService" duration="5"/>
+    <testCase name="PhotoMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="89"/>
+    <testCase name="PhotoMySuffix Management Component should calculate the sort attribute for an id" duration="6"/>
+    <testCase name="PhotoMySuffix Management Component delete on confirm should call load" duration="6"/>
+    <testCase name="PhotoMySuffix Management Component delete on dismiss should call load" duration="13"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\list\user-my-suffix.component.spec.ts">
+    <testCase name="UserMySuffix Management Component Should call load all on init" duration="33"/>
+    <testCase name="UserMySuffix Management Component trackId Should forward to userService" duration="5"/>
+    <testCase name="UserMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="95"/>
+    <testCase name="UserMySuffix Management Component should calculate the sort attribute for an id" duration="5"/>
+    <testCase name="UserMySuffix Management Component delete on confirm should call load" duration="5"/>
+    <testCase name="UserMySuffix Management Component delete on dismiss should call load" duration="13"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\list\role-my-suffix.component.spec.ts">
+    <testCase name="RoleMySuffix Management Component Should call load all on init" duration="26"/>
+    <testCase name="RoleMySuffix Management Component trackId Should forward to roleService" duration="6"/>
+    <testCase name="RoleMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="88"/>
+    <testCase name="RoleMySuffix Management Component should calculate the sort attribute for an id" duration="6"/>
+    <testCase name="RoleMySuffix Management Component delete on confirm should call load" duration="5"/>
+    <testCase name="RoleMySuffix Management Component delete on dismiss should call load" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\list\cart-my-suffix.component.spec.ts">
+    <testCase name="CartMySuffix Management Component Should call load all on init" duration="28"/>
+    <testCase name="CartMySuffix Management Component trackId Should forward to cartService" duration="5"/>
+    <testCase name="CartMySuffix Management Component should calculate the sort attribute for a non-id attribute" duration="95"/>
+    <testCase name="CartMySuffix Management Component should calculate the sort attribute for an id" duration="7"/>
+    <testCase name="CartMySuffix Management Component delete on confirm should call load" duration="7"/>
+    <testCase name="CartMySuffix Management Component delete on dismiss should call load" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\update\portfolio-my-suffix-update.component.spec.ts">
+    <testCase name="PortfolioMySuffix Management Update Component ngOnInit Should update editForm" duration="20"/>
+    <testCase name="PortfolioMySuffix Management Update Component save Should call update service on save for existing entity" duration="4"/>
+    <testCase name="PortfolioMySuffix Management Update Component save Should call create service on save for new entity" duration="4"/>
+    <testCase name="PortfolioMySuffix Management Update Component save Should set isSaving to false on error" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\update\receipt-my-suffix-update.component.spec.ts">
+    <testCase name="ReceiptMySuffix Management Update Component ngOnInit Should update editForm" duration="21"/>
+    <testCase name="ReceiptMySuffix Management Update Component save Should call update service on save for existing entity" duration="5"/>
+    <testCase name="ReceiptMySuffix Management Update Component save Should call create service on save for new entity" duration="4"/>
+    <testCase name="ReceiptMySuffix Management Update Component save Should set isSaving to false on error" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\update\role-my-suffix-update.component.spec.ts">
+    <testCase name="RoleMySuffix Management Update Component ngOnInit Should update editForm" duration="20"/>
+    <testCase name="RoleMySuffix Management Update Component save Should call update service on save for existing entity" duration="5"/>
+    <testCase name="RoleMySuffix Management Update Component save Should call create service on save for new entity" duration="4"/>
+    <testCase name="RoleMySuffix Management Update Component save Should set isSaving to false on error" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\sort\sort-by.directive.spec.ts">
+    <testCase name="Directive: SortByDirective should have a neutral state for predicate column and undefined order value" duration="34"/>
+    <testCase name="Directive: SortByDirective should have an asc state for predicate column and true asc value" duration="7"/>
+    <testCase name="Directive: SortByDirective should have a desc state for predicate column and desc value" duration="5"/>
+    <testCase name="Directive: SortByDirective should have a neutral state for non-predicate column" duration="5"/>
+    <testCase name="Directive: SortByDirective multiple clicks at same component, should call SortDirective sort" duration="8"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\update\user-my-suffix-form.service.spec.ts">
+    <testCase name="UserMySuffix Form Service Service methods createUserMySuffixFormGroup should create a new form with FormControl" duration="6"/>
+    <testCase name="UserMySuffix Form Service Service methods createUserMySuffixFormGroup passing IUserMySuffix should create a new form with FormGroup" duration="2"/>
+    <testCase name="UserMySuffix Form Service Service methods getUserMySuffix should return NewUserMySuffix for default UserMySuffix initial value" duration="1"/>
+    <testCase name="UserMySuffix Form Service Service methods getUserMySuffix should return NewUserMySuffix for empty UserMySuffix initial value" duration="1"/>
+    <testCase name="UserMySuffix Form Service Service methods getUserMySuffix should return IUserMySuffix" duration="1"/>
+    <testCase name="UserMySuffix Form Service Service methods resetForm passing IUserMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="UserMySuffix Form Service Service methods resetForm passing NewUserMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\metrics\metrics.component.spec.ts">
+    <testCase name="MetricsComponent refresh should call refresh on init" duration="75"/>
+    <testCase name="MetricsComponent metricsKeyExists should check that metrics key exists" duration="11"/>
+    <testCase name="MetricsComponent metricsKeyExists should check that metrics key does not exist" duration="16"/>
+    <testCase name="MetricsComponent metricsKeyExistsAndObjectNotEmpty should check that metrics key exists and is not empty" duration="14"/>
+    <testCase name="MetricsComponent metricsKeyExistsAndObjectNotEmpty should check that metrics key is empty" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\route\portfolio-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="PortfolioMySuffix routing resolve service resolve should return IPortfolioMySuffix returned by find" duration="7"/>
+    <testCase name="PortfolioMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="PortfolioMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\route\role-user-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="RoleUserMySuffix routing resolve service resolve should return IRoleUserMySuffix returned by find" duration="7"/>
+    <testCase name="RoleUserMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="RoleUserMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\update\photo-my-suffix-form.service.spec.ts">
+    <testCase name="PhotoMySuffix Form Service Service methods createPhotoMySuffixFormGroup should create a new form with FormControl" duration="5"/>
+    <testCase name="PhotoMySuffix Form Service Service methods createPhotoMySuffixFormGroup passing IPhotoMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="PhotoMySuffix Form Service Service methods getPhotoMySuffix should return NewPhotoMySuffix for default PhotoMySuffix initial value" duration="2"/>
+    <testCase name="PhotoMySuffix Form Service Service methods getPhotoMySuffix should return NewPhotoMySuffix for empty PhotoMySuffix initial value" duration="1"/>
+    <testCase name="PhotoMySuffix Form Service Service methods getPhotoMySuffix should return IPhotoMySuffix" duration="1"/>
+    <testCase name="PhotoMySuffix Form Service Service methods resetForm passing IPhotoMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="PhotoMySuffix Form Service Service methods resetForm passing NewPhotoMySuffix should disable id FormControl" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\route\receipt-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="ReceiptMySuffix routing resolve service resolve should return IReceiptMySuffix returned by find" duration="7"/>
+    <testCase name="ReceiptMySuffix routing resolve service resolve should return null if id is not provided" duration="1"/>
+    <testCase name="ReceiptMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\route\payment-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="PaymentMySuffix routing resolve service resolve should return IPaymentMySuffix returned by find" duration="5"/>
+    <testCase name="PaymentMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="PaymentMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\route\photo-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="PhotoMySuffix routing resolve service resolve should return IPhotoMySuffix returned by find" duration="5"/>
+    <testCase name="PhotoMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="PhotoMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\route\user-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="UserMySuffix routing resolve service resolve should return IUserMySuffix returned by find" duration="7"/>
+    <testCase name="UserMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="UserMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\route\role-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="RoleMySuffix routing resolve service resolve should return IRoleMySuffix returned by find" duration="7"/>
+    <testCase name="RoleMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="RoleMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\route\cart-my-suffix-routing-resolve.service.spec.ts">
+    <testCase name="CartMySuffix routing resolve service resolve should return ICartMySuffix returned by find" duration="7"/>
+    <testCase name="CartMySuffix routing resolve service resolve should return null if id is not provided" duration="2"/>
+    <testCase name="CartMySuffix routing resolve service resolve should route to 404 page if data not found in server" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\update\payment-my-suffix-form.service.spec.ts">
+    <testCase name="PaymentMySuffix Form Service Service methods createPaymentMySuffixFormGroup should create a new form with FormControl" duration="4"/>
+    <testCase name="PaymentMySuffix Form Service Service methods createPaymentMySuffixFormGroup passing IPaymentMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="PaymentMySuffix Form Service Service methods getPaymentMySuffix should return NewPaymentMySuffix for default PaymentMySuffix initial value" duration="1"/>
+    <testCase name="PaymentMySuffix Form Service Service methods getPaymentMySuffix should return NewPaymentMySuffix for empty PaymentMySuffix initial value" duration="1"/>
+    <testCase name="PaymentMySuffix Form Service Service methods getPaymentMySuffix should return IPaymentMySuffix" duration="1"/>
+    <testCase name="PaymentMySuffix Form Service Service methods resetForm passing IPaymentMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="PaymentMySuffix Form Service Service methods resetForm passing NewPaymentMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\update\role-user-my-suffix-form.service.spec.ts">
+    <testCase name="RoleUserMySuffix Form Service Service methods createRoleUserMySuffixFormGroup should create a new form with FormControl" duration="5"/>
+    <testCase name="RoleUserMySuffix Form Service Service methods createRoleUserMySuffixFormGroup passing IRoleUserMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="RoleUserMySuffix Form Service Service methods getRoleUserMySuffix should return NewRoleUserMySuffix for default RoleUserMySuffix initial value" duration="1"/>
+    <testCase name="RoleUserMySuffix Form Service Service methods getRoleUserMySuffix should return NewRoleUserMySuffix for empty RoleUserMySuffix initial value" duration="2"/>
+    <testCase name="RoleUserMySuffix Form Service Service methods getRoleUserMySuffix should return IRoleUserMySuffix" duration="1"/>
+    <testCase name="RoleUserMySuffix Form Service Service methods resetForm passing IRoleUserMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="RoleUserMySuffix Form Service Service methods resetForm passing NewRoleUserMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\update\portfolio-my-suffix-form.service.spec.ts">
+    <testCase name="PortfolioMySuffix Form Service Service methods createPortfolioMySuffixFormGroup should create a new form with FormControl" duration="5"/>
+    <testCase name="PortfolioMySuffix Form Service Service methods createPortfolioMySuffixFormGroup passing IPortfolioMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="PortfolioMySuffix Form Service Service methods getPortfolioMySuffix should return NewPortfolioMySuffix for default PortfolioMySuffix initial value" duration="1"/>
+    <testCase name="PortfolioMySuffix Form Service Service methods getPortfolioMySuffix should return NewPortfolioMySuffix for empty PortfolioMySuffix initial value" duration="1"/>
+    <testCase name="PortfolioMySuffix Form Service Service methods getPortfolioMySuffix should return IPortfolioMySuffix" duration="1"/>
+    <testCase name="PortfolioMySuffix Form Service Service methods resetForm passing IPortfolioMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="PortfolioMySuffix Form Service Service methods resetForm passing NewPortfolioMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\update\receipt-my-suffix-form.service.spec.ts">
+    <testCase name="ReceiptMySuffix Form Service Service methods createReceiptMySuffixFormGroup should create a new form with FormControl" duration="4"/>
+    <testCase name="ReceiptMySuffix Form Service Service methods createReceiptMySuffixFormGroup passing IReceiptMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="ReceiptMySuffix Form Service Service methods getReceiptMySuffix should return NewReceiptMySuffix for default ReceiptMySuffix initial value" duration="1"/>
+    <testCase name="ReceiptMySuffix Form Service Service methods getReceiptMySuffix should return NewReceiptMySuffix for empty ReceiptMySuffix initial value" duration="1"/>
+    <testCase name="ReceiptMySuffix Form Service Service methods getReceiptMySuffix should return IReceiptMySuffix" duration="1"/>
+    <testCase name="ReceiptMySuffix Form Service Service methods resetForm passing IReceiptMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="ReceiptMySuffix Form Service Service methods resetForm passing NewReceiptMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\auth\has-any-authority.directive.spec.ts">
+    <testCase name="HasAnyAuthorityDirective tests set jhiHasAnyAuthority should show restricted content to user if user has required role" duration="15"/>
+    <testCase name="HasAnyAuthorityDirective tests set jhiHasAnyAuthority should not show restricted content to user if user has not required role" duration="16"/>
+    <testCase name="HasAnyAuthorityDirective tests change authorities should show or not show restricted content correctly if user authorities are changing" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\util\event-manager.service.spec.ts">
+    <testCase name="Event Manager tests EventWithContent should create correctly EventWithContent" duration="1"/>
+    <testCase name="Event Manager tests EventManager should not fail when nosubscriber and broadcasting" duration="3"/>
+    <testCase name="Event Manager tests EventManager should create an observable and callback when broadcasted EventWithContent" duration="2"/>
+    <testCase name="Event Manager tests EventManager should create an observable and callback when broadcasted string" duration="1"/>
+    <testCase name="Event Manager tests EventManager should subscribe to multiple events" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\update\cart-my-suffix-form.service.spec.ts">
+    <testCase name="CartMySuffix Form Service Service methods createCartMySuffixFormGroup should create a new form with FormControl" duration="4"/>
+    <testCase name="CartMySuffix Form Service Service methods createCartMySuffixFormGroup passing ICartMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="CartMySuffix Form Service Service methods getCartMySuffix should return NewCartMySuffix for default CartMySuffix initial value" duration="1"/>
+    <testCase name="CartMySuffix Form Service Service methods getCartMySuffix should return NewCartMySuffix for empty CartMySuffix initial value" duration="2"/>
+    <testCase name="CartMySuffix Form Service Service methods getCartMySuffix should return ICartMySuffix" duration="1"/>
+    <testCase name="CartMySuffix Form Service Service methods resetForm passing ICartMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="CartMySuffix Form Service Service methods resetForm passing NewCartMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\detail\photo-my-suffix-detail.component.spec.ts">
+    <testCase name="PhotoMySuffix Management Detail Component OnInit Should load photo on init" duration="29"/>
+    <testCase name="PhotoMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="4"/>
+    <testCase name="PhotoMySuffix Management Detail Component byteSize Should call byteSize from DataUtils" duration="4"/>
+    <testCase name="PhotoMySuffix Management Detail Component openFile Should call openFile from DataUtils" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\detail\user-my-suffix-detail.component.spec.ts">
+    <testCase name="UserMySuffix Management Detail Component OnInit Should load user on init" duration="32"/>
+    <testCase name="UserMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="5"/>
+    <testCase name="UserMySuffix Management Detail Component byteSize Should call byteSize from DataUtils" duration="5"/>
+    <testCase name="UserMySuffix Management Detail Component openFile Should call openFile from DataUtils" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\update\role-my-suffix-form.service.spec.ts">
+    <testCase name="RoleMySuffix Form Service Service methods createRoleMySuffixFormGroup should create a new form with FormControl" duration="4"/>
+    <testCase name="RoleMySuffix Form Service Service methods createRoleMySuffixFormGroup passing IRoleMySuffix should create a new form with FormGroup" duration="1"/>
+    <testCase name="RoleMySuffix Form Service Service methods getRoleMySuffix should return NewRoleMySuffix for default RoleMySuffix initial value" duration="1"/>
+    <testCase name="RoleMySuffix Form Service Service methods getRoleMySuffix should return NewRoleMySuffix for empty RoleMySuffix initial value" duration="1"/>
+    <testCase name="RoleMySuffix Form Service Service methods getRoleMySuffix should return IRoleMySuffix" duration="1"/>
+    <testCase name="RoleMySuffix Form Service Service methods resetForm passing IRoleMySuffix should not enable id FormControl" duration="1"/>
+    <testCase name="RoleMySuffix Form Service Service methods resetForm passing NewRoleMySuffix should disable id FormControl" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\sort\sort.directive.spec.ts">
+    <testCase name="Directive: SortDirective should invoke sortChange function" duration="15"/>
+    <testCase name="Directive: SortDirective should change sort order to descending, neutral when same field is sorted again" duration="8"/>
+    <testCase name="Directive: SortDirective should change sort order to ascending when different field is sorted" duration="3"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\health\modal\health-modal.component.spec.ts">
+    <testCase name="HealthModalComponent readableValue should return stringify value" duration="35"/>
+    <testCase name="HealthModalComponent readableValue should return string value" duration="12"/>
+    <testCase name="HealthModalComponent readableValue should return storage space in an human readable unit (GB)" duration="15"/>
+    <testCase name="HealthModalComponent readableValue should return storage space in an human readable unit (MB)" duration="14"/>
+    <testCase name="HealthModalComponent readableValue should return string value" duration="15"/>
+    <testCase name="HealthModalComponent dismiss should call dismiss when dismiss modal is called" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\layouts\navbar\navbar.component.spec.ts">
+    <testCase name="Navbar Component Should call profileService.getProfileInfo on init" duration="40"/>
+    <testCase name="Navbar Component Should hold current authenticated user in variable account" duration="9"/>
+    <testCase name="Navbar Component Should hold current authenticated user in variable account if user is authenticated before page load" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\util\parse-links.service.spec.ts">
+    <testCase name="Parse links service test parse should throw an error when passed an empty string" duration="14"/>
+    <testCase name="Parse links service test parse should throw an error when passed without comma" duration="1"/>
+    <testCase name="Parse links service test parse should throw an error when passed without semicolon" duration="1"/>
+    <testCase name="Parse links service test parse should return links when headers are passed" duration="2"/>
+    <testCase name="Parse links service test parseAll should throw an error when passed an empty string" duration="2"/>
+    <testCase name="Parse links service test parseAll should throw an error when passed without comma" duration="1"/>
+    <testCase name="Parse links service test parseAll should throw an error when passed without semicolon" duration="1"/>
+    <testCase name="Parse links service test parseAll should return links when headers are passed" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\metrics\metrics.service.spec.ts">
+    <testCase name="Logs Service Service methods should return Metrics" duration="4"/>
+    <testCase name="Logs Service Service methods should return Thread Dump" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\logs\logs.component.spec.ts">
+    <testCase name="LogsComponent OnInit should set all default values correctly" duration="39"/>
+    <testCase name="LogsComponent OnInit Should call load all on init" duration="10"/>
+    <testCase name="LogsComponent change log level should change log level correctly" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\delete\portfolio-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="PortfolioMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="22"/>
+    <testCase name="PortfolioMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\delete\role-user-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="RoleUserMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="18"/>
+    <testCase name="RoleUserMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="10"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\health\health.component.spec.ts">
+    <testCase name="HealthComponent getBadgeClass should get badge class" duration="41"/>
+    <testCase name="HealthComponent refresh should call refresh on init" duration="10"/>
+    <testCase name="HealthComponent refresh should handle a 503 on refreshing health data" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\delete\receipt-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="ReceiptMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="17"/>
+    <testCase name="ReceiptMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="3"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\delete\payment-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="PaymentMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="18"/>
+    <testCase name="PaymentMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\photo-my-suffix\delete\photo-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="PhotoMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="22"/>
+    <testCase name="PhotoMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="3"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\user-my-suffix\delete\user-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="UserMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="19"/>
+    <testCase name="UserMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\delete\role-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="RoleMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="17"/>
+    <testCase name="RoleMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\delete\cart-my-suffix-delete-dialog.component.spec.ts">
+    <testCase name="CartMySuffix Management Delete Component confirmDelete Should call delete service on confirmDelete" duration="19"/>
+    <testCase name="CartMySuffix Management Delete Component confirmDelete Should not call delete service on clear" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\pagination\item-count.component.spec.ts">
+    <testCase name="ItemCountComponent test UI logic tests should initialize with undefined" duration="28"/>
+    <testCase name="ItemCountComponent test UI logic tests should set calculated numbers to undefined if the page value is not yet defined" duration="9"/>
+    <testCase name="ItemCountComponent test UI logic tests should change the content on page change" duration="16"/>
+    <testCase name="ItemCountComponent test UI logic tests should set the second number to totalItems if this is the last page which contains less than itemsPerPage items" duration="16"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\configuration\configuration.service.spec.ts">
+    <testCase name="Logs Service Service methods should get the config" duration="5"/>
+    <testCase name="Logs Service Service methods should get the env" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\configuration\configuration.component.spec.ts">
+    <testCase name="ConfigurationComponent OnInit Should call load all on init" duration="28"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\sort\sort.service.spec.ts">
+    <testCase name="sort state parseSortParam should accept undefined value" duration="0"/>
+    <testCase name="sort state parseSortParam should accept empty string" duration="1"/>
+    <testCase name="sort state parseSortParam should accept predicate only string" duration="0"/>
+    <testCase name="sort state parseSortParam should accept predicate and ASC string" duration="0"/>
+    <testCase name="sort state parseSortParam should accept predicate and DESC string" duration="0"/>
+    <testCase name="sort state buildSortParam should accept empty object" duration="0"/>
+    <testCase name="sort state buildSortParam should accept object with predicate" duration="1"/>
+    <testCase name="sort state buildSortParam should accept object with predicate and asc value" duration="0"/>
+    <testCase name="sort state buildSortParam should accept object with predicate and desc value" duration="0"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\home\home.component.spec.ts">
+    <testCase name="Home Component ngOnInit Should synchronize account variable with current account" duration="35"/>
+    <testCase name="Home Component login Should call loginService.login on login" duration="10"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\portfolio-my-suffix\detail\portfolio-my-suffix-detail.component.spec.ts">
+    <testCase name="PortfolioMySuffix Management Detail Component OnInit Should load portfolio on init" duration="26"/>
+    <testCase name="PortfolioMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-user-my-suffix\detail\role-user-my-suffix-detail.component.spec.ts">
+    <testCase name="RoleUserMySuffix Management Detail Component OnInit Should load roleUser on init" duration="27"/>
+    <testCase name="RoleUserMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\receipt-my-suffix\detail\receipt-my-suffix-detail.component.spec.ts">
+    <testCase name="ReceiptMySuffix Management Detail Component OnInit Should load receipt on init" duration="29"/>
+    <testCase name="ReceiptMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\payment-my-suffix\detail\payment-my-suffix-detail.component.spec.ts">
+    <testCase name="PaymentMySuffix Management Detail Component OnInit Should load payment on init" duration="23"/>
+    <testCase name="PaymentMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\role-my-suffix\detail\role-my-suffix-detail.component.spec.ts">
+    <testCase name="RoleMySuffix Management Detail Component OnInit Should load role on init" duration="24"/>
+    <testCase name="RoleMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\entities\cart-my-suffix\detail\cart-my-suffix-detail.component.spec.ts">
+    <testCase name="CartMySuffix Management Detail Component OnInit Should load cart on init" duration="26"/>
+    <testCase name="CartMySuffix Management Detail Component PreviousState Should navigate to previous state" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\health\health.service.spec.ts">
+    <testCase name="HealthService Service Service methods should call management/health endpoint with correct values" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\config\application-config.service.spec.ts">
+    <testCase name="ApplicationConfigService should be created" duration="4"/>
+    <testCase name="ApplicationConfigService without prefix should return correctly" duration="1"/>
+    <testCase name="ApplicationConfigService without prefix should return correctly when passing microservice" duration="1"/>
+    <testCase name="ApplicationConfigService with prefix should return correctly" duration="1"/>
+    <testCase name="ApplicationConfigService with prefix should return correctly when passing microservice" duration="1"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\layouts\profiles\page-ribbon.component.spec.ts">
+    <testCase name="Page Ribbon Component Should call profileService.getProfileInfo on init" duration="18"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\language\translate.directive.spec.ts">
+    <testCase name="TranslateDirective Tests should change HTML" duration="14"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\alert\alert.component.spec.ts">
+    <testCase name="Alert Component Should call alertService.get on init" duration="16"/>
+    <testCase name="Alert Component Should call alertService.clear on destroy" duration="13"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\util\data-util.service.spec.ts">
+    <testCase name="Data Utils Service Test byteSize should return the bytesize of the text" duration="4"/>
+    <testCase name="Data Utils Service Test openFile should open the file in the new window" duration="4"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\admin\logs\logs.service.spec.ts">
+    <testCase name="Logs Service Service methods should change log level" duration="5"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\date\format-medium-datetime.pipe.spec.ts">
+    <testCase name="FormatMediumDatePipe should return an empty string when receive undefined" duration="1"/>
+    <testCase name="FormatMediumDatePipe should return an empty string when receive null" duration="0"/>
+    <testCase name="FormatMediumDatePipe should format date like this D MMM YYYY" duration="2"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\shared\date\format-medium-date.pipe.spec.ts">
+    <testCase name="FormatMediumDatePipe should return an empty string when receive undefined" duration="1"/>
+    <testCase name="FormatMediumDatePipe should return an empty string when receive null" duration="0"/>
+    <testCase name="FormatMediumDatePipe should format date like this D MMM YYYY" duration="0"/>
+  </file>
+  <file path="C:\Users\berna\Documents\GitHub\desofs2024_M1D_2\AngularProject\src\main\webapp\app\core\util\operators.spec.ts">
+    <testCase name="Operators Test isPresent should remove null and undefined values" duration="1"/>
+    <testCase name="Operators Test filterNaN should return 0 for NaN" duration="1"/>
+    <testCase name="Operators Test filterNaN should return number for a number" duration="0"/>
+  </file>
+</testExecutions>

@@ -2,6 +2,7 @@ package backend.web.rest;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import java.security.Principal;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
@@ -64,10 +65,18 @@ public class AccountResource {
         private String login;
         private Set<String> authorities;
 
+        private String email;
+
+
         @JsonCreator
-        UserVM(String login, Set<String> authorities) {
+        UserVM(String login, Set<String> authorities, String email) {
             this.login = login;
             this.authorities = authorities;
+            this.email = email;
+        }
+
+        public String getEmail() { // Add this method
+            return email;
         }
 
         public boolean isActivated() {
@@ -88,9 +97,17 @@ public class AccountResource {
             throw new IllegalArgumentException("AuthenticationToken is not OAuth2 or JWT!");
         }
 
+
+        OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authToken;
+        Map<String, Object> attributes = oauthToken.getPrincipal().getAttributes();
+        String username = (String) attributes.get("preferred_username");
+        String email = (String) attributes.get("email"); // Extract the email
+        log.debug("UserVM: {}", new UserVM(username, authToken.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet()), email));
+
         return new UserVM(
-            authToken.getName(),
-            authToken.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet())
+            username,
+            authToken.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet()),
+            email
         );
     }
 }

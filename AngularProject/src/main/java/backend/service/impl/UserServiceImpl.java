@@ -89,4 +89,9 @@ public class UserServiceImpl implements UserService {
         log.debug("Request to delete User : {}", id);
         return userRepository.deleteById(id);
     }
+
+    @Override
+    public Mono<UserDTO> findByEmail(String email) {
+        return userRepository.findByEmail(email).map(userMapper::toDto);
+    }
 }
