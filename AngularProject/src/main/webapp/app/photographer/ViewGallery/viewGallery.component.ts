@@ -1,52 +1,49 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Data, ParamMap, Router, RouterModule } from '@angular/router';
-import { combineLatest, filter, Observable, Subscription, tap } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import SharedModule from 'app/shared/shared.module';
 import { sortStateSignal, SortDirective, SortByDirective, type SortState, SortService } from 'app/shared/sort';
 import { DurationPipe, FormatMediumDatetimePipe, FormatMediumDatePipe } from 'app/shared/date';
-import { FormsModule } from '@angular/forms';
+import { IPhotoMySuffix } from 'app/entities/photo-my-suffix/photo-my-suffix.model';
+import { EntityArrayResponseType, PhotoMySuffixService } from 'app/entities/photo-my-suffix/service/photo-my-suffix.service';
 import { SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/config/navigation.constants';
 import { DataUtils } from 'app/core/util/data-util.service';
-import { IPhotoMySuffix } from '../photo-my-suffix.model';
-import { EntityArrayResponseType, PhotoMySuffixService } from '../service/photo-my-suffix.service';
-import { PhotoMySuffixDeleteDialogComponent } from '../delete/photo-my-suffix-delete-dialog.component';
+import SharedModule from 'app/shared/shared.module';
+import {FormsModule} from "@angular/forms";
+import { combineLatest, filter, Observable, Subscription, tap } from "rxjs";
 
 @Component({
   standalone: true,
-  selector: 'jhi-home',
+  selector: 'jhi-photo-my-suffix',
   templateUrl: './viewGallery.component.html',
-  styleUrl: './viewGallery.component.scss',
-   [imports: [SharedModule,
-                        RouterModule,
-                        FormsModule,
-                        SortDirective,
-                        SortByDirective,
-                        DurationPipe,
-                        FormatMediumDatetimePipe,
-                        FormatMediumDatePipe],
+  imports: [SharedModule,
+            RouterModule,
+            FormsModule,
+            SortDirective,
+            SortByDirective,
+            DurationPipe,
+            FormatMediumDatetimePipe,
+            FormatMediumDatePipe],
 })
 
 export default class ViewGalleryComponent implements OnInit {
+  subscription: Subscription | null = null;
+  photos?: IPhotoMySuffix[];
+  isLoading = false;
 
-    subscription: Subscription | null = null;
-    photos?: IPhotoMySuffix[];
-    isLoading = false;
+  sortState = sortStateSignal({});
 
-    sortState = sortStateSignal({});
+  public router = inject(Router);
+  protected photoService = inject(PhotoMySuffixService);
+  protected activatedRoute = inject(ActivatedRoute);
+  protected sortService = inject(SortService);
+  protected dataUtils = inject(DataUtils);
+  protected modalService = inject(NgbModal);
+  protected ngZone = inject(NgZone);
 
-    public router = inject(Router);
-    protected photoService = inject(PhotoMySuffixService);
-    protected activatedRoute = inject(ActivatedRoute);
-    protected sortService = inject(SortService);
-    protected dataUtils = inject(DataUtils);
-    protected modalService = inject(NgbModal);
-    protected ngZone = inject(NgZone);
+  trackId = (_index: number, item: IPhotoMySuffix): number => this.photoService.getPhotoMySuffixIdentifier(item);
 
-    trackId = (_index: number, item: IPhotoMySuffix): number => this.photoService.getPhotoMySuffixIdentifier(item);
-
-    ngOnInit(): void {
+  ngOnInit(): void {
       this.subscription = combineLatest([this.activatedRoute.queryParamMap, this.activatedRoute.data])
         .pipe(
           tap(([params, data]) => this.fillComponentAttributeFromRoute(params, data)),
@@ -55,8 +52,8 @@ export default class ViewGalleryComponent implements OnInit {
               this.load();
             }
           }),
-        )
-        .subscribe();
+  )
+  .subscribe();
     }
 
     byteSize(base64String: string): string {

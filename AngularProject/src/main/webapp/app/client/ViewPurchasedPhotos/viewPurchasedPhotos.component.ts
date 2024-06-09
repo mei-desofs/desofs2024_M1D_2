@@ -25,6 +25,7 @@ import { combineLatest, filter, Observable, Subscription, tap } from "rxjs";
             FormatMediumDatetimePipe,
             FormatMediumDatePipe],
 })
+
 export default class ViewPurchasedPhotosComponent implements OnInit {
   subscription: Subscription | null = null;
   photos?: IPhotoMySuffix[];
