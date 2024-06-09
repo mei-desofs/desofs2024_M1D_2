@@ -6,8 +6,11 @@
 
 In the Data flow Diagram we Divided the diagrams between the processes in order to clarify the flow of data of the processes in question.
 
-### Login Register DFD
-![Login_RegisterDFD.drawio.svg](../DFD%2FLogin_RegisterDFD.drawio.svg)
+### Login DFD
+![Login_RegisterDFD.drawio.svg](../DFD/Login.png)
+
+### Register DFD
+![Login_RegisterDFD.drawio.svg](../DFD/Register.png)
 
 ### Create Portfolio DFD
 ![Create a Portfolio.drawio.svg](../DFD%2FCreate%20a%20Portfolio.drawio.svg)
@@ -56,7 +59,7 @@ In the authentication and authorization process of the application, we used an O
 The OAuth2 was Keycloak, an open-source identity and access management solution that provides a secure and scalable authentication and authorization service. Keycloak supports various authentication mechanisms, including username/password, social login, and multi-factor authentication. It also provides role-based access control and fine-grained authorization policies to secure the application's resources.
 
 In Keycloak we managed to communicate with the MySQL database that was used to store the other entities of the application.
-For the login process we put and MFA in order to enter the application in order to harder to authenticate to a user.
+For the login process we put a MFA in order to enter the application in order to harder to authenticate to a user.
 ![MFAInKeyCloak.png](../images/MFAInKeyCloak.png)  
 <p align="center">MFA in Keycloak</p>
 
@@ -114,17 +117,9 @@ The algorithm used for encryption is the RS256 algorithm that is a public key en
 
 - **Audit Logging**: Log all admin activities and changes made to the website's configuration or user data for accountability and forensic purposes.
 
-- **Two-Factor Authentication (2FA)**: Enforce 2FA for admin accounts to add an extra layer of security and prevent unauthorized access in case of compromised credentials.
+- **Two-Factor Authentication (2FA)**: Enforce 2FA for accounts to add an extra layer of security and prevent unauthorized access in case of compromised credentials.
 
-### Files and Resources:
-<a name="files-and-resources"></a>
 
-#### Security Requirements:
-- **Input Validation**: Check file size and file count before uncompressing.
-- **Limits**: Enforce maximum uncompressed size and file count to prevent resource exhaustion.
-- **Error Handling**: Provide clear error messages for rejected files.
-
-**Solution**: Make sure to validate files on the server before uncompressing them by checking their size and number to make sure they meet the specified limits.
 
 ### RESTful Web Service:
 <a name="restful-web-service"></a>
@@ -193,10 +188,11 @@ The algorithm used for encryption is the RS256 algorithm that is a public key en
 ### Implementation of Role-Based Access Control for RESTful API Methods:
 <a name="implementation-of-role-based-access-control-for-restful-api-methods"></a>
 
-#### Security Requirements:
-1. **Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.**
+### Cross-Site Request Forgery (CSRF) Protection:
+The springSecurityFilterChain method from the SpringBoot Application configures CSRF protection using CookieServerCsrfTokenRepository.withHttpOnlyFalse(). This ensures that the CSRF token is stored in a cookie and is not accessible via JavaScript, which can help prevent CSRF attacks.  
+### Content Security Policy (CSP):
+The springSecurityFilterChain method from the SpringBoot Application also sets a Content Security Policy (CSP) for your application. A CSP can help to mitigate the risk of Cross-Site Scripting (XSS) attacks by specifying the domains that the browser should consider to be valid sources of executable scripts.
 
-**Solution**: Create role-based access control (RBAC) for RESTful API methods to limit access to HTTP methods according to user roles and permissions. This helps prevent unauthorized use of critical HTTP methods like DELETE or PUT.
 
 ### HTTP response headers:
 
@@ -230,7 +226,7 @@ Only the admin can access the logs in order to have a better control of the appl
 ![Logs.png](../images/LogsAdmin.png)
 <p align="center">Logs</p>
 
-### Admin Metrics
+### Admin Dashboard with application metrics
 
 The application also has a dashboard for the admin to see the metrics of the application. The metrics include the HTTP requests Endpoints requested, system uptime, system startTime, CPU usage, threads count and memory usage.
 

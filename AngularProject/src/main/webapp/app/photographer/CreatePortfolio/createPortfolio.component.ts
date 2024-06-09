@@ -51,13 +51,10 @@ export default class CreatePortfolioComponent implements OnInit {
             this.portfolioService.create(newPortfolio).subscribe(portfolioResponse => {
               if (portfolioResponse.body) {
                 const portfolio = portfolioResponse.body;
-                if (user1) {
                   user1.portfolio = portfolio;
                   this.userService.update(user1).subscribe((user) => {
-                    console.log('User updated successfully'+user);
                     this.router.navigate(['/']);
                   });
-                }
               }
             });
           }
