@@ -52,15 +52,6 @@ jobs:
       - name: Run prettier check
         run: npm run prettier:check
 
-      - name: Log in to Docker Hub
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
-      - name: Build Docker images for application
-        run: docker-compose -f ../AngularProject/src/main/docker/app.yml build
-
-      - name: Push Docker images for application
-        run: docker-compose -f ../AngularProject/src/main/docker/app.yml push
-
       - name: Run dependency check
         id: dependency-check
         run: mvn org.owasp:dependency-check-maven:check
