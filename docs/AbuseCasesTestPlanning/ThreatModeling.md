@@ -41,6 +41,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 
 ## 2 Security Requirements Engineering  
+
 ### 2.1 Authentication and Authorization  
 #### Security Requirements:
 - **User Authentication**: Put in place secure ways for clients, photographers, and admins to prove who they are (e.g., username/password combo, multiple verification steps) before accessing the website.
@@ -50,6 +51,31 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 - **Session Management**: Use secure session management techniques to prevent session hijacking and ensure that user sessions expire after a defined period of inactivity.
 
 - **Password Policy**: Implement a strong password policy that enforces minimum length, complexity(Checking against a set of breached passwords) for better user security.
+
+In the authentication and authorization process of the application, we used an OAuth2.0 server to manage the authentication and authorization of the users. The OAuth2.0 server is responsible for issuing access tokens to the clients after successfully authenticating the users. The access tokens are then used by the clients to access the protected resources on the server. The OAuth2.0 server also enforces the authorization rules to ensure that only authorized users can access the protected resources.
+The OAuth2 was Keycloak, an open-source identity and access management solution that provides a secure and scalable authentication and authorization service. Keycloak supports various authentication mechanisms, including username/password, social login, and multi-factor authentication. It also provides role-based access control and fine-grained authorization policies to secure the application's resources.
+
+In Keycloak we managed to communicate with the MySQL database that was used to store the other entities of the application.
+For the login process we put and MFA in order to enter the application in order to harder to authenticate to a user.
+![MFAInKeyCloak.png](../images/MFAInKeyCloak.png)  
+<p align="center">MFA in Keycloak</p>
+
+In the register process we put a password policy that enforces a minimum length, complexity, and checking against a set of breached passwords for better user security and also a ReCaptcha code.
+![ReCaptchaRegistration.png](..%2F..%2F..%2F..%2F..%2FDesktop%2FImagensDESOFS%2FReCaptchaRegistration.png)  
+<p align="center">ReCaptcha in the registration process</p>
+
+In the SSO login there is also a session expirancy in order to prevent session hijacking.
+![SessionExpirancy.png](../images/SessionExpirancy.png)  
+<p align="center">Session expirancy</p>  
+KeyCloak as a lot of policies in terms of security in which they will prevent certain actions to be made by the users.
+![PoliciesOauth2.png](../images/PoliciesOauth2.png)
+<p align="center">Policies that Keycloak provide</p>  
+
+The algorithm used for encryption is the RS256 algorithm that is a public key encryption that uses a public and private key pair to encrypt and decrypt data.  
+
+![AlgorythmTokenOauth.png](../images/AlgorythmTokenOauth.png)
+<p align="center">Algorithm utilized</p>  
+
 
 ### 2.2 Data Protection
 
@@ -78,11 +104,7 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 #### Security Requirements:
 
-- **Watermarking**: Implement watermarked image techniques for photos thus discouraging unauthorized use or distribution without proper referencing.
-
 - **Access Control**: Only authenticated users should be able to access high-resolution photos or premium content to avoid unapproved downloads or sharing.
-
-- **Digital Rights Management (DRM)**: DRM technologies are implemented here to protect copyright and determine photo access, copying as well as distribution.
 
 ### 2.5 Secure Administration
 
@@ -111,26 +133,12 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 - **Verify that JSON schema validation is in place and verified before accepting input.**:Add JSON schema validation to the input processing pipeline of the application. Validate input data against the predefined JSON schema before processing to ensure it meets expected formats and integrity. Provide user feedback in case of any errors.
 - Verify that the REST services validate that the request's content-type is the expected one.
 
-### Malicious Code Search:
-<a name="malicious-code-search"></a>
-
-#### Security Requirements:
-- **Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.**:Make sure to review the code of the application and any third-party libraries carefully to spot any hidden features that send data without permission.
-
-### Sensitive Private Data:
-<a name="sensitive-private-data"></a>
-
-#### Security Requirements:
-- **Verify that users have a method to remove or export their data on demand.**:Add a feature to the app that allows users easily to delete or download their data when needed. Include straightforward instructions and user-friendly interfaces to make the process smooth and secure.
-
-
 
 ### Data Protection and Privacy Architecture:
 <a name="data-protection-and-privacy-architecture"></a>
 
 #### Security Requirements:
 - **Verify that all sensitive data is identified and classified into protection levels.**:Conduct a comprehensive data inventory to identify and classify all sensitive data handled by the application
-
 
 
 ### Access Control Architecture:
@@ -157,11 +165,6 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 ### Implementation of Attribute-Based Access Control with Immutable User and Data Attributes:
 <a name="implementation-of-attribute-based-access-control-with-immutable-user-and-data-attributes"></a>
-
-#### Security Requirements:
-1. **Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.**
-
-**Solution**: Utilize Attribute-Based Access Control (ABAC) to uphold access control guidelines grounded on user and data attributes, incorporating immutable attributes to hinder alteration by users.
 
 ### Implementation of Multi-Factor Authentication for Administrative Interfaces:
 <a name="implementation-of-multi-factor-authentication-for-administrative-interfaces"></a>
@@ -209,6 +212,59 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 - API URLs cannot expose sensitive information.
 
 
+### File Size and Type Validation:
+
+#### Security Requirements:
+- Verify that the application validates file size(no more than 10 megabytes) and type(.png,.svg,.jpg,.jpeg) before processing.
+  ![File Size](../images/FileSizeTooLarge.png)
+    <p align="center">File Size Validation</p>
+
+    ![File Type](../images/FileValidation.jpg)
+    <p align="center">File Type Validation</p>
+
+### Logging for Security Events:
+
+The application also has Logs for security events relative to the application. The logs are stored in a file and are used to monitor and track security-related events such as login attempts, access control violations, and other security incidents. The logs are used for auditing, monitoring, and incident response purposes to ensure the security of the application.
+Only the admin can access the logs in order to have a better control of the application.
+
+![Logs.png](../images/LogsAdmin.png)
+<p align="center">Logs</p>
+
+### Admin Metrics
+
+The application also has a dashboard for the admin to see the metrics of the application. The metrics include the HTTP requests Endpoints requested, system uptime, system startTime, CPU usage, threads count and memory usage.
+
+![Metrics.png](../images/AdminMetrics.png)
+<p align="center">Admin Metrics</p>
+
+### Swagger for Admin
+
+The application also has a Swagger for the admin to see the endpoints of the application. The Swagger is a tool that helps to document and test the endpoints of the application.
+
+![Swagger.png](../images/Swagger.png)
+<p align="center">Swagger for Admin</p>
+
+
+
+### Code Coverage:
+
+In terms of Code Coverage we used Sonarqube to check the code coverage of the application.
+For this we used a docker container to run the Sonarqube and then we created a sonar project in order to get a sonar token to save the data from the coverage into a sonar project.
+![Build sucess in mvn verify.png](../images/Build%20sucess%20in%20mvn%20verify.png)
+<p align="center">Maven verify build success</p>  
+
+![Sonarqube.png](../images/Sonarqube.png)
+<p align="center">Sonarqube Code Coverage</p>
+
+
+### Docker Hub:
+
+The application (Database and Keycloak also) is fully dockerized and the images are stored in the Docker Hub repository. The images are tagged with the latest version and the latest commit hash to ensure traceability and version control. The images are scanned for vulnerabilities using Docker Hub's built-in security scanning feature to identify and mitigate potential security risks.
+They are all in different repositories in order to have a better organization of the images.
+
+![DockerHub.png](../images/DockerHub.png)
+<p align="center">Docker Hub</p>
+
 ## Abuse Cases
 
 ### Abuse cases for Sign Up and Login
@@ -220,9 +276,6 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 ### Abuse Cases for View Purchased Photos
 ![AbuseCasesViewPurchasedPhotos](../image/abuseCases/ViewPurchasedPhotosAbuseCases.svg)
-
-### Abuse Cases for Edit User Roles
-![AbuseCasesEditUserRoles](../image/abuseCases/EditUserRolesAbuseCases.svg)
 
 ### Abuse Cases for Add Photo to Cart
 ![AbuseCasesAddPhotoToCart](../image/abuseCases/AddPhotoToCartAbuseCase.png)
@@ -238,9 +291,6 @@ In the Data flow Diagram we Divided the diagrams between the processes in order 
 
 ### Abuse Cases for Create Portfolio
 ![AbuseCasesCreatePortfolio](../image/abuseCases/CreatePortfolioAbuseCase.png)
-
-### Abuse Cases for Deactivate User
-![AbuseCasesDeactivateUser](../image/abuseCases/DeactivateUserAbuseCase.svg)
 
 ### Abuse Cases for Delete Photo
 ![AbuseCasesDeletePhoto](../image/abuseCases/DeletePhotoAbuseCase.png)
@@ -315,39 +365,16 @@ Here we have the list of abuse cases with a description associated and a mitigat
 
 ##### Penetration Tests
 
-##### Automated Registration
-- **Objective**: Assess the resistance of the automated registration process to exploitation.
-- Tools: OWASP ZAP
-- **Test Steps**:
-    1. Utilize automated tools to submit registration requests with a large volume of fake user data.
-    2. Monitor the application's response to identify potential vulnerabilities or weaknesses.
-- **Expected Result**: The application should detect and prevent automated registration attempts, such as CAPTCHA verification or rate limiting.
-
-#### Brute Force Attack
-- **Objective**: Evaluate the strength of the login mechanism against brute force attacks.
-- Tools: Hydra
-- **Test Steps**:
-    1. Employ automated tools to conduct a brute force attack on the login page, attempting various username/password combinations.
-    2. Monitor the application's response and server logs for signs of excessive login attempts.
-- **Expected Result**: The application should implement account lockout mechanisms or rate limiting to mitigate brute force attacks.
-
-
-#### Session Hijacking
-- **Objective**: Assess the susceptibility of the application to session hijacking attacks.
-- Tools: Wireshark
-- **Test Steps**:
-    1. Attempt to intercept and steal session cookies transmitted over insecure channels using tools like Wireshark.
-    2. Use stolen session cookies to impersonate authenticated users and gain unauthorized access to their accounts.
-- **Expected Result**: The application should implement secure session management techniques, such as HTTPS encryption and session tokens with short expiration times, to prevent session hijacking.
-
-
 #### SQL Injection
 - **Objective**: Identify and mitigate SQL injection vulnerabilities in the application.
 - Tools: Manual testing or SQLMap
 - **Test Steps**:
     1. Submit malicious SQL queries via input fields manually to test for SQL injection vulnerabilities.
     2. Analyze the application's response and database logs for indications of SQL injection attacks.
-- **Expected Result**: The application should sanitize user input and use parameterized queries or prepared statements to prevent SQL injection attacks.
+- **Expected Result**: The application should sanitize user input and use parameterized queries or prepared statements to prevent SQL injection attacks.  
+
+![sqlMapLogin.png](../images/sqlMapLogin.png)
+<p align="center">SQLMap for Login</p>  
 
 ### Browse Photos UC
 
@@ -368,28 +395,11 @@ Here we have the list of abuse cases with a description associated and a mitigat
 
 #### Unauthorized Access:
 - **Objective**: Attempt to access the Browse Photos functionality without proper authentication.
-- Tools: OWASP ZAP
+- Tools: Manual Testing
 - **Test Steps**:
-    1. Use a web proxy tool to intercept the request to browse photos.
-    2. Modify the request to remove or tamper with the authentication token.
-    3. Send the modified request and observe the application's response.
+    1. Test the application's response to unauthenticated requests to the Browse Photos page.
 - **Expected Result**: The application should deny access and return an error message indicating that authentication is required.
 
-#### Content Scraping:
-- **Objective**: Test the application's resilience against content scraping attempts.
-- Tools: Scrapy
-- **Test Steps**:
-    1. Use automated scraping tools to scrape photo data from the Browse Photos functionality.
-    2. Analyze the scraped data to determine if the application's content is easily extractable.
-- **Expected Result**: The application should implement measures to prevent or mitigate content scraping, such as rate limiting or CAPTCHA verification.
-
-#### Data Harvesting:
-- **Objective**: Attempt to harvest sensitive data from the application's database.
-- Tools: SQLMap,Manual Testing
-- **Test Steps**:
-    1. Use SQL injection techniques to extract data from the database.
-    2. Utilize automated tools to identify and exploit potential vulnerabilities.
-- **Expected Result**: The application should be resilient to SQL injection attacks, with proper input validation and parameterized queries to prevent data harvesting.
 
 #### Denial of Service Attack:
 - **Objective**: Test the application's resilience against denial of service (DoS) attacks.
@@ -400,16 +410,9 @@ Here we have the list of abuse cases with a description associated and a mitigat
 - **Expected Result**: The application should be able to handle a significant increase in traffic without experiencing downtime or degradation in performance.
 
 
-### Add Photo to cart and Create a Portfolio UC
+### Create a Portfolio UC
 
 ##### 1. Unit Tests:
-- **Add Photo to Cart UC**:
-    - **Test Cases**:
-        1. Verify that the correct item is added to the cart;
-        2. Ensure that the quantity of the item in the cart is updated correctly;
-        3. Test the calculation of the total price after adding items to the cart;
-    - **Tools/Techniques**: Mocking frameworks for isolating components, assertion libraries for verifying outputs.
-
 - **Create Portfolio UC**:
     - **Test Cases**:
         1. Validate that a portfolio is successfully created with valid input data;
@@ -418,12 +421,6 @@ Here we have the list of abuse cases with a description associated and a mitigat
     - **Tools/Techniques**: Mocking frameworks for isolating components, assertion libraries for verifying outputs.
 
 ##### 2. Functional Tests:
-- **Add Photo to Cart UC**:
-    - **Test Cases**:
-        1. Validate that users can add items to the cart from different product pages;
-        2. Test the behavior of the system when adding items to the cart with different quantities;
-        3. Verify that users cannot add out-of-stock items to the cart;
-    - **Tools/Techniques**: Test automation frameworks (e.g., Cypress).
 
 - **Create Portfolio UC**:
     - **Test Cases**:
@@ -432,29 +429,13 @@ Here we have the list of abuse cases with a description associated and a mitigat
         3. Verify that portfolios are displayed correctly on the photographer's profile page after creation;
     - **Tools/Techniques**: Test automation frameworks (e.g., Cypress).
 
-##### 3. End-to-End (E2E) Tests:
-- **Add Photo to Cart UC**:
-    - **Test Cases**:
-        1. Validate the end-to-end flow of adding items to the cart, including navigating product pages, adding items, and viewing the cart contents;
-    - **Tools/Techniques**: Test automation frameworks (e.g., Cypress).
-
-- **Create Portfolio UC**:
-    - **Test Cases**:
-        1. Validate the end-to-end flow of creating a portfolio, including logging into the photographer's account, navigating to the portfolio creation page, entering portfolio details, and saving the portfolio;
-        2. Test the visibility of the new created portfolio on the photographer's profile page or portfolios page;
-    - **Tools/Techniques**: Test automation frameworks (e.g., Cypress), headless browsers, browser automation tools.
 
 #### 4. Penetration Tests
 
 Penetration testing helps identify security vulnerabilities by simulating real-world attacks. For the abuse cases identified in the application, penetration testing can uncover weaknesses exploited by attackers. Here's a brief plan:
 
-#### 1. Add Photo To Cart:
-- **Objective**: Test for vulnerabilities like denial of service, unauthorized access, and data manipulation in the "Add Photo To Cart" functionality.
-- **Approach**: Simulate denial of service attacks, attempt unauthorized access, and check for data manipulation.
-- **Tools/Techniques**: OWASP ZAP, manual testing.
-
-#### 2. Create a Portfolio:
-- **Objective**: Test for vulnerabilities like content scraping, unauthorized access, data manipulation, and denial of service in the "Create a Portfolio" UC.
+#### 1. Create a Portfolio:
+- **Objective**: Test for vulnerabilities data manipulation, and denial of service in the "Create a Portfolio" UC.
 - **Approach**: Check resistance against content scraping, probe for unauthorized access, test data manipulation, and check resilience against denial of service.
 - **Tools/Techniques**: manual testing, load tests.
 
@@ -512,54 +493,19 @@ By conducting penetration tests, we can proactively identify and address securit
         3. Verify that sensitive information is not exposed through search results.
     - **Tools/Techniques**: Test automation frameworks, API testing tools.
 
-3. **End-to-End (E2E) Tests:**
-    - **Test Cases**:
-        1. Simulate the end-to-end flow of searching for users, including navigating to the search page, entering search criteria, and viewing results.
-        2. Test for performance under high search volumes.
-    - **Tools/Techniques**: Test automation frameworks, load testing tools.
-
 4. **Penetration Tests:**
-    - **Objective**: Test for vulnerabilities such as SQL injection and data exposure.
-    - **Approach**: Attempt to inject SQL queries into search parameters and verify system responses.
-    - **Tools/Techniques**: Manual testing, SQLMap.
+    - **Objective**: Test for vulnerabilities such as data exposure.
+    - **Tools/Techniques**: Manual testing.
 
-### Use Case: Checkout Cart
+    
+### Use Case: Put up a Photo for Sale
 
 #### Test Planning:
 
 1. **Unit Tests:**
     - **Test Cases**:
-        1. Verify that users can only access their own carts by ID.
-        2. Test error handling for accessing non-existent carts.
-        3. Ensure that only authenticated users can access cart information.
-    - **Tools/Techniques**: Mocking frameworks for authentication, assertion libraries for access control validation.
-
-2. **Functional Tests:**
-    - **Test Cases**:
-        1. Validate that users can access their own carts by ID after authentication.
-        2. Attempt to access other users' carts without proper authorization and verify the system's response.
-        3. Test for edge cases such as accessing carts with invalid IDs.
-    - **Tools/Techniques**: Test automation frameworks, API testing tools.
-
-3. **End-to-End (E2E) Tests:**
-    - **Test Cases**:
-        1. Simulate the end-to-end flow of accessing a cart by ID, including login, navigation to the cart page, and viewing cart contents.
-        2. Verify that only authorized users can access their own carts.
-    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
-
-4. **Penetration Tests:**
-    - **Objective**: Test for vulnerabilities such as insecure direct object references and insufficient access controls.
-    - **Approach**: Attempt to manipulate cart IDs to access other users' carts and test for unauthorized access.
-    - **Tools/Techniques**: Manual testing, OWASP ZAP.
-
-### Use Case: Add Photo To Portfolio
-
-#### Test Planning:
-
-1. **Unit Tests:**
-    - **Test Cases**:
-        1. Verify by ID that the user as the Photographer Role and it is his Portfolio.
-        2. Validate if the data of the photo as all the requirements.
+        1. Verify the Photo Update to turn into active.
+        2. Verify if the photo Goes to a Portfolio.
     - **Tools/Techniques**: Mocking frameworks for authentication and access control. Mock of service to add the photo.
 
 2. **Functional Tests:**
@@ -568,43 +514,16 @@ By conducting penetration tests, we can proactively identify and address securit
         2. Attempt a valid and non-valid attempt of adding a photo to a portfolio.
     - **Tools/Techniques**: Test automation frameworks, API testing tools.
 
-3. **End-to-End (E2E) Tests:**
-    - **Test Cases**:
-        1. Simulate the end-to-end flow of adding a photo to a portfolio with authentication, viewing porfolio page and add photo.
-        2. Verify that only authorized photographer can add photo to his portfolio.
-    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
-
 4. **Penetration Tests:**
-    - **Objective**: Test for vulnerabilities such as insufficient access controls and data manipulation.
-    - **Approach**: Attempt to access others photographers portfolios and add photos.
-    - **Tools/Techniques**: Manual testing, OWASP ZAP.
+    - **Objective**: Test for vulnerabilities such as SQL injections.
+    - **Approach**: Use SQL automated tools to check if there is vulnerabilities.
+    - **Tools/Techniques**: Manual testing, SQLMap.
 
-### Use Case: Deactivate User
+![sqlMapPutUpforSale.png](../images/sqlmapPutupforsale.png)  
 
-#### Test Planning:
+<p align="center">SQLMap for Put up a Photo for Sale</p>
 
-1. **Unit Tests:**
-    - **Test Cases**:
-        1. Verify by ID that the user as the Admin Role and can retrieve users List and deactivate users.
-        2. Validate if the users as been correctly deactivated.
-    - **Tools/Techniques**: Mocking frameworks for authentication and access control. Mock of service to handle users.
 
-2. **Functional Tests:**
-    - **Test Cases**:
-        1. Validate that a Admin can acess the users list and deactivate.
-        2. Attempt a valid and non-valid attempt of deactivating a user.
-    - **Tools/Techniques**: Test automation frameworks, API testing tools.
-
-3. **End-to-End (E2E) Tests:**
-    - **Test Cases**:
-        1. Simulate the end-to-end flow of deactivating a user by starting on the authentication, viewing users page and deactivate user.
-        2. Verify that only users with the admin role can deactivate users.
-    - **Tools/Techniques**: Test automation frameworks, browser automation tools.
-
-4. **Penetration Tests:**
-    - **Objective**: Test for vulnerabilities such as insufficient access controls and data manipulation.
-    - **Approach**: Attempt to access to users list page without the admin role.
-    - **Tools/Techniques**: Manual testing, OWASP ZAP.
 
 ### Use Case: View Purchased Photos
 
@@ -634,31 +553,6 @@ By conducting penetration tests, we can proactively identify and address securit
         2. Simulate a malicious attack to assess the application's resilience. Approach: Use an automated tool to simulate an attack.
    - **Tools/Techniques**: SQLMap, OWASP ZAP.
 
-### Use Case: Edit User Roles
-
-1. **Unit Tests:**
-    - **Test Cases**:
-        1. Verify that the user's roles are updated correctly.
-        2. Ensure the user always has at least one role.
-        3. Ensure the user cannot have duplicated roles.
-    - **Tools/Techniques**: Mocking frameworks for database interactions, assertion libraries for result validation.
-
-2. **Functional Tests:**
-    - **Test Cases**:
-        1. Validate that it is possible to select any combination of user roles.
-        2. Ensure the requesting user is authenticated as an administrator.
-        3. Ensure the requesting user is currently active.
-    - **Tools/Techniques**: Test automation frameworks, API testing tools.
-
-3. **End-to-End (E2E) Tests:**
-    - **Test Cases**:
-        1. Simulate the end-to-end flow of editing a user's roles, including navigating to the user search page, selecting a user and changing its roles.
-    - **Tools/Techniques**: Automatic browser testing frameworks.
-
-4. **Penetration Tests:**
-    - **Test Cases**:
-        1. Simulate a malicious attack to assess the application's resilience. Approach: Use an automated tool to simulate an attack.
-    - **Tools/Techniques**: OWASP ZAP.
 
 ### ASVS Compliance
 
@@ -666,15 +560,11 @@ By conducting penetration tests, we can proactively identify and address securit
 |------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Level 1    | 2.1.1       | Verify that user set passwords are at least 12 characters in length (after multiple spaces are combined). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | DFD and Security Requirements Engineering                                                                                                                                                                      |
 | Level 1    | 2.1.2       | Verify that passwords of at least 64 characters are permitted, and that passwords of more than 128 characters are denied. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                                                                    | DFD and Security Requirements Engineering                                                                                                                                                                      |
-| Level 1    | 2.1.7       | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system's password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | DFD and Security Requirements Engineering                                                                                                                                                                      |
 | Level 2    | 2.9.3       | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Security Requirements Engineering                                                                                                                                                                              |
 | Level 2    | 9.2.2       | Verify that encrypted communications such as TLS is used for all inbound and outbound connections, including for management ports, monitoring, authentication, API, or web service calls, database, cloud, serverless, mainframe, external, and partner connections. The server must not fall back to insecure or unencrypted protocols.                                                                                                                                                                                                                                                                                                             | Deployment Diagram                                                                                                                                                                                             |
-| Level 1    | 10.1.1      | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | The usage of the OWASP ZAP for the penetration tests can be used to test and solve some issues                                                                                                                 |
+| Level 1    | 10.1.1      | Verify that a code analysis tool is in use that can detect potentially malicious code, such as time functions, unsafe file operations and network connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | The usage of the Sonarqube for the code coverage and code vulnerabilities.                                                                                                                                     |
 | Level 1    | 12.1.1      | Verify that the application will not accept large files that could fill up storage or cause a denial of service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Abuse cases                                                                                                                                                                                                    |
-| Level 2    | 12.1.2      | Verify that the application checks compressed files (e.g. zip, gz, docx, odt) against maximum allowed uncompressed size and against maximum number of files before uncompressing the file.                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Evidence in DFD &  [Files and Resources](#files-and-resources)                                                                                                                                                 |
-| Level 1    | 13.2.2      | Verify that JSON schema validation is in place and verified before accepting input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [RESTful Web Service](#restful-web-service)                                                                                                                                                                    |
 | Level 2    | 10.2.1      | Verify that the application source code and third party libraries do not contain unauthorized phone home or data collection capabilities. Where such functionality exists, obtain the user's permission for it to operate before collecting any data.                                                                                                                                                                                                                                                                                                                                                                                                | Evidence in DFD & [Malicious code search](#malicious-code-search)                                                                                                                                              |
-| Level 1    | 8.3.2       | Verify that users have a method to remove or export their data on demand.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | [Sensitive Private Data](#sensitive-private-data)                                                                                                                                                              |
 | Level 2    | 1.8.1       | Verify that all sensitive data is identified and classified into protection levels.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Evidence in Views & [Data protection and Privacy Architecture](#data-protection-and-privacy-architecture)                                                                                                      |
 | Level 2    | 1.4.4       | Verify the application uses a single and well-vetted access control mechanism for accessing protected data and resources. All requests must pass through this single mechanism to avoid copy and paste or insecure alternative paths. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                        | [Access Control Architecture](#access-control-architecture)                                                                                                                                                    |
 | Level 2    | 1.14.4      | Verify that the build pipeline contains a build step to automatically build and verify the secure deployment of the application, particularly if the application infrastructure is software defined, such as cloud environment build scripts.                                                                                                                                                                                                                                                                                                                                                                                                        | Deployment Diagram & [Implementation of Automated Security Checks in Build Pipeline](#implementation-of-automated-security-checks-in-build-pipeline)                                                           |
@@ -682,19 +572,14 @@ By conducting penetration tests, we can proactively identify and address securit
 | Level 1    | 4.1.2       | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Evidence in DFD & [Implementation of Attribute-Based Access Control (ABAC) with Immutable User and Data Attributes](#implementation-of-attribute-based-access-control-with-immutable-user-and-data-attributes) |
 | Level 1    | 4.3.1       | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Abuses Cases & [Implementation of Multi-Factor Authentication (MFA) for Administrative Interfaces](#implementation-of-multi-factor-authentication-for-administrative-interfaces)                               |
 | Level 1    | 8.3.1       | Verify that sensitive data is sent to the server in the HTTP message body or headers, and that query string parameters from any HTTP verb do not contain sensitive data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Abuse Cases & [Implementation of Secure Data Transmission Practices](#implementation-of-secure-data-transmission-practices)                                                                                    |
-| Level 1    | 12.5.2      | Verify that direct requests to uploaded files will never be executed as HTML/JavaScript content.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Abuse Cases & [Implementation of Content-Type Validation for Uploaded Files](#implementation-of-content-type-validation-for-uploaded-files)                                                                    |
 | Level 1    | 13.2.1      | Verify that enabled RESTful HTTP methods are a valid choice for the user or action, such as preventing normal users using DELETE or PUT on protected API or resources.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [Implementation of Role-Based Access Control for RESTful API Methods](#implementation-of-role-based-access-control-for-restful-api-methods)                                                                    |
 | Level 1    | 4.1.3       | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                       | Abuse Case (EditUserRolesAbuseCase)                                                                                                                                                                            |
 | Level 2    | 1.1.2       | Verify the use of threat modeling for every design change or sprint planning to identify threats, plan for countermeasures, facilitate appropriate risk responses, and guide security testing.                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [Threat-Modeling](#threat-modeling)                                                                                                                                                                            |
 | Level 1    | 8.3.4       | Verify that all sensitive data created and processed by the application has been identified, and ensure that a policy is in place on how to deal with sensitive data. ([C8](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                                        | Logical View Diagram (Using Dto to send only required data)                                                                                                                                                    |
 | Level 2    | 1.11.1      | Verify the definition and documentation of all application components in terms of the business or security functions they provide.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Use Cases shows business logic of our application                                                                                                                                                              |
-| Level 2    | 11.1.7      | Verify that the application monitors for unusual events or activity from a business logic perspective. For example, attempts to perform actions out of order or actions which a normal user would never attempt. ([C9](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                             | [Test-Planning](#test-planning) Perform tests for all requests using valid and non valid permissions and data                                                                                                  |
 | Level 1    | 11.1.5      | Verify the application has business logic limits or validation to protect against likely business risks or threats, identified using threat modeling or similar methodologies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [Threat-Modeling](#threat-modeling) documentation, design use and abuse cases                                                                                                                                  |
 | Level 1    | 5.1.3       | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (allow lists). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering))                                                                                                                                                                                                                                                                                                                                                                                            | In the Process views level 3 the parameters that each requests receive are validated using allowed list                                                                                                        |
 | Level 1    | 14.4.1      | Verify that every HTTP response contains a Content-Type header. Also specify a safe character set (e.g., UTF-8, ISO-8859-1) if the content types are text/*, /+xml and application/xml. Content must match with the provided Content-Type header.                                                                                                                                                                                                                                                                                                                                                                                                    | Security Requirements Engineering. See [HTTP Response Headers](#http-response-headers).                                                                                                                        |
 | Level 1    | 13.1.3      | Verify API URLs do not expose sensitive information, such as the API key, session tokens etc.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Security Requirements Engineering. See [API URL Structure](#api-url-structure).                                                                                                                                |
 | Level 2    | 13.1.5      | Verify that requests containing unexpected or missing content types are rejected with appropriate headers (HTTP response status 406 Unacceptable or 415 Unsupported Media Type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Security Requirements Engineering. See [HTTP Response Headers](#http-response-headers).                                                                                                                        |
-| Level 2    | 13.2.5      | Verify that REST services explicitly check the incoming Content-Type to be the expected one, such as application/xml or application/json.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Security Requirements Engineering. See [RESTful Web Service](#restful-web-service).                                                                                                                            |
 | Level 2    | 12.1.3      | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files.                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Threat Modeling: [Abuse Cases](#abuse-cases) (Put a Photo up for sale).                                                                                                                                        |
-| Level 1    | 11.1.4      | Verify that the application has anti-automation controls to protect against excessive calls such as mass data exfiltration, business logic requests, file uploads or denial of service attacks.                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Threat Modeling and Test Planning                                                                                                                                                                              |
-| Level 2    | 8.3.6       | Verify that sensitive information contained in memory is overwritten as soon as it is no longer required to mitigate memory dumping attacks, using zeroes or random data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Security Requirements Engineering. See Data Protection.                                                                                                                                                        |
