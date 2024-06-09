@@ -46,13 +46,6 @@
             <fa-icon class="p-1" icon="sort"></fa-icon>
           </div>
         </th>
-        <th scope="col" jhiSortBy="state">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.photo.state">State</span>
-
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
         <th scope="col" jhiSortBy="portfolio.id">
           <div class="d-flex">
             <span jhiTranslate="photoStoreApp.photo.portfolio">Portfolio</span>
@@ -79,13 +72,10 @@
           <a (click)="openFile(photo.photo, photo.photoContentType)">
             <img [src]="'data:' + photo.photoContentType + ';base64,' + photo.photo" style="max-height: 30px" alt="photo" />
           </a>
-          <span>{{ photo.photoContentType }}, {{ byteSize(photo.photo) }}</span>
           }
         </td>
         <td>{{ photo.date | formatMediumDate }}</td>
-        <td [jhiTranslate]="'photoStoreApp.PhotoState.' + (photo.state ?? 'null')">
-          {{ { null: '', ACTIVE: 'ACTIVE', INACTIVE: 'INACTIVE' }[photo.state ?? 'null'] }}
-        </td>
+
         <td>
           @if (photo.portfolio) {
           <div>
@@ -93,13 +83,7 @@
           </div>
           }
         </td>
-        <td>
-          @if (photo.cart) {
-          <div>
-            <a [routerLink]="['/cart-my-suffix', photo.cart.id, 'view']">{{ photo.cart.id }}</a>
-          </div>
-          }
-        </td>
+
         <td class="text-end">
           <div class="btn-group">
             <a [routerLink]="['/photo-my-suffix', photo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
