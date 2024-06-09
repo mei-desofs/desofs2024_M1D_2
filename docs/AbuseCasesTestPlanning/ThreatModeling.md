@@ -231,6 +231,9 @@ The springSecurityFilterChain method from the SpringBoot Application also sets a
     ![File Type](../images/FileValidation.jpg)
     <p align="center">File Type Validation</p>
 
+    ![spring-configuration.png](../images/spring-configuration.png)
+    <p align="center">Spring file size limit configuration (backend)</p>
+
 ### Logging for Security Events:
 
 The application also has Logs for security events relative to the application. The logs are stored in a file and are used to monitor and track security-related events such as login attempts, access control violations, and other security incidents. The logs are used for auditing, monitoring, and incident response purposes to ensure the security of the application.

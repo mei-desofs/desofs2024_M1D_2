@@ -143,6 +143,9 @@ server:
     session:
       cookie:
         http-only: true
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 15MB
 
 springdoc:
   show-actuator: true
