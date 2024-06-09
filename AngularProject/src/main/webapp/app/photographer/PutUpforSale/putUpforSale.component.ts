@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, ElementRef } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 
@@ -18,7 +18,7 @@ import { PhotoState } from 'app/entities/enumerations/photo-state.model';
 import { PhotoMySuffixService } from '../../entities/photo-my-suffix/service/photo-my-suffix.service';
 import { IPhotoMySuffix } from '../../entities/photo-my-suffix/photo-my-suffix.model';
 import { PhotoMySuffixFormService, PhotoMySuffixFormGroup } from '../../entities/photo-my-suffix/update/photo-my-suffix-form.service';
-import dayjs from "dayjs/esm";
+import dayjs from 'dayjs/esm';
 
 @Component({
   standalone: true,
@@ -46,7 +46,6 @@ export class PutUpforSaleComponent implements OnInit {
   protected activatedRoute = inject(ActivatedRoute);
   private router = inject(Router);
 
-
   // eslint-disable-next-line @typescript-eslint/member-ordering
   editForm: PhotoMySuffixFormGroup = this.photoFormService.createPhotoMySuffixFormGroup();
 
@@ -64,11 +63,9 @@ export class PutUpforSaleComponent implements OnInit {
 
       this.loadRelationshipsOptions();
     });
-    this.editForm.valueChanges.subscribe(value => {
-
-    });
+    this.editForm.valueChanges.subscribe(value => {});
   }
-  getPhotoSize(base64String:string): number {
+  getPhotoSize(base64String: string): number {
     return this.dataUtils.size(base64String);
   }
   byteSize(base64String: string): string {
@@ -104,8 +101,8 @@ export class PutUpforSaleComponent implements OnInit {
     this.isSaving = true;
     const photo = this.photoFormService.getPhotoMySuffix(this.editForm);
     photo.cart = null; // Set cart to null
-    photo.date=dayjs(); // Set date to current date
-    photo.state=PhotoState.ACTIVE; // Set state to ACTIVE
+    photo.date = dayjs(); // Set date to current date
+    photo.state = PhotoState.ACTIVE; // Set state to ACTIVE
     if (photo.id !== null) {
       this.subscribeToSaveResponse(this.photoService.update(photo));
     } else {
@@ -120,13 +117,11 @@ export class PutUpforSaleComponent implements OnInit {
     });
 
     // Log the response from the photo service
-    result.subscribe(response => {
-    });
+    result.subscribe(response => {});
   }
 
   protected onSaveSuccess(): void {
     this.router.navigate(['/']);
-
   }
 
   protected onSaveError(): void {

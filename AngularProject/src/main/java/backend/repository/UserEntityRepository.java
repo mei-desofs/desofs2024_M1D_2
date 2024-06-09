@@ -1,4 +1,3 @@
 package backend.repository;
 
-public interface UserEntityRepository {
-}
+public interface UserEntityRepository {}

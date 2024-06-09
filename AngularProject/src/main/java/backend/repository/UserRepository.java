@@ -25,6 +25,7 @@ public interface UserRepository extends ReactiveCrudRepository<User, Long>, User
 
     @Query("SELECT * FROM user entity WHERE entity.email = :email")
     Mono<User> findByEmail(String email);
+
     @Override
     <S extends User> Mono<S> save(S entity);
 

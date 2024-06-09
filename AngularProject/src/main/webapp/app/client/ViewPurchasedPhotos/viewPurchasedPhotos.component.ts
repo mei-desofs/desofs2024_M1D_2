@@ -9,23 +9,24 @@ import { EntityArrayResponseType, PhotoMySuffixService } from 'app/entities/phot
 import { SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/config/navigation.constants';
 import { DataUtils } from 'app/core/util/data-util.service';
 import SharedModule from 'app/shared/shared.module';
-import {FormsModule} from "@angular/forms";
-import { combineLatest, filter, Observable, Subscription, tap } from "rxjs";
+import { FormsModule } from '@angular/forms';
+import { combineLatest, filter, Observable, Subscription, tap } from 'rxjs';
 
 @Component({
   standalone: true,
   selector: 'jhi-photo-my-suffix',
   templateUrl: './viewPurchasedPhotos.component.html',
-  imports: [SharedModule,
-            RouterModule,
-            FormsModule,
-            SortDirective,
-            SortByDirective,
-            DurationPipe,
-            FormatMediumDatetimePipe,
-            FormatMediumDatePipe],
+  imports: [
+    SharedModule,
+    RouterModule,
+    FormsModule,
+    SortDirective,
+    SortByDirective,
+    DurationPipe,
+    FormatMediumDatetimePipe,
+    FormatMediumDatePipe,
+  ],
 })
-
 export default class ViewPurchasedPhotosComponent implements OnInit {
   subscription: Subscription | null = null;
   photos?: IPhotoMySuffix[];
@@ -114,5 +115,4 @@ export default class ViewPurchasedPhotosComponent implements OnInit {
       });
     });
   }
-
 }

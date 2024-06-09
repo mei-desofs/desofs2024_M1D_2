@@ -1,15 +1,15 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
-import {Router, RouterModule} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import SharedModule from 'app/shared/shared.module';
 import { LoginService } from 'app/login/login.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
-import {FormsModule} from "@angular/forms";
-import {Observable} from "rxjs";
-import {UserMySuffixService} from "../../entities/user-my-suffix/service/user-my-suffix.service";
-import {PortfolioMySuffixService} from "../../entities/portfolio-my-suffix/service/portfolio-my-suffix.service";
-import dayjs from "dayjs/esm";
+import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { UserMySuffixService } from '../../entities/user-my-suffix/service/user-my-suffix.service';
+import { PortfolioMySuffixService } from '../../entities/portfolio-my-suffix/service/portfolio-my-suffix.service';
+import dayjs from 'dayjs/esm';
 
 @Component({
   standalone: true,
@@ -51,10 +51,10 @@ export default class CreatePortfolioComponent implements OnInit {
             this.portfolioService.create(newPortfolio).subscribe(portfolioResponse => {
               if (portfolioResponse.body) {
                 const portfolio = portfolioResponse.body;
-                  user1.portfolio = portfolio;
-                  this.userService.update(user1).subscribe((user) => {
-                    this.router.navigate(['/']);
-                  });
+                user1.portfolio = portfolio;
+                this.userService.update(user1).subscribe(user => {
+                  this.router.navigate(['/']);
+                });
               }
             });
           }

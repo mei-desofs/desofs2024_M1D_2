@@ -25,76 +25,76 @@
   <jhi-alert></jhi-alert>
 
   @if (roleUsers?.length === 0) {
-  <div class="alert alert-warning" id="no-result">
-    <span jhiTranslate="photoStoreApp.roleUser.home.notFound">No Role Users found</span>
-  </div>
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="photoStoreApp.roleUser.home.notFound">No Role Users found</span>
+    </div>
   }
 
   @if (roleUsers && roleUsers.length > 0) {
-  <div class="table-responsive table-entities" id="entities">
-    <table class="table table-striped" aria-describedby="page-heading">
-      <thead>
-      <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
-        <th scope="col" jhiSortBy="id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.roleUser.id">Id</span>
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.roleUser.id">Id</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="userId.id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.roleUser.userId">User Id</span>
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="roleId.id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.roleUser.roleId">Role Id</span>
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      @for (roleUser of roleUsers; track trackId) {
-      <tr data-cy="entityTable">
-        <td>
-          <a [routerLink]="['/role-user-my-suffix', roleUser.id, 'view']">{{ roleUser.id }}</a>
-        </td>
-        <td>
-          {{ roleUser.userId?.id }}
-        </td>
-        <td>
-          @if (roleUser.roleId) {
-          <div>
-            <a [routerLink]="['/role-my-suffix', roleUser.roleId.id, 'view']">{{ roleUser.roleId.id }}</a>
-          </div>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userId.id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.roleUser.userId">User Id</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="roleId.id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.roleUser.roleId">Role Id</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (roleUser of roleUsers; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/role-user-my-suffix', roleUser.id, 'view']">{{ roleUser.id }}</a>
+              </td>
+              <td>
+                {{ roleUser.userId?.id }}
+              </td>
+              <td>
+                @if (roleUser.roleId) {
+                  <div>
+                    <a [routerLink]="['/role-my-suffix', roleUser.roleId.id, 'view']">{{ roleUser.roleId.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/role-user-my-suffix', roleUser.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/role-user-my-suffix', roleUser.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(roleUser)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
           }
-        </td>
-        <td class="text-end">
-          <div class="btn-group">
-            <a [routerLink]="['/role-user-my-suffix', roleUser.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
-              <fa-icon icon="eye"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-            </a>
-
-            <a [routerLink]="['/role-user-my-suffix', roleUser.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
-              <fa-icon icon="pencil-alt"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-            </a>
-
-            <button type="submit" (click)="delete(roleUser)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
-              <fa-icon icon="times"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-            </button>
-          </div>
-        </td>
-      </tr>
-      }
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
   }
 </div>
