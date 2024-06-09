@@ -79,6 +79,11 @@ The algorithm used for encryption is the RS256 algorithm that is a public key en
 ![AlgorythmTokenOauth.png](../images/AlgorythmTokenOauth.png)
 <p align="center">Algorithm utilized</p>  
 
+In terms of the password policy, the application has a password policy that enforces a minimum length, complexity, and checking against a set of breached passwords for better user security. The password policy ensures that users create strong and secure passwords to protect their accounts from unauthorized access. The policy includes requirements such as minimum length of 8 characters and no more than 128 characters, that is configured in keycloak.
+
+![PasswordPolicy.png](../images/Password%20Policy.png)
+<p align="center">Password Policy of Application configuration</p>  
+
 
 ### 2.2 Data Protection
 
