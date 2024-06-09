@@ -25,7 +25,9 @@ export class DataUtils {
     return this.formatAsBytes(this.size(base64String));
   }
 
-
+  size(value: string): number {
+    return (value.length / 4) * 3 - this.paddingSize(value);
+  }
   /**
    * Method to open file
    */
@@ -121,9 +123,7 @@ export class DataUtils {
     return 0;
   }
 
-  size(value: string): number {
-    return (value.length / 4) * 3 - this.paddingSize(value);
-  }
+
 
   private formatAsBytes(size: number): string {
     return size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' bytes'; // NOSONAR
