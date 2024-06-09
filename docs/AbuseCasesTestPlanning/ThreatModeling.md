@@ -425,7 +425,7 @@ Here we have the list of abuse cases with a description associated and a mitigat
 ![BrowsePhotosZAP.png](../images/ViewGalleryZAP.png)
 <p align="center">OWASP ZAP Report for Browse Photos</p>
 
-As we can see in the [report](../ZAP Reports/ViewGallery.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+As we can see in the [report](../ZAP-Reports/ViewGallery.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
 In particular, one high-risk vulnerability was identified: Open Redirect.
 This vulnerability can be exploited by attackers to redirect users to malicious websites, potentially leading to phishing attacks or other security threats.
 It is crucial to address this vulnerability promptly to prevent potential exploitation and protect user security.
@@ -471,7 +471,7 @@ By conducting penetration tests, we can proactively identify and address securit
 ![CreatePortfolioZAP.png](../images/CreatePortfolioZAP.png)
 <p align="center">OWASP ZAP Report for Create Portfolio</p>
 
-As we can see in the [report](../ZAP Reports/CreatePortfolio-.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+As we can see in the [report](../ZAP-Reports/CreatePortfolio-.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
 These vulnerabilities include: Cross-Domain Misconfiguration and X-Content-Type-Options Header Missing, among others.
 No high-risk vulnerabilities were found for this use case, which is a positive outcome.
 However, it is essential to address the medium and low-risk vulnerabilities to enhance the security of the application.
@@ -556,7 +556,7 @@ However, it is essential to address the medium and low-risk vulnerabilities to e
 ![PutPhotoUpForSaleZAP.png](../images/PutPhotoUpForSaleZAP.png)
 <p align="center">OWASP ZAP Report for Put Photo up for sale</p>
 
-As we can see in the [report](../ZAP Reports/PutPhotoUpForSale.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+As we can see in the [report](../ZAP-Reports/PutPhotoUpForSale.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
 In particular, one high-risk vulnerability was identified: Open Redirect.
 This vulnerability can be exploited by attackers to redirect users to malicious websites, potentially leading to phishing attacks or other security threats.
 It is crucial to address this vulnerability promptly to prevent potential exploitation and protect user security.
@@ -595,7 +595,7 @@ Other vulnerabilities identified in the report include Absence of Anti-CSRF Toke
 ![ViewPurchasedPhotosZAP.png](../images/ViewPurchasedPhotosZAP.png)
 <p align="center">OWASP ZAP Report for View Purchased Photos</p>
 
-As we can see in the [report](../ZAP Reports/ViewGallery.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+As we can see in the [report](../ZAP-Reports/ViewGallery.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
 Similar to other use cases, this report also highlights the high-risk vulnerability of Open Redirect.
 Other alerts are the medium-risk CSP: script-src unsafe-inline, the low-risk Cookie without SameSite Attribute and the informational Information Disclosure - Suspicious Comments.
 
