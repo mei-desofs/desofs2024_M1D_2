@@ -43,6 +43,9 @@ export class UserMySuffixService {
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
+  getByEmail(email: string): Observable<EntityResponseType> {
+    return this.http.get<IUserMySuffix>(`${this.resourceUrl}/email/${email}`, { observe: 'response' });
+  }
 
   getUserMySuffixIdentifier(user: Pick<IUserMySuffix, 'id'>): number {
     return user.id;

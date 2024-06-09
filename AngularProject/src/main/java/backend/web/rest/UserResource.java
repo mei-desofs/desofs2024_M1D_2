@@ -194,6 +194,12 @@ public class UserResource {
         Mono<UserDTO> userDTO = userService.findOne(id);
         return ResponseUtil.wrapOrNotFound(userDTO);
     }
+    @GetMapping("/email/{email}")
+    public Mono<ResponseEntity<UserDTO>> getUserByEmail(@PathVariable("email") String email) {
+        log.debug("REST request to get User by email : {}", email);
+        Mono<UserDTO> userDTO = userService.findByEmail(email);
+        return ResponseUtil.wrapOrNotFound(userDTO);
+    }
 
     /**
      * {@code DELETE  /users/:id} : delete the "id" user.

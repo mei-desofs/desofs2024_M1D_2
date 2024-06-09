@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, ElementRef } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 
@@ -44,6 +44,8 @@ export class PutUpforSaleComponent implements OnInit {
   protected cartService = inject(CartMySuffixService);
   protected elementRef = inject(ElementRef);
   protected activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
+
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   editForm: PhotoMySuffixFormGroup = this.photoFormService.createPhotoMySuffixFormGroup();
@@ -123,7 +125,8 @@ export class PutUpforSaleComponent implements OnInit {
   }
 
   protected onSaveSuccess(): void {
-    this.previousState();
+    this.router.navigate(['/']);
+
   }
 
   protected onSaveError(): void {

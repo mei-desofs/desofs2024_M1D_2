@@ -7,6 +7,9 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/auth/account.model';
 import {FormsModule} from "@angular/forms";
 import {Observable} from "rxjs";
+import {UserMySuffixService} from "../../entities/user-my-suffix/service/user-my-suffix.service";
+import {PortfolioMySuffixService} from "../../entities/portfolio-my-suffix/service/portfolio-my-suffix.service";
+import dayjs from "dayjs/esm";
 
 @Component({
   standalone: true,
@@ -17,9 +20,11 @@ import {Observable} from "rxjs";
 })
 export default class CreatePortfolioComponent implements OnInit {
   account = signal<Account | null>(null);
-  portfolioName : string = '';
+  portfolioName: string = '';
   private accountService = inject(AccountService);
+  private userService = inject(UserMySuffixService);
   private loginService = inject(LoginService);
+  private portfolioService = inject(PortfolioMySuffixService);
   private router = inject(Router);
 
   ngOnInit(): void {
@@ -29,14 +34,34 @@ export default class CreatePortfolioComponent implements OnInit {
   login(): void {
     this.loginService.login();
   }
+
   onSubmit(): void {
     this.accountService.identity().subscribe(account => {
-      console.log("boas");
       if (account) {
-        console.log(this.portfolioName);
-        console.log(account.login);
-        console.log(account.email);
+        this.userService.getByEmail(account.email).subscribe(userResponse => {
+          if (userResponse.body) {
+            const user1 = userResponse.body;
+            const newPortfolio = {
+              id: null,
+              date: dayjs(),
+              name: this.portfolioName,
+            };
 
+            // Create the portfolio
+            this.portfolioService.create(newPortfolio).subscribe(portfolioResponse => {
+              if (portfolioResponse.body) {
+                const portfolio = portfolioResponse.body;
+                if (user1) {
+                  user1.portfolio = portfolio;
+                  this.userService.update(user1).subscribe((user) => {
+                    console.log('User updated successfully'+user);
+                    this.router.navigate(['/']);
+                  });
+                }
+              }
+            });
+          }
+        });
       }
     });
   }
