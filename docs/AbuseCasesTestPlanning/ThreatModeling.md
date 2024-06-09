@@ -87,7 +87,7 @@ In terms of the password policy, the application has a password policy that enfo
 
 ### 2.2 Data Protection
 
-#### Security Requirements:
+#### Security  Requirements:
 
 - **Data Encryption**: Sensitive data (like user credentials, payment details) must be encrypted during transmission and when stored to prevent unauthorized access.
 
@@ -95,8 +95,16 @@ In terms of the password policy, the application has a password policy that enfo
 
 - **Data Anonymization**: Anonymize user data where possible to protect the privacy of users.
 
-- **Single-Read Objects**: Objects containing sensitive information should be overwritten with random data after being read to prevent data leakage.
+- **Read-Once Objects**: Objects containing sensitive information should be overwritten with random data after being read to prevent data leakage. See example in this file [UserDTO.java](../../AngularProject/src/main/java/backend/service/dto/UserDTO.java)
 
+```
+    public String getPassword() {
+        final String returnValue = new String(password);
+        Arrays.fill(password, '\0'); // overwrite with zeros
+        return returnValue;
+    }
+```
+<p align="center">Read-Once Object example</p>  
 
 ### 2.3 Secure Transactions
 
@@ -618,3 +626,4 @@ Other alerts are the medium-risk CSP: script-src unsafe-inline, the low-risk Coo
 | Level 1    | 13.1.3      | Verify API URLs do not expose sensitive information, such as the API key, session tokens etc.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Security Requirements Engineering. See [API URL Structure](#api-url-structure).                                                                                                                                |
 | Level 2    | 13.1.5      | Verify that requests containing unexpected or missing content types are rejected with appropriate headers (HTTP response status 406 Unacceptable or 415 Unsupported Media Type).                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Security Requirements Engineering. See [HTTP Response Headers](#http-response-headers).                                                                                                                        |
 | Level 2    | 12.1.3      | Verify that a file size quota and maximum number of files per user is enforced to ensure that a single user cannot fill up the storage with too many files, or excessively large files.                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Threat Modeling: [Abuse Cases](#abuse-cases) (Put a Photo up for sale).                                                                                                                                        |
+| Level 2    | 8.3.6       | Verify that sensitive information contained in memory is overwritten as soon as it is no longer required to mitigate memory dumping attacks, using zeroes or random data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Security Requirements Engineering. See [Data Protection](#Security--Requirements).                                                                                                                             |

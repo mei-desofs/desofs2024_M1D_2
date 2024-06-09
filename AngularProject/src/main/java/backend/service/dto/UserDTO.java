@@ -2,6 +2,7 @@ package backend.service.dto;
 
 import jakarta.persistence.Lob;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -12,13 +13,13 @@ public class UserDTO implements Serializable {
 
     private Long id;
 
-    private String email;
+    private char[] email;
 
-    private String password;
+    private char[] password;
 
-    private String address;
+    private char[] address;
 
-    private String contact;
+    private char[] contact;
 
     @Lob
     private byte[] profilePhoto;
@@ -36,35 +37,43 @@ public class UserDTO implements Serializable {
     }
 
     public String getEmail() {
-        return email;
+        final String returnValue = new String(email);
+        Arrays.fill(email, '\0'); // overwrite with zeros
+        return returnValue;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email.toCharArray();
     }
 
     public String getPassword() {
-        return password;
+        final String returnValue = new String(password);
+        Arrays.fill(password, '\0'); // overwrite with zeros
+        return returnValue;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password.toCharArray();
     }
 
     public String getAddress() {
-        return address;
+        final String returnValue = new String(address);
+        Arrays.fill(address, '\0'); // overwrite with zeros
+        return returnValue;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = address.toCharArray();
     }
 
     public String getContact() {
-        return contact;
+        final String returnValue = new String(contact);
+        Arrays.fill(contact, '\0'); // overwrite with zeros
+        return returnValue;
     }
 
     public void setContact(String contact) {
-        this.contact = contact;
+        this.contact = contact.toCharArray();
     }
 
     public byte[] getProfilePhoto() {
