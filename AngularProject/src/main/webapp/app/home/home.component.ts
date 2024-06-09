@@ -21,7 +21,6 @@ export default class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.accountService.identity().subscribe(account => this.account.set(account));
-
   }
 
   login(): void {

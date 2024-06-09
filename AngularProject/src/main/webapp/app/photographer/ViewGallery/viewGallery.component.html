@@ -15,88 +15,87 @@
   <jhi-alert></jhi-alert>
 
   @if (photos?.length === 0) {
-  <div class="alert alert-warning" id="no-result">
-    <span jhiTranslate="photoStoreApp.photo.home.notFound">No Photos found</span>
-  </div>
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="photoStoreApp.photo.home.notFound">No Photos found</span>
+    </div>
   }
 
   @if (photos && photos.length > 0) {
-  <div class="table-responsive table-entities" id="entities">
-    <table class="table table-striped" aria-describedby="page-heading">
-      <thead>
-      <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
-        <th scope="col" jhiSortBy="id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.photo.id">Id</span>
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.photo.id">Id</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="photo">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.photo.photo">Photo</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="photo">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.photo.photo">Photo</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="date">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.photo.date">Date</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.photo.date">Date</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="portfolio.id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.photo.portfolio">Portfolio</span>
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="cart.id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.photo.cart">Cart</span>
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      @for (photo of photos; track trackId) {
-      <tr data-cy="entityTable">
-        <td>
-          <a [routerLink]="['/photo-my-suffix', photo.id, 'view']">{{ photo.id }}</a>
-        </td>
-        <td>
-          @if (photo.photo) {
-          <a (click)="openFile(photo.photo, photo.photoContentType)">
-            <img [src]="'data:' + photo.photoContentType + ';base64,' + photo.photo" style="max-height: 30px" alt="photo" />
-          </a>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="portfolio.id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.photo.portfolio">Portfolio</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cart.id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.photo.cart">Cart</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (photo of photos; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/photo-my-suffix', photo.id, 'view']">{{ photo.id }}</a>
+              </td>
+              <td>
+                @if (photo.photo) {
+                  <a (click)="openFile(photo.photo, photo.photoContentType)">
+                    <img [src]="'data:' + photo.photoContentType + ';base64,' + photo.photo" style="max-height: 30px" alt="photo" />
+                  </a>
+                }
+              </td>
+              <td>{{ photo.date | formatMediumDate }}</td>
+
+              <td>
+                @if (photo.portfolio) {
+                  <div>
+                    <a [routerLink]="['/portfolio-my-suffix', photo.portfolio.id, 'view']">{{ photo.portfolio.id }}</a>
+                  </div>
+                }
+              </td>
+
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/photo-my-suffix', photo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+                </div>
+              </td>
+            </tr>
           }
-        </td>
-        <td>{{ photo.date | formatMediumDate }}</td>
-
-        <td>
-          @if (photo.portfolio) {
-          <div>
-            <a [routerLink]="['/portfolio-my-suffix', photo.portfolio.id, 'view']">{{ photo.portfolio.id }}</a>
-          </div>
-          }
-        </td>
-
-        <td class="text-end">
-          <div class="btn-group">
-            <a [routerLink]="['/photo-my-suffix', photo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
-              <fa-icon icon="eye"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-            </a>
-          </div>
-        </td>
-      </tr>
-      }
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
   }
 </div>
-

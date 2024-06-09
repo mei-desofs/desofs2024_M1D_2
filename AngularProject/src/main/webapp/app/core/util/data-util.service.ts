@@ -123,8 +123,6 @@ export class DataUtils {
     return 0;
   }
 
-
-
   private formatAsBytes(size: number): string {
     return size.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' bytes'; // NOSONAR
   }

@@ -25,118 +25,118 @@
   <jhi-alert></jhi-alert>
 
   @if (users?.length === 0) {
-  <div class="alert alert-warning" id="no-result">
-    <span jhiTranslate="photoStoreApp.user.home.notFound">No Users found</span>
-  </div>
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="photoStoreApp.user.home.notFound">No Users found</span>
+    </div>
   }
 
   @if (users && users.length > 0) {
-  <div class="table-responsive table-entities" id="entities">
-    <table class="table table-striped" aria-describedby="page-heading">
-      <thead>
-      <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
-        <th scope="col" jhiSortBy="id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.id">Id</span>
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.id">Id</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="email">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.email">Email</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.email">Email</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="password">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.password">Password</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="password">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.password">Password</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="address">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.address">Address</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.address">Address</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="contact">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.contact">Contact</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="contact">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.contact">Contact</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="profilePhoto">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.profilePhoto">Profile Photo</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="profilePhoto">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.profilePhoto">Profile Photo</span>
 
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col" jhiSortBy="portfolio.id">
-          <div class="d-flex">
-            <span jhiTranslate="photoStoreApp.user.portfolio">Portfolio</span>
-            <fa-icon class="p-1" icon="sort"></fa-icon>
-          </div>
-        </th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      @for (user of users; track trackId) {
-      <tr data-cy="entityTable">
-        <td>
-          <a [routerLink]="['/user-my-suffix', user.id, 'view']">{{ user.id }}</a>
-        </td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.password }}</td>
-        <td>{{ user.address }}</td>
-        <td>{{ user.contact }}</td>
-        <td>
-          @if (user.profilePhoto) {
-          <a (click)="openFile(user.profilePhoto, user.profilePhotoContentType)">
-            <img
-              [src]="'data:' + user.profilePhotoContentType + ';base64,' + user.profilePhoto"
-              style="max-height: 30px"
-              alt="user"
-            />
-          </a>
-          <span>{{ user.profilePhotoContentType }}, {{ byteSize(user.profilePhoto) }}</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="portfolio.id">
+              <div class="d-flex">
+                <span jhiTranslate="photoStoreApp.user.portfolio">Portfolio</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/user-my-suffix', user.id, 'view']">{{ user.id }}</a>
+              </td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.password }}</td>
+              <td>{{ user.address }}</td>
+              <td>{{ user.contact }}</td>
+              <td>
+                @if (user.profilePhoto) {
+                  <a (click)="openFile(user.profilePhoto, user.profilePhotoContentType)">
+                    <img
+                      [src]="'data:' + user.profilePhotoContentType + ';base64,' + user.profilePhoto"
+                      style="max-height: 30px"
+                      alt="user"
+                    />
+                  </a>
+                  <span>{{ user.profilePhotoContentType }}, {{ byteSize(user.profilePhoto) }}</span>
+                }
+              </td>
+              <td>
+                @if (user.portfolio) {
+                  <div>
+                    <a [routerLink]="['/portfolio-my-suffix', user.portfolio.id, 'view']">{{ user.portfolio.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/user-my-suffix', user.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/user-my-suffix', user.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(user)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
           }
-        </td>
-        <td>
-          @if (user.portfolio) {
-          <div>
-            <a [routerLink]="['/portfolio-my-suffix', user.portfolio.id, 'view']">{{ user.portfolio.id }}</a>
-          </div>
-          }
-        </td>
-        <td class="text-end">
-          <div class="btn-group">
-            <a [routerLink]="['/user-my-suffix', user.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
-              <fa-icon icon="eye"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-            </a>
-
-            <a [routerLink]="['/user-my-suffix', user.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
-              <fa-icon icon="pencil-alt"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-            </a>
-
-            <button type="submit" (click)="delete(user)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
-              <fa-icon icon="times"></fa-icon>
-              <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-            </button>
-          </div>
-        </td>
-      </tr>
-      }
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
   }
 </div>

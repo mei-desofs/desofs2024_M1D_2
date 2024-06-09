@@ -55,7 +55,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import tech.jhipster.config.JHipsterProperties;
 import tech.jhipster.web.filter.reactive.CookieCsrfFilter;
-
+import org.springframework.http.HttpMethod;
 @Configuration
 @EnableReactiveMethodSecurity
 public class SecurityConfiguration {
@@ -123,6 +123,7 @@ public class SecurityConfiguration {
                     .pathMatchers("/api/auth-info").permitAll()
                     .pathMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
                     .pathMatchers("/api/**").authenticated()
+                    .pathMatchers("/api/users/**").hasAuthority(AuthoritiesConstants.ADMIN)
                     .pathMatchers("/services/**").authenticated()
                     .pathMatchers("/v3/api-docs/**").hasAuthority(AuthoritiesConstants.ADMIN)
                     .pathMatchers("/management/health").permitAll()

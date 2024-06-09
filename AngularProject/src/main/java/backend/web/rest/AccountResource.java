@@ -67,7 +67,6 @@ public class AccountResource {
 
         private String email;
 
-
         @JsonCreator
         UserVM(String login, Set<String> authorities, String email) {
             this.login = login;
@@ -97,12 +96,14 @@ public class AccountResource {
             throw new IllegalArgumentException("AuthenticationToken is not OAuth2 or JWT!");
         }
 
-
         OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authToken;
         Map<String, Object> attributes = oauthToken.getPrincipal().getAttributes();
         String username = (String) attributes.get("preferred_username");
         String email = (String) attributes.get("email"); // Extract the email
-        log.debug("UserVM: {}", new UserVM(username, authToken.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet()), email));
+        log.debug(
+            "UserVM: {}",
+            new UserVM(username, authToken.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toSet()), email)
+        );
 
         return new UserVM(
             username,

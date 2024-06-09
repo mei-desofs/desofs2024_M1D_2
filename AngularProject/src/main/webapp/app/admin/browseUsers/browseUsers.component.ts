@@ -9,9 +9,9 @@ import { EntityArrayResponseType, UserMySuffixService } from 'app/entities/user-
 import { SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/config/navigation.constants';
 import { DataUtils } from 'app/core/util/data-util.service';
 import SharedModule from 'app/shared/shared.module';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { IUserMySuffix } from 'app/entities/user-my-suffix/user-my-suffix.model';
-import { combineLatest, filter, Observable, Subscription, tap } from "rxjs";
+import { combineLatest, filter, Observable, Subscription, tap } from 'rxjs';
 import { UserMySuffixDeleteDialogComponent } from 'app/entities/user-my-suffix/delete/user-my-suffix-delete-dialog.component';
 
 @Component({
@@ -129,5 +129,4 @@ export default class BrowseUsersComponent implements OnInit {
       });
     });
   }
-
 }

@@ -9,9 +9,9 @@ import { EntityArrayResponseType, RoleUserMySuffixService } from 'app/entities/r
 import { SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/config/navigation.constants';
 import { DataUtils } from 'app/core/util/data-util.service';
 import SharedModule from 'app/shared/shared.module';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { IRoleUserMySuffix } from 'app/entities/role-user-my-suffix/role-user-my-suffix.model';
-import { combineLatest, filter, Observable, Subscription, tap } from "rxjs";
+import { combineLatest, filter, Observable, Subscription, tap } from 'rxjs';
 import { RoleUserMySuffixDeleteDialogComponent } from 'app/entities/role-user-my-suffix/delete/role-user-my-suffix-delete-dialog.component';
 
 @Component({
@@ -120,5 +120,4 @@ export default class BrowseUserRolesComponent implements OnInit {
       });
     });
   }
-
 }
