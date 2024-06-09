@@ -411,6 +411,16 @@ Here we have the list of abuse cases with a description associated and a mitigat
 - **Expected Result**: The application should be able to handle a significant increase in traffic without experiencing downtime or degradation in performance.
 
 
+![BrowsePhotosZAP.png](../images/ViewGalleryZAP.png)
+<p align="center">OWASP ZAP Report for Browse Photos</p>
+
+As we can see in the [report](../ZAP Reports/ViewGallery.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+In particular, one high-risk vulnerability was identified: Open Redirect.
+This vulnerability can be exploited by attackers to redirect users to malicious websites, potentially leading to phishing attacks or other security threats.
+It is crucial to address this vulnerability promptly to prevent potential exploitation and protect user security.
+In total, 22 alerts were reported, including 1 high-risk, 8 medium-risk, 7 low-risk and 6 informational.
+
+
 ### Create a Portfolio UC
 
 ##### 1. Unit Tests:
@@ -446,6 +456,14 @@ Penetration testing helps identify security vulnerabilities by simulating real-w
 - Use ZAP Scanning Report.
 
 By conducting penetration tests, we can proactively identify and address security vulnerabilities, reducing the risk of successful attacks and improving the application's security.
+
+![CreatePortfolioZAP.png](../images/CreatePortfolioZAP.png)
+<p align="center">OWASP ZAP Report for Create Portfolio</p>
+
+As we can see in the [report](../ZAP Reports/CreatePortfolio-.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+These vulnerabilities include: Cross-Domain Misconfiguration and X-Content-Type-Options Header Missing, among others.
+No high-risk vulnerabilities were found for this use case, which is a positive outcome.
+However, it is essential to address the medium and low-risk vulnerabilities to enhance the security of the application.
 
 ### Use Case: Delete Photo
 
@@ -524,6 +542,14 @@ By conducting penetration tests, we can proactively identify and address securit
 
 <p align="center">SQLMap for Put up a Photo for Sale</p>
 
+![PutPhotoUpForSaleZAP.png](../images/PutPhotoUpForSaleZAP.png)
+<p align="center">OWASP ZAP Report for Put Photo up for sale</p>
+
+As we can see in the [report](../ZAP Reports/PutPhotoUpForSale.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+In particular, one high-risk vulnerability was identified: Open Redirect.
+This vulnerability can be exploited by attackers to redirect users to malicious websites, potentially leading to phishing attacks or other security threats.
+It is crucial to address this vulnerability promptly to prevent potential exploitation and protect user security.
+Other vulnerabilities identified in the report include Absence of Anti-CSRF Tokens and CSP: Wildcard Directive, among others.
 
 
 ### Use Case: View Purchased Photos
@@ -553,6 +579,14 @@ By conducting penetration tests, we can proactively identify and address securit
         1. Test for vulnerabilities such as SQL injection and data exposure. Approach: Attempt to inject SQL queries into search parameters and verify system responses.
         2. Simulate a malicious attack to assess the application's resilience. Approach: Use an automated tool to simulate an attack.
    - **Tools/Techniques**: SQLMap, OWASP ZAP.
+
+
+![ViewPurchasedPhotosZAP.png](../images/ViewPurchasedPhotosZAP.png)
+<p align="center">OWASP ZAP Report for View Purchased Photos</p>
+
+As we can see in the [report](../ZAP Reports/ViewGallery.html) there are some vulnerabilities that need to be fixed in the Create Portfolio use case.
+Similar to other use cases, this report also highlights the high-risk vulnerability of Open Redirect.
+Other alerts are the medium-risk CSP: script-src unsafe-inline, the low-risk Cookie without SameSite Attribute and the informational Information Disclosure - Suspicious Comments.
 
 
 ### ASVS Compliance
